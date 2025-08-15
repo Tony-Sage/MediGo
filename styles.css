@@ -29,12 +29,13 @@
     margin-left: 20px;
 }
 
-.body {
+body {
     font-family: 'Manrope', sans-serif;
     background-color: var(--Background);
     color: var(--Text);
     margin: 0;
     padding: 0;
+    width: 100vw;
 }
 
 .login-title {
@@ -190,6 +191,7 @@ h4 {
     padding: 40px 20px;
     color: var(--Text);
     font-family: "manrope", sans-serif;
+    width: 100vw;
 }
 
 .footer-container {
