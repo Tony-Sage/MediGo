@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Profile</title>
+</head>
+<body>
+    <header><img src="elements/logo.png" alt="logo"><h1>My Profile</h1></header>
+    <main>
+      <section class="Profile">
+      <div class="container">
+        <div class="profile-container"><img src="profile/profile-pic.jpg" alt="Profile-Picture">
+          <div class="profile-name">
+            <label for="name"><strong>Name</strong></label><input type="text" id="name" name="name"
+              placeholder="Mrs Amaka Eze" required>
+               <div class="submitted-data" id="submittedData" style="display:none;">
+<!-- Display submitted data -->
+      <div class="submitted-data">
+      <div><h3>Name</h3><p id="out-provider"></p></div>
+    </div>
+          </div>
+          <button class="profile-btn">Edit Profile</button>
+        </div>
+        <div class="text-container">
+          <div>
+            <label for="health-ID"><strong>Health ID</strong></label><input type="text" id="health-ID" name="name"
+              placeholder="MC2345" required>
+          </div>
+          <div><label for="gender"><strong>Gender</strong></label>
+            <select name="gender" id="gender" required>
+              <option value="" disabled selected>select your sex</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+          <div>
+            <label for="age"><strong>Age</strong></label>
+            <input type="number" id="number" name="number" placeholder="32" required>
+          </div>
+    
+          <div>
+            <label for="blood-group"><strong>Blood Group</strong></label>
+            <select id="bloodGroup" name="bloodGroup">
+              <option value="">Select Blood Group</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+            </select>
+          </div>
+          <div class="submitted-data" id="submittedData" style="display:none;">
+<!-- Display submitted data -->
+      <div class="submitted-data">
+      <div><h3>Health ID</h3><p id="out-provider"></p></div>
+      <div><h3>Gender</h3><p id="out-policy-number"></p></div>
+      <div><h3>Age</h3><p id="out-coverage"></p></div>
+      <div><h3>Blood Group</h3><p id="out-expiry-date"></p></div>
+    </div>
+        </div>
+      </div>
+    </section>
+        <section class="features">
+    <h1>Quick Health Stat</h1>
+    <div class="h2-wrapper">
+        <h2>Patient Last Vitals</h2></div>
+    <div class="f-container">
+    <div class="f-1"><h3>Glucose</h3><p class="readings">97 mg/dl</p><p class="vital-status", style="color:#41E088">In the normal</p></div>
+    <div class="f-1"><h3>Cholesterol</h3><p class="readings">85 mg/dl</p><p class="vital-status", style="color:#41E088">In the normal</p></div>
+    <div class="f-1"><h3>Blood pressure</h3><p class="readings">120/50 mm/gH</p><p class="vital-status", style="color:#41E088">In the normal</p></div>
+    <div class="f-1"><h3>Heart Rate</h3><p class="readings">120 BPM</p><p class="vital-status", style="color:#DD2C2C">Above the normal</p></div></div>
+    </div></section>
+
+<section class="upcoming-Appointment">
+  <div class="U-App-Container">
+    <h2>Upcoming-Appointment</h2>
+
+    <div class="U-App-1">
+      <div class="U-App-1-container">
+        <div class="image-holder">
+          <img src="doctor/doctor 1.png" alt="doctor Gracia profile-picture">
+        </div>
+        <div class="text-holder">
+          <h3>Dr. Garcia Joseph</h3>
+          <p>Medical Consultation</p>
+          <p>Online - Video Consultation <br>
+            20/08/2025 wednesday, 14:00</p>
+        </div>
+      </div>
+      <div class="U-App-btn-container">
+        <button class="join-btn">Join Consultation</button>
+        <button class="U-App-btn">Reschedule</button>
+        <button class="U-App-btn-cancel">Cancel</button>
+      </div>
+    </div>
+
+    <div class="U-App-2">
+      <div class="U-App-2-container">
+        <div class="image-holder">
+          <img src="doctor/doctor 1.png" alt="doctor Gracia profile-picture">
+        </div>
+        <div class="text-holder">
+          <h3>Dr. Garcia Joseph</h3>
+          <p>Medical Consultation</p>
+          <p>Online - Video Consultation<br>
+            20/08/2025 wednesday, 14:00</p>
+        </div>
+      </div>
+      <div class="U-App-btn-container">
+        <button class="U-App-btn">Reschedule</button>
+        <button class="U-App-btn-cancel">Cancel</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+        <section class="Medication">
+          <div class="M-App-Container">
+            <h2>Today's Medication</h2>
+            <div class="M-1">
+              <img src="medication/pill.jpg" alt="pill">
+              <div class="M-text-container">
+                <h3>Vitamin D-500IU</h3>
+                <p>Before Eating . 1 pill</p>
+                <p>14:00</p>
+              </div>
+              <div class="insurance-1">
+                <label>
+                  <input type="checkbox" id="confirmSubmit">
+                </label>
+              </div>
+            </div>
+            <div class="M-2">
+              <img src="medication/capsule.jpg" alt="capsule">
+              <div class="M-text-container">
+                <h3>Zinc - 50mg</h3>
+                <p>Before Eating . 1 capsule</p>
+                <p>14:00</p>
+              </div>
+              <div class="insurance-1">
+                <label>
+                  <input type="checkbox" id="confirmSubmit">
+                </label>
+              </div>
+            </div>
+        </section>
+
+          <!-- CATEGORY NAVIGATION -->
+               <!-- Responsive button Filter for Large Screens -->
+<div class="category-nav">
+  <button class="appointment" data-category="appointment">Appointment</button>
+  <button data-category="medical-history">Medical-history</button>
+  <button data-category="prescription">Prescription</button>
+  <button data-category="insurance-info">Insurance Info</button>
+</div>
+  <!-- Responsive Dropdown Filter for Small Screens -->
+    <div class="filter-bar">
+      <label for="category-select">Choose a category:</label>
+      <select id="category-select">
+        <option value="appointment">Appointment</option>
+        <option value="medical-history">Medical-history</option>
+        <option value="prescription">Prescription</option>
+        <option value="insurance-info">Insurance Info</option>
+      </select></div>
+    <!-- Tab content -->
+    <div class="tab" data-category="appointment">
+      <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr><th>Doctor</th><th>Specification</th><th>Date</th><th>Time</th><th>Status</th></tr>
+        </thead>
+        <tbody><tr>
+          <td><img src="doctor/lee.png" alt="dr. lee profile-picture"><p>Dr Lee</p></td>
+          <td>Cardiology</td>
+          <td> 11 Jul  2025</td>
+          <td>3: 00pm</td>
+          <td><div class="stat-indicator-Active">Active</div></td>
+        </tr>
+</tbody>
+        <tbody><tr>
+          <td><img src="doctor/lee.png" alt="dr. lee profile-picture"><p>Dr Lee</p></td>
+          <td>Cardiology</td>
+          <td> 11 Jul  2025</td>
+          <td>3: 00pm</td>
+          <td><div class="stat-indicator-Active">Upcoming</div></td>
+        </tr>
+</tbody>
+        <tbody><tr>
+          <td><img src="doctor/lee.png" alt="dr. lee profile-picture"><p>Dr Lee</p></td>
+          <td>Cardiology</td>
+          <td> 11 Jul  2025</td>
+          <td>3: 00pm</td>
+          <td><div class="stat-indicator-complete">Completed</div></td>
+        </tr>
+</tbody>
+        <tbody><tr>
+          <td><img src="doctor/lee.png" alt="dr. lee profile-picture"><p>Dr Lee</p></td>
+          <td>Cardiology</td>
+          <td> 11 Jul  2025</td>
+          <td>3: 00pm</td>
+          <td><div class="stat-indicator-canceled">Canceled</div></td>
+        </tr>
+</tbody>
+
+      </table>
+    </div>
+        <div class="tab" data-category="medical-history">
+                <div class="mh-container">
+    <div class="mh-1"><h3>Chronic Diease</h3><p>IHD, obesity, Chronic thyriod disorder</p></div>
+    <div class="mh-1"><h3>Diabetic Emergency </h3><p>IHD, obesity, Chronic thyriod disorder</p></div>
+    <div class="mh-1"><h3>Chronic Diease</h3><p>IHD, obesity, Chronic thyriod disorder</p></div>
+    <div class="mh-1"><h3>Chronic Diease</h3><p>IHD, obesity, Chronic thyriod disorder</p></div>
+
+        </div>
+
+            <div class="tab" data-category="prescription">
+                        <table style="width: 100%; border-collapse: collapse;">
+                  <thead>
+                    <tr><th>Medication</th><th>Dosage</th><th>Start Date</th><th>Duration</th><th>Doctor</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><img src="medication/pill.jpg" alt="dr. lee profile-picture">Metformin 500mg</td>
+                      <td>Twice a day</td>
+                      <td><input type="date" id="expiry-date" name="expiry-date" required></td>
+                      <td>6 months</td>
+                      <td>Dr. Smith</td>
+                    </tr>
+                  </tbody>
+                  <tbody>
+                        <tr>
+                        <td><img src="medication/capsule.jpg" alt="dr. lee profile-picture">Metformin 500mg</td>
+                        <td>Twice a day</td>
+                      <td><input type="date" id="expiry-date" name="expiry-date" required></td>
+                        <td>6 months</td>
+                        <td>Dr. Smith</td>
+                        </tr>
+                  </tbody>
+                  <tbody>
+                        <tr>
+                        <td><img src="medication/liquid.png" alt="dr. lee profile-picture">Metformin 500mg</td>
+                        <td>Twice a day</td>
+                      <td><input type="date" id="expiry-date" name="expiry-date" required></td>
+                        <td>6 months</td>
+                        <td>Dr. Smith</td>
+                        </tr>
+                  </tbody>
+                  <tbody>
+                        <tr>
+                        <td><img src="medication/Drop Pipette.png" alt="dr. lee profile-picture">Metformin 500mg</td>
+                        <td>Twice a day</td>
+                      <td><input type="date" id="expiry-date" name="expiry-date" required></td>
+                        <td>6 months</td>
+                        <td>Dr. Smith</td>
+                        </tr>
+                  </tbody>
+                </table>
+            </div>
+            </div>
+            </div>
+            </section>
+
+
+        <div class="tab" data-category="insurance-info">
+  <div class="dashboard-container">
+    <h2>Insurance Details</h2>
+    <p>Please provide your insurance information below to ensure accurate records.</p>
+    <form class="insurance-form" id="insuranceForm">
+      <div class="insurance-1">
+        <label for="provider"><h3>Insurance Provider</h3></label>
+        <input type="text" id="provider" name="provider" required>
+      </div>
+
+      <div class="insurance-1">
+        <label for="policy-number"><h3>Policy Number</h3></label>
+        <input type="text" id="policy-number" name="policy-number" required>
+      </div>
+
+      <div class="insurance-1">
+        <label for="coverage"><h3>Coverage Amount</h3></label>
+        <input type="text" id="coverage" name="coverage" required>
+      </div>
+
+      <div class="insurance-1">
+        <label for="expiry-date"><h3>Expiry Date</h3></label>
+        <input type="date" id="expiry-date" name="expiry-date" required>
+      </div>
+
+      <div class="insurance-1">
+        <label for="contact"><h3>Contact Number</h3></label>
+        <input type="tel" id="contact" name="contact" required>
+      </div>
+
+      <div class="insurance-1">
+        <label for="email"><h3>Email</h3></label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="insurance-1">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+
+    <div class="submitted-data" id="submittedData" style="display:none;">
+<!-- Display submitted data -->
+      <div class="submitted-data">
+      <h2>Insurance Information</h2>
+      <div><h3>Insurance Provider</h3><p id="out-provider"></p></div>
+      <div><h3>Policy Number</h3><p id="out-policy-number"></p></div>
+      <div><h3>Coverage Amount</h3><p id="out-coverage"></p></div>
+      <div><h3>Expiry Date</h3><p id="out-expiry-date"></p></div>
+      <div><h3>Contact Number</h3><p id="out-contact"></p></div>
+      <div><h3>Email</h3><p id="out-email"></p></div>
+    </div>
+  </div>
+            </div>
+            </div>
+
+</main>
+     <!--FOOTER-->
+    <script src="script.js"></script>
+</body>
+</html>
