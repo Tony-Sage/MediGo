@@ -10,71 +10,87 @@
 <body>
     <header><img src="elements/logo.png" alt="logo"><h1>My Profile</h1></header>
     <main>
-      <section class="Profile">
-      <div class="container">
-        <div class="profile-container"><img src="profile/profile-pic.jpg" alt="Profile-Picture">
-          <div class="profile-name">
-            <label for="name"><strong>Name</strong></label><input type="text" id="name" name="name"
-              placeholder="Mrs Amaka Eze" required>
-               <div class="submitted-data" id="submittedData" style="display:none;">
-<!-- Display submitted data -->
-      <div class="submitted-data">
-      <div><h3>Name</h3><p id="out-provider"></p></div>
+<section class="Profile">
+  <div class="container">
+    <div class="profile-container">
+      <img src="profile/profile-pic.jpg" alt="Profile Picture" />
+
+      <!-- Edit form -->
+      <div class="profile-name editable">
+        <label for="name"><strong>Name</strong></label>
+        <input type="text" id="name" name="name" placeholder="Mrs Amaka Eze" required />
+      </div>
+
+      <!-- Display-only info -->
+      <div class="profile-name display-only" style="display: none;">
+        <h3>Name</h3>
+        <p id="out-name">Mrs Amaka Eze</p>
+      </div>
+
+      <button class="profile-btn" onclick="toggleEdit()">Edit Profile</button>
     </div>
-          </div>
-          <button class="profile-btn">Edit Profile</button>
+
+    <div class="text-container">
+      <!-- Editable fields -->
+      <div class="editable">
+        <label for="health-ID"><strong>Health ID</strong></label>
+        <input type="text" id="health-ID" placeholder="MC2345" required />
+
+        <label for="gender"><strong>Gender</strong></label>
+        <select id="gender" required>
+          <option value="" disabled selected>Select your Sex</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+
+        <label for="age"><strong>Age</strong></label>
+        <input type="number" id="age" placeholder="32" required />
+
+        <label for="bloodGroup"><strong>Blood Group</strong></label>
+        <select id="bloodGroup">
+          <option value="">Select Blood Group</option>
+          <option value="A+">A+</option>
+          <option value="A-">A-</option>
+          <option value="B+">B+</option>
+          <option value="B-">B-</option>
+          <option value="AB+">AB+</option>
+          <option value="AB-">AB-</option>
+          <option value="O+">O+</option>
+          <option value="O-">O-</option>
+        </select>
+      </div>
+
+      <!-- Display-only data -->
+      <div class="submitted-data display-only" style="display: none;">
+        <div>
+          <h3>Health ID</h3>
+          <p id="out-healthID">MC2345</p>
         </div>
-        <div class="text-container">
-          <div>
-            <label for="health-ID"><strong>Health ID</strong></label><input type="text" id="health-ID" name="name"
-              placeholder="MC2345" required>
-          </div>
-          <div><label for="gender"><strong>Gender</strong></label>
-            <select name="gender" id="gender" required>
-              <option value="" disabled selected>select your sex</option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-            </select>
-          </div>
-          <div>
-            <label for="age"><strong>Age</strong></label>
-            <input type="number" id="number" name="number" placeholder="32" required>
-          </div>
-    
-          <div>
-            <label for="blood-group"><strong>Blood Group</strong></label>
-            <select id="bloodGroup" name="bloodGroup">
-              <option value="">Select Blood Group</option>
-              <option value="A+">A+</option>
-              <option value="A-">A-</option>
-              <option value="B+">B+</option>
-              <option value="B-">B-</option>
-              <option value="AB+">AB+</option>
-              <option value="AB-">AB-</option>
-              <option value="O+">O+</option>
-              <option value="O-">O-</option>
-            </select>
-          </div>
-          <div class="submitted-data" id="submittedData" style="display:none;">
-<!-- Display submitted data -->
-      <div class="submitted-data">
-      <div><h3>Health ID</h3><p id="out-provider"></p></div>
-      <div><h3>Gender</h3><p id="out-policy-number"></p></div>
-      <div><h3>Age</h3><p id="out-coverage"></p></div>
-      <div><h3>Blood Group</h3><p id="out-expiry-date"></p></div>
-    </div>
+        <div>
+          <h3>Gender</h3>
+          <p id="out-gender">Female</p>
+        </div>
+        <div>
+          <h3>Age</h3>
+          <p id="out-age">32</p>
+        </div>
+        <div>
+          <h3>Blood Group</h3>
+          <p id="out-bloodGroup">O+</p>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
         <section class="features">
     <h1>Quick Health Stat</h1>
     <div class="h2-wrapper">
         <h2>Patient Last Vitals</h2></div>
     <div class="f-container">
     <div class="f-1"><h3>Glucose</h3><p class="readings">97 mg/dl</p><p class="vital-status", style="color:#41E088">In the normal</p></div>
-    <div class="f-1"><h3>Cholesterol</h3><p class="readings">85 mg/dl</p><p class="vital-status", style="color:#41E088">In the normal</p></div>
-    <div class="f-1"><h3>Blood pressure</h3><p class="readings">120/50 mm/gH</p><p class="vital-status", style="color:#41E088">In the normal</p></div>
-    <div class="f-1"><h3>Heart Rate</h3><p class="readings">120 BPM</p><p class="vital-status", style="color:#DD2C2C">Above the normal</p></div></div>
+    <div class="f-2"><h3>Cholesterol</h3><p class="readings">85 mg/dl</p><p class="vital-status", style="color:#41E088">In the normal</p></div>
+    <div class="f-3"><h3>Blood pressure</h3><p class="readings">120/50 mm/gH</p><p class="vital-status", style="color:#41E088">In the normal</p></div>
+    <div class="f-4"><h3>Heart Rate</h3><p class="readings">120 BPM</p><p class="vital-status", style="color:#DD2C2C">Above the normal</p></div></div>
     </div></section>
 
 <section class="upcoming-Appointment">
