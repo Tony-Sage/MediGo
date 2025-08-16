@@ -1,3 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*CSS VARIABLES*/
+:root {
+    --Primary-Color: #41E088;
+    --Primary2-Color: #A0F0C4;
+    --Primary3-Color: #D9F9E7;
+    --Secondary-Color: #41CFE0;
+    --Secondary2-Color: #7AD6E9;
+    --Secondary3-Color: #CDEDF6;
+    --Text: #000000;
+    --Text2: #adabab;
+    --Background: #fdfdfd;
+    --Background2: #ffffff;
+
+}
+
 .doctor {
     border: 1px solid #ccc;
     padding: 20px;
@@ -6,5 +27,5 @@
 .content {
     display: flex;
     align-items: center;
-    border-top: 1px solid #c41414;
+    border-top: 1px solid var(--Text);
 }
