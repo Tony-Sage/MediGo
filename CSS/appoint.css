@@ -36,7 +36,7 @@ body {
     position: relative;
     padding: 3.25rem 2rem 3.25rem; 
     text-align: center;
-    animation: fadeIn 0.8s ease-in-out;
+    animation: fadeIn 1s ease-in-out;
 }
 
 .logo {
@@ -66,7 +66,6 @@ body {
     border: none;
     cursor: pointer;
     font-weight: 900;
-
 }
 
 .back-button:hover {
@@ -83,6 +82,7 @@ body {
     margin: 20px auto;
     width: 90%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
 }
 
 .Search:hover {
@@ -104,6 +104,7 @@ section > h2 {
     margin: 20px 5% 15px;
     padding-left: 10px;
     padding-top: 50px;
+    animation: slideUp 1s ease;
 }
 
 .doctor {
@@ -112,6 +113,7 @@ section > h2 {
     margin: 15px auto;
     width: 90%;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    animation: slideUp 1s ease;
 }
 
 .doctor:hover {
@@ -204,17 +206,18 @@ nav button, nav span {
 }
 
 nav button {
-    background: #fff;
-    border: 1px solid #ddd;
+    background: var(--Background2);
+    border: 1px solid var(var(--Text2));
 }
 
 nav button:hover {
     background: #f3f3f3;
+    transform: scale(1.05);
 }
 
 nav button:nth-child(2) {
-    background: #00c37a;
-    color: #fff;
+    background: var(--Primary-Color);
+    color: var(--Background2);
     border: none;
 }
 
@@ -235,7 +238,7 @@ section input[type="checkbox"] {
 
 /* Footer */
 footer {
-    background-color: #41E088;
+    background-color: var(--Primary-Color);
     padding: 2rem 1.25rem;
     margin-top: 3rem;
 }
@@ -259,7 +262,7 @@ footer a:visited {
 }
 
 .footer img {
-    background-color: #fff;
+    background-color: var(--Background2);
     padding: 8px;
     border-radius: 12px;
     margin-bottom: 1rem;
@@ -305,7 +308,7 @@ footer a:visited {
 .footer-social img {
     display: block;
     transition: transform 0.25s ease;
-    background: #41E088; 
+    background: var(--Primary-Color); 
 }
 .footer-social img:hover { 
     transform: scale(1.08); 
@@ -314,4 +317,183 @@ footer a:visited {
 .copyright-p {
     font-weight: 500;
     font-size: 1rem;
+}
+
+/* Animations */
+@keyframes fadeIn { 
+    from {opacity:0} 
+    to {opacity:1} 
+}
+@keyframes slideUp { 
+    from {transform:translateY(18px); opacity:0} 
+    to {transform:translateY(0); opacity:1} 
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+    .header .h1 {
+        font-size: 1.8rem;
+    }
+    .back-button {
+        height: 10px;
+    }
+
+    /* Doctor Section */
+    section > h2 {
+    font-size: 1.3rem;
+    margin: 10px 5% 8px;
+    padding-top: 20px;
+    }
+    .doctor {
+        border-radius: 10px;
+        margin: 20px auto;
+    }
+    .doctor-header {
+        font-size: 0.9rem;
+        font-weight: 400;
+    }
+    .location-img {
+        width: 15px;
+        height: auto;
+        margin-right: 5px;
+    }
+    .doctor-text .name {
+        font-size: 14px; 
+        margin-bottom: 2px;
+        font-weight: 600;
+    }
+    .doctor-text .location {
+        font-size: 14px;
+    }
+    .doctor-button button{
+        border: none;
+        border-radius: 7px;
+        font-size: 10px;
+    }
+
+  /* Footer */
+    .flex-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .copyright-socials-grp {
+        flex-direction: column-reverse;       
+        align-items: center;
+        text-align: center;
+    }
+    .copyright-p { 
+        font-size: 0.95rem; 
+    }
+
+}
+
+@media (max-width: 600px) {
+    .header .h1 {
+        font-size: 1.8rem;
+    }
+    .logo {
+         height: 20px;
+    }
+    .back-button {
+        font-size: 20px;
+    }
+
+    /*Search section*/
+    .Search {
+        border-radius: 8px;
+        margin: 5px auto;
+        width: 90%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .Search input {
+        width: 100%;
+        padding: 10px 14px;
+        border: 1px solid var(--Background);
+        border-radius: 8px;
+        font-size: 14px;
+        outline: none;
+    }
+
+    /* Doctor Section */
+    section > h2 {
+    font-size: 1.3rem;
+    margin: 10px 5% 8px;
+    padding-top: 20px;
+    }
+    .doctor {
+        border-radius: 10px;
+        margin: 20px auto;
+    }
+    .doctor-header {
+        font-size: 0.9rem;
+        font-weight: 400;
+    }
+    .location-img {
+        width: 15px;
+        height: auto;
+        margin-right: 5px;
+    }
+    .doctor-text .name {
+        font-size: 14px; 
+        margin-bottom: 2px;
+        font-weight: 600;
+    }
+    .doctor-text .location {
+        font-size: 14px;
+    }
+    .doctor-button button{
+        border: none;
+        border-radius: 7px;
+        font-size: 10px;
+    }
+
+    /* Pagination */
+    nav {
+        margin: 12px 0;
+        gap: 3px;
+        padding: 3px;
+        padding-top: 5px;
+    }
+
+    nav button, nav span {
+        padding: 3px 6px;
+        border: none;
+        border-radius: 3px;
+        font-size: 10px;
+        cursor: pointer;
+    }
+
+    nav button {
+        background: var(--Background2);
+        border: 1px solid var(--Text2)
+    }
+
+
+/* Assign Checkbox */
+    section label {
+        font-size: 14px;
+    }
+
+  /* Footer */
+    .flex-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .copyright-socials-grp {
+        flex-direction: column-reverse;       
+        align-items: center;
+        text-align: center;
+    }
+    .copyright-p { 
+        font-size: 0.95rem; 
+    }
+
+}
+
+@media (max-width: 480px) {
+    .header .h1 {
+        font-size: 1.5rem;
+    }
 }
