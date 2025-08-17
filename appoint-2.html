@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="appoint-2.css">
+  <title>Doctor Appointment Booking</title>
+</head>
+
+<body>
+
+  <!-- Hero Section (Doctor Info) -->
+  <section class="hero">
+    <div class="hero-content">
+      <img src="appoint-doctor/dr kelvin.jpg" alt="Doctor Image" class="doctor-img">
+
+      <div class="doctor-text">
+        <h2>Appointment Booking</h2>
+        <p><strong>Dr. Kelvin Smith</strong></p>
+        <p>Cardiology Specialist</p>
+
+        <div class="ratings">
+          <span>⭐⭐⭐⭐☆</span>
+          <span>(90)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Details -->
+  <section>
+    <h3>Enter contact details</h3>
+    <form>
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Ms Amaka"><br><br>
+
+      <label for="phone">Phone</label>
+      <input type="tel" id="phone" placeholder="090 344 759"><br><br>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="amaka@gmail.com"><br><br>
+    </form>
+  </section>
+
+  <!-- Schedule Section -->
+  <section>
+    <h3>Pick date for schedule</h3>
+    <div class="date-switcher">
+      <button class="arrow-btn">&#10094;</button> <!-- Chevron Left (‹) -->
+      <p>14 August 2025</p>
+      <button class="arrow-btn">&#10095;</button> <!-- Chevron Right (›) -->
+    </div>
+
+    <div>
+      <button>Mon<br>14</button>
+      <button>Tue<br>15</button>
+      <button>Wed<br>16</button>
+      <button>Thu<br>17</button>
+      <button>Fri<br>18</button>
+      <button>Sat<br>19</button>
+    </div>
+
+    <h4>Available slots</h4>
+    <div>
+      <button>9:00AM</button>
+      <button>10:00AM</button>
+      <button>12:00AM</button>
+      <button>3:00PM</button>
+      <button>4:00PM</button>
+      <button>6:00PM</button><br><br>
+      <button>8:00PM</button>
+      <button>7:00PM</button>
+      <button>5:00AM</button>
+      <button>3:00PM</button>
+    </div>
+  </section>
+
+  <!-- Preferences Section -->
+  <section>
+    <section>
+      <h3>Preference</h3>
+      <form id="preferenceForm">
+        <div class="preference-options">
+          <label>
+            <input type="checkbox" name="reminder" value="email">
+            Email Reminder
+          </label>
+          <label>
+            <input type="checkbox" name="reminder" value="sms">
+            SMS Reminder
+          </label>
+        </div>
+
+        <!-- Payment Section -->
+        <section>
+          <div class="totals">
+            <h3><strong>Total Price:</strong></h3>
+            <span id="total">₦15,000</span></p>
+            <br>
+            <button type="submit">Proceed to payment</button>
+          </div>
+      </form>
+    </section>
+  </section>
+
+</body>
+
+</html>

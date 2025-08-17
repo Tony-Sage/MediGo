@@ -1,0 +1,210 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* Hero Section */
+.hero {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.doctor-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #007bff;
+}
+
+.doctor-text h2 {
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+.ratings span:first-child {
+  font-size: 18px;
+  color: #ffc107;
+}
+
+/* Form Section */
+form {
+  margin-bottom: 30px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"] {
+  width: max-content;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+
+
+/* Date & Slots */
+section > h3 {
+  margin: 20px 0 10px;
+  color: #333;
+}
+
+section > p {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+section div {
+  margin-bottom: 20px;
+}
+
+.date-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.date-switcher p {
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0;
+}
+
+.arrow-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 28px;
+  color: #007bff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.arrow-btn:hover {
+  color: #0056b3;
+}
+
+
+button {
+  padding: 10px 15px;
+  margin: 5px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  min-width: 60px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+h4 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/* Preferences */
+input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+/* Payment Section */
+.totals {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.totals h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+
+  text-align: left;
+
+}
+
+#total {
+  font-size: 20px;
+  font-weight: bold;
+  color: #28a745;
+    border: 2px solid #007bff;  /* blue border, change color if you want */
+  
+  border-radius: 6px;
+  font-weight: bold;
+    display: block;          /* make it a block element */
+  width: 100%;             /* fill full container width */
+  box-sizing: border-box;  /* include padding and border in width */
+ 
+  padding: 10px 12px;
+
+ 
+  text-align: center; 
+}
+
+.totals button {
+  margin-top: 15px;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #28a745;
+}
+
+.totals button:hover {
+  background-color: #218838;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .doctor-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  button {
+    font-size: 13px;
+    min-width: 48px;
+  }
+
+  .totals button {
+    font-size: 14px;
+  }
+}
