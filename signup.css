@@ -18,7 +18,7 @@ a {
     transition: color 0.3s ease; 
 }
 a:hover { 
-    color: #007BFF; 
+    color: #05121f; 
 }
 
 /* Header */
@@ -210,6 +210,7 @@ footer {
 .flex-container li:hover { 
     transform: translateX(4px); 
 }
+.footer-col2
 
 /* Bottom footer row */
 .copyright-socials-grp {
