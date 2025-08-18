@@ -58,7 +58,7 @@ body {
     transform: scale(1.05);
 }
 
-.back-button {
+/*.back-button {
     position: absolute;
     left: 30px;
     font-size: 30px;
@@ -70,10 +70,11 @@ body {
 
 .back-button:hover {
     transform: scale(1.2);
-}
+}*/
 
 .h1 {
     font-size: 40px;
+    padding-top: 30px;
 }
 
 /* Search Section */
@@ -388,112 +389,75 @@ footer a:visited {
 
 }
 
+/* Extra responsiveness for small phones */
 @media (max-width: 600px) {
-    .header .h1 {
-        font-size: 1.8rem;
-    }
-    .logo {
-         height: 20px;
-    }
-    .back-button {
-        font-size: 20px;
-    }
+  .appointment-form {
+    padding: 15px;
+  }
 
-    /*Search section*/
-    .Search {
-        border-radius: 8px;
-        margin: 5px auto;
-        width: 90%;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    .Search input {
-        width: 100%;
-        padding: 10px 14px;
-        border: 1px solid var(--Background);
-        border-radius: 8px;
-        font-size: 14px;
-        outline: none;
-    }
+  .header {
+    padding: 1.5rem 1rem;
+  }
 
-    /* Doctor Section */
-    section > h2 {
-    font-size: 1.3rem;
-    margin: 10px 5% 8px;
-    padding-top: 20px;
-    }
-    .doctor {
-        border-radius: 10px;
-        margin: 20px auto;
-    }
-    .doctor-header {
-        font-size: 0.9rem;
-        font-weight: 400;
-    }
-    .location-img {
-        width: 15px;
-        height: auto;
-        margin-right: 5px;
-    }
-    .doctor-text .name {
-        font-size: 14px; 
-        margin-bottom: 2px;
-        font-weight: 600;
-    }
-    .doctor-text .location {
-        font-size: 14px;
-    }
-    .doctor-button button{
-        border: none;
-        border-radius: 7px;
-        font-size: 10px;
-    }
+  .header .h1 {
+    font-size: clamp(1.2rem, 5vw, 1.6rem);
+  }
 
-    /* Pagination */
-    nav {
-        margin: 12px 0;
-        gap: 3px;
-        padding: 3px;
-        padding-top: 5px;
-    }
+  .content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
 
-    nav button, nav span {
-        padding: 3px 6px;
-        border: none;
-        border-radius: 3px;
-        font-size: 10px;
-        cursor: pointer;
-    }
+  .doctor-button {
+    width: 100%;
+  }
 
-    nav button {
-        background: var(--Background2);
-        border: 1px solid var(--Text2)
-    }
+  .doctor-button button {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 10px;
+  }
 
+  .doctor-text .name {
+    font-size: clamp(0.9rem, 3.5vw, 1rem);
+  }
 
-/* Assign Checkbox */
-    section label {
-        font-size: 14px;
-    }
+  .doctor-text .location {
+    font-size: clamp(0.8rem, 3vw, 0.95rem);
+  }
 
-  /* Footer */
-    .flex-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    .copyright-socials-grp {
-        flex-direction: column-reverse;       
-        align-items: center;
-        text-align: center;
-    }
-    .copyright-p { 
-        font-size: 0.95rem; 
-    }
+  nav {
+    flex-wrap: wrap;
+    gap: 5px;
+  }
 
+  nav button, nav span {
+    font-size: 0.8rem;
+    padding: 5px 8px;
+  }
+
+  footer {
+    padding: 1.5rem 1rem;
+  }
+
+  .flex-container {
+    gap: 1rem;
+  }
+
+  .copyright-p {
+    font-size: 0.8rem;
+  }
 }
 
-@media (max-width: 480px) {
-    .header .h1 {
-        font-size: 1.5rem;
-    }
+@media (max-width: 400px) {
+  .doctor-header {
+    flex-direction: row;
+    justify-content: space-between;
+    
+  }
+
+  .doctor-header p, .doctor-header .Price {
+    font-size: 0.75rem;
+  }
 }
