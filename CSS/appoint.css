@@ -400,7 +400,8 @@ footer a:visited {
   }
 
   .header .h1 {
-    font-size: clamp(1.2rem, 5vw, 1.6rem);
+    font-size: 1.5rem;
+    padding-top: 3rem;
   }
 
   .doctor-button button {
@@ -409,11 +410,11 @@ footer a:visited {
   }
 
   .doctor-text .name {
-    font-size: clamp(0.9rem, 3.5vw, 1rem);
+    font-size: 1rem;
   }
 
   .doctor-text .location {
-    font-size: clamp(0.8rem, 3vw, 0.95rem);
+    font-size: 1rem;
   }
 
   nav {
