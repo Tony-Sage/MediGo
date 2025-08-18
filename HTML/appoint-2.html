@@ -5,105 +5,110 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../CSS/appoint-2.css">
-  <title>Doctor Appointment Booking</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Payment and Booking</title>
 </head>
 
 <body>
+  <header>
+    <div class="logo"> <img src="../images/logo.png" alt="MediGo Logo" class="logo">
 
-  <!-- Hero Section (Doctor Info) -->
-  <section class="hero">
-    <div class="hero-content">
-      <img src="appoint-doctor/dr kelvin.jpg" alt="Doctor Image" class="doctor-img">
-
-      <div class="doctor-text">
-        <h2>Appointment Booking</h2>
-        <p><strong>Dr. Kelvin Smith</strong></p>
-        <p>Cardiology Specialist</p>
-
-        <div class="ratings">
-          <span>⭐⭐⭐⭐☆</span>
-          <span>(90)</span>
-        </div>
-      </div>
+      <h1>Payment</h1>
+      <input type="checkbox" class="menu-toggle" id="menu-toggle" />
+      <label for="menu-toggle" class="hamburger"
+        aria-label="Toggle navigation menu"><span></span><span></span><span></span></label>
+      <!-- Nav menu -->
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Appointment</a></li>
+          <li><a href="#">Telehealth</a></li>
+          <li><a href="#">Sign-up</a></li>
+          <li><a href="#">Logout</a></li>
+        </ul>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <!-- Contact Details -->
-  <section>
-    <h3>Enter contact details</h3>
+  <!-- Payment Section -->
+  <section class="payment-section">
+    <h3>Enter your payment details</h3>
+    <p>Make secure and convenient ecommerce transactions.</p>
+    <br>
+
+    <!-- Payment Methods -->
+    <div>
+      <p>Payment Method</p>
+      <img src="mastercard.png" alt="MasterCard" width="80">
+      <img src="visa.png" alt="Visa" width="80">
+      <img src="American Express.png" alt="AmEx" width="80">
+      <img src="discover.png" alt="Discover" width="80">
+    </div>
+
+    <!-- Credit Card Details -->
     <form>
-      <label for="name">Name</label>
-      <input type="text" id="name" placeholder="Ms Amaka"><br><br>
+      <fieldset>
+        <legend>Credit Card Details</legend>
+        <label for="name">Name on card</label><br>
+        <input type="text" id="name" name="name" placeholder="Meet Patel"><br><br>
 
-      <label for="phone">Phone</label>
-      <input type="tel" id="phone" placeholder="090 344 759"><br><br>
+        <label for="card-number">Card number</label><br>
+        <input type="text" id="card-number" name="card-number" placeholder="0000 0000 0000 0000"><br><br>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" placeholder="amaka@gmail.com"><br><br>
+        <label for="expiry">Card expiration</label><br>
+        <select id="expiry-month" name="expiry-month">
+          <option>Month</option>
+        </select>
+        <select id="expiry-year" name="expiry-year">
+          <option>Year</option>
+        </select><br><br>
+
+        <label for="cvv">Card Security Code</label><br>
+        <input type="text" id="cvv" name="cvv" placeholder="Code"><br><br>
+      </fieldset>
+
+      <!-- Billing Address -->
+      <fieldset>
+        <legend>Billing address</legend>
+        <label for="country">Country</label><br>
+        <select id="country" name="country" placeholder="Country">
+          <option>Country</option>
+        </select><br><br>
+
+        <label for="address">Address</label><br>
+        <input type="text" id="Address" name="Address" placeholder="Address"><br><br>
+
+        <label for="city">City</label><br>
+        <input type="text" id="city" name="city" placeholder="City"><br><br>
+
+        <label for="state">State</label><br>
+        <input type="text" id="state" name="state" placeholder="State"><br><br>
+
+        <label for="zip">ZIP Code</label><br>
+        <input type="text" id="zip" name="zip" placeholder="Zip code"><br><br>
+      </fieldset>
+
+      <!-- Confirm Button -->
+      <button type="submit">Confirm &amp; Book Appointment</button><br>
     </form>
   </section>
 
-  <!-- Schedule Section -->
-  <section>
-    <h3>Pick date for schedule</h3>
-    <div class="date-switcher">
-      <button class="arrow-btn">&#10094;</button> <!-- Chevron Left (‹) -->
-      <p>14 August 2025</p>
-      <button class="arrow-btn">&#10095;</button> <!-- Chevron Right (›) -->
+  <!-- Payment Success Modal -->
+  <div id="receipt-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <img src="check-circle.png" alt="Success" width="50">
+      </div>
+      <div class="modal-body">
+        <p>You have successfully booked your appointment!</p>
+        <p>Go back to <a href="#">Profile page</a></p>
+      </div>
+      <div class="modal-footer">
+        <button id="close-modal">Close</button>
+      </div>
     </div>
-
-    <div>
-      <button>Mon<br>14</button>
-      <button>Tue<br>15</button>
-      <button>Wed<br>16</button>
-      <button>Thu<br>17</button>
-      <button>Fri<br>18</button>
-      <button>Sat<br>19</button>
-    </div>
-
-    <h4>Available slots</h4>
-    <div>
-      <button>9:00AM</button>
-      <button>10:00AM</button>
-      <button>12:00AM</button>
-      <button>3:00PM</button>
-      <button>4:00PM</button>
-      <button>6:00PM</button><br><br>
-      <button>8:00PM</button>
-      <button>7:00PM</button>
-      <button>5:00AM</button>
-      <button>3:00PM</button>
-    </div>
-  </section>
-
-  <!-- Preferences Section -->
-  <section>
-    <section>
-      <h3>Preference</h3>
-      <form id="preferenceForm">
-        <div class="preference-options">
-          <label>
-            <input type="checkbox" name="reminder" value="email">
-            Email Reminder
-          </label>
-          <label>
-            <input type="checkbox" name="reminder" value="sms">
-            SMS Reminder
-          </label>
-        </div>
-
-        <!-- Payment Section -->
-        <section>
-          <div class="totals">
-            <h3><strong>Total Price:</strong></h3>
-            <span id="total">₦15,000</span></p>
-            <br>
-            <button type="submit">Proceed to payment</button>
-          </div>
-      </form>
-    </section>
-  </section>
-
+  </div>
+  <script src="../Scripts/appoint-2.js"></script>
 </body>
 
 </html>

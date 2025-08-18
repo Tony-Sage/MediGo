@@ -4,9 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../CSS/appoint-1.css">
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
-  <title>Payment and Booking</title>
+  <link rel="stylesheet" href="../CSS/appoint-2.css">
+  <title>Doctor Appointment Booking</title>
 </head>
 
 <body>
@@ -14,7 +13,7 @@
   <!-- Hero Section (Doctor Info) -->
   <section class="hero">
     <div class="hero-content">
-      <img src="Group 244.jpg" alt="Doctor Image" class="doctor-img">
+      <img src="appoint-doctor/dr kelvin.jpg" alt="Doctor Image" class="doctor-img">
 
       <div class="doctor-text">
         <h2>Appointment Booking</h2>
@@ -29,65 +28,80 @@
     </div>
   </section>
 
-  <!-- Payment Section -->
-  <section class="payment-section">
-    <h3>Enter your payment details</h3>
+  <!-- Contact Details -->
+  <section>
+    <h3>Enter contact details</h3>
+    <form>
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Ms Amaka"><br><br>
 
-    <!-- Payment Methods -->
-    <div>
-      <p>Payment Method</p>
-      <img src="mastercard.png" alt="MasterCard" width="80">
-      <img src="visa.png" alt="Visa" width="80">
-      <img src="American Express.png" alt="AmEx" width="80">
-      <img src="discover.png" alt="Discover" width="80">
+      <label for="phone">Phone</label>
+      <input type="tel" id="phone" placeholder="090 344 759"><br><br>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="amaka@gmail.com"><br><br>
+    </form>
+  </section>
+
+  <!-- Schedule Section -->
+  <section>
+    <h3>Pick date for schedule</h3>
+    <div class="date-switcher">
+      <button class="arrow-btn">&#10094;</button> <!-- Chevron Left (‹) -->
+      <p>14 August 2025</p>
+      <button class="arrow-btn">&#10095;</button> <!-- Chevron Right (›) -->
     </div>
 
-    <!-- Credit Card Details -->
-    <form>
-      <fieldset>
-        <legend>Credit Card Details</legend>
-        <label for="name">Name on card</label><br>
-        <input type="text" id="name" name="name" placeholder="Meet Patel"><br><br>
+    <div>
+      <button>Mon<br>14</button>
+      <button>Tue<br>15</button>
+      <button>Wed<br>16</button>
+      <button>Thu<br>17</button>
+      <button>Fri<br>18</button>
+      <button>Sat<br>19</button>
+    </div>
 
-        <label for="card-number">Card number</label><br>
-        <input type="text" id="card-number" name="card-number" placeholder="0000 0000 0000 0000"><br><br>
+    <h4>Available slots</h4>
+    <div>
+      <button>9:00AM</button>
+      <button>10:00AM</button>
+      <button>12:00AM</button>
+      <button>3:00PM</button>
+      <button>4:00PM</button>
+      <button>6:00PM</button><br><br>
+      <button>8:00PM</button>
+      <button>7:00PM</button>
+      <button>5:00AM</button>
+      <button>3:00PM</button>
+    </div>
+  </section>
 
-        <label for="expiry">Card expiration</label><br>
-        <select id="expiry-month" name="expiry-month">
-          <option>Month</option>
-        </select>
-        <select id="expiry-year" name="expiry-year">
-          <option>Year</option>
-        </select><br><br>
+  <!-- Preferences Section -->
+  <section>
+    <section>
+      <h3>Preference</h3>
+      <form id="preferenceForm">
+        <div class="preference-options">
+          <label>
+            <input type="checkbox" name="reminder" value="email">
+            Email Reminder
+          </label>
+          <label>
+            <input type="checkbox" name="reminder" value="sms">
+            SMS Reminder
+          </label>
+        </div>
 
-        <label for="cvv">Card Security Code</label><br>
-        <input type="text" id="cvv" name="cvv" placeholder="Code"><br><br>
-      </fieldset>
-
-      <!-- Billing Address -->
-      <fieldset>
-        <legend>Billing address</legend>
-        <label for="country">Country</label><br>
-        <select id="country" name="country" placeholder="Country">
-          <option>Country</option>
-        </select><br><br>
-
-        <label for="address">Address</label><br>
-        <input type="text" id="Address" name="Address" placeholder="Address"><br><br>
-
-        <label for="city">City</label><br>
-        <input type="text" id="city" name="city" placeholder="City"><br><br>
-
-        <label for="state">State</label><br>
-        <input type="text" id="state" name="state" placeholder="State"><br><br>
-
-        <label for="zip">ZIP Code</label><br>
-        <input type="text" id="zip" name="zip" placeholder="Zip code"><br><br>
-      </fieldset>
-
-      <!-- Confirm Button -->
-      <button type="submit">Confirm &amp; Book Appointment</button><br>
-    </form>
+        <!-- Payment Section -->
+        <section>
+          <div class="totals">
+            <h3><strong>Total Price:</strong></h3>
+            <span id="total">₦15,000</span></p>
+            <br>
+            <button type="submit">Proceed to payment</button>
+          </div>
+      </form>
+    </section>
   </section>
 
 </body>
