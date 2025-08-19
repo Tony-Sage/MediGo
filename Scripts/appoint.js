@@ -55,7 +55,7 @@ const doctorListData = [
 
 /* ---- VARIABLE DEFINITIONS ---- */
 const doctorList = document.querySelector('#doctor-list')
-searchBar = document.querySelector('#search-bar')
+const searchBar = document.querySelector('#search-bar')
 
 
 /* ---- RUN ON PAGE LOAD ---- */
@@ -87,7 +87,7 @@ function renderDoctorList(list){
             </div>
           </div>  
           <div class="doctor-button">
-            <button>Check Availability</button>
+            <button class="availability-button">Check Availability</button>
           </div>
         </div>
       </div>
@@ -108,11 +108,55 @@ function searchDoctorList(searchTerm){
  renderDoctorList(results)
 }
 
+// makes check availability buttons functional 
+function checkAvailability(button){
+ button.style.display = "none"
+ const randomPick = Math.random()
+ loader = document.createElement("div")
+ loader.className = "loader"
+ parentDiv = button.parentNode
+ parentDiv.appendChild(loader)
+ setTimeout(() => {
+  parentDiv.removeChild(loader)
+  if (randomPick < 1/2){
+   displayStatus("Available", button)
+  } else {
+   displayStatus(`Sorry, \n not available`, button)
+  }
+ }, 1500)
+}
 
+// displays if doctor is available or not
+function displayStatus(message, button){
+ if (message === "Available"){
+  bookingButton = document.createElement('button')
+  bookingButton.innerText = "Book appointment "
+  parentDiv = button.parentNode
+  parentDiv.appendChild(bookingButton)
+ } 
+ else {
+  statusMessage = document.createElement('div')
+  statusMessage.className = "status-message"
+  statusMessage.innerHTML = `${message}`
+  parentDiv = button.parentNode
+  parentDiv.appendChild(statusMessage)
+  setTimeout(() => {
+   parentDiv.removeChild(statusMessage)
+   button.style.display = "block"
+  },1500)
+ }
+}
 
 /* ---- EVENT LISTENERS --- */
 
 // event listener for search bar
 searchBar.addEventListener("input", (e)=>{
  searchDoctorList(e.target.value)
+})
+
+// event listener for check availability button
+doctorList.addEventListener("click", (e) => {
+ if (e.target.classList.contains("availability-button")) {
+  checkAvailability(e.target)
+ }
 })
