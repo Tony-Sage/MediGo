@@ -1,3 +1,4 @@
+// doctors' data
 const doctorListData = [
  {
   name: "Dr. Martha",
@@ -51,12 +52,23 @@ const doctorListData = [
  }
 ]
 
+
+/* ---- VARIABLE DEFINITIONS ---- */
 const doctorList = document.querySelector('#doctor-list')
+searchBar = document.querySelector('#search-bar')
 
-function renderDoctorList(){
+
+/* ---- RUN ON PAGE LOAD ---- */
+renderDoctorList(doctorListData)
+
+
+
+/* ---- FUNCTION DEFINITIONS ---- */
+
+// renders the list of doctors on the page
+function renderDoctorList(list){
   doctorList.innerHTML = "" // clear existing doctors
-
-  doctorListData.forEach((doctor) => {
+  list.forEach((doctor) => {
     const doctorDiv = `
       <div class="doctor" data-department="${doctor.specialty}">
         <div class="doctor-header">
@@ -84,4 +96,23 @@ function renderDoctorList(){
   })
 }
 
-renderDoctorList()
+// makes the search bar functional 
+function searchDoctorList(searchTerm){
+ const results = doctorListData.filter((doctor)=>{
+  if (
+   doctor.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+   doctor.specialty.toLowerCase().includes(searchTerm.toLowerCase()) || 
+   doctor.location.toLowerCase().includes(searchTerm.toLowerCase())
+  ){return true}
+ })
+ renderDoctorList(results)
+}
+
+
+
+/* ---- EVENT LISTENERS --- */
+
+// event listener for search bar
+searchBar.addEventListener("input", (e)=>{
+ searchDoctorList(e.target.value)
+})
