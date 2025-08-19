@@ -161,3 +161,10 @@ doctorList.addEventListener("click", (e) => {
   checkAvailability(e.target)
  }
 })
+
+// event listener for book appointment button
+doctorList.addEventListener("click", (e) => {
+ if (e.target.classList.contains("booking-button")) {
+  window.location.href = "../HTML/appoint-1.html"
+ }
+})
