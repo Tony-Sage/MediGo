@@ -1,4 +1,4 @@
-// Adds event listener for form submission
+//Adds event listener for form submission
 
 document.querySelector("form").addEventListener("submit", function (event) {
     event.preventDefault();

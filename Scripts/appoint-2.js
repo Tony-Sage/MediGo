@@ -1,11 +1,20 @@
-//enforcing form validation for reminder preferences
-// This script ensures that at least one reminder preference is selected before submitting the form
-  document.getElementById('preferenceForm').addEventListener('submit', function(event) {
-    const checkboxes = document.querySelectorAll('input[name="reminder"]');
-    const isChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+//modal reciept
+document.querySelector('form').addEventListener('submit', function (e) {
+    e.preventDefault(); // Prevent actual form submission
 
-    if (!isChecked) {
-      alert('Please select at least one reminder preference.');
-      event.preventDefault(); // Prevent form from submitting
+    // Show the modal
+    document.getElementById('receipt-modal').style.display = 'block';
+  });
+
+  // Close modal
+  document.getElementById('close-modal').addEventListener('click', function () {
+    document.getElementById('receipt-modal').style.display = 'none';
+  });
+
+  // Optional: close modal on outside click
+  window.addEventListener('click', function (e) {
+    const modal = document.getElementById('receipt-modal');
+    if (e.target === modal) {
+      modal.style.display = 'none';
     }
   });
