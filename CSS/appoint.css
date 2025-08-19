@@ -197,6 +197,10 @@ section > h2 {
  animation: spin 2s linear infinite;
 }
 
+.status-message {
+ text-align: center;
+}
+
 /* Pagination */
 nav {
     display: flex;

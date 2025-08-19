@@ -121,7 +121,7 @@ function checkAvailability(button){
   if (randomPick < 1/2){
    displayStatus("Available", button)
   } else {
-   displayStatus(`Sorry, \n not available`, button)
+   displayStatus(`<p>Sorry</p> <p>Not available</p>`, button)
   }
  }, 1500)
 }
@@ -131,6 +131,7 @@ function displayStatus(message, button){
  if (message === "Available"){
   bookingButton = document.createElement('button')
   bookingButton.innerText = "Book appointment "
+  bookingButton.className = "booking-button"
   parentDiv = button.parentNode
   parentDiv.appendChild(bookingButton)
  } 
