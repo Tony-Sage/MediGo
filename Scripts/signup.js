@@ -92,7 +92,7 @@ document.querySelector("form").addEventListener("submit", function (event) {
 
     // Redirect to login page after 2 seconds
     setTimeout(function () {
-        window.location.href = "indexlogin.html";
+        window.location.href = "index.html";
     }, 2000);
 
 
