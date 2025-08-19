@@ -188,6 +188,15 @@ section > h2 {
     transform: scale(1.05);
 }
 
+.loader {
+ border: 5px solid var(--Primary-Color);
+ border-radius: 50%;
+ border-top: 5px solid var(--Primary3-Color);
+ width: 2.5rem;
+ height: 2.5rem;
+ animation: spin 2s linear infinite;
+}
+
 /* Pagination */
 nav {
     display: flex;
@@ -325,9 +334,15 @@ footer a:visited {
     from {opacity:0} 
     to {opacity:1} 
 }
+
 @keyframes slideUp { 
     from {transform:translateY(18px); opacity:0} 
     to {transform:translateY(0); opacity:1} 
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); opacity:0.5}
+  100% { transform: rotate(360deg); opacity:1}
 }
 
 /* Responsive */
