@@ -56,6 +56,8 @@ const doctorListData = [
 /* ---- VARIABLE DEFINITIONS ---- */
 const doctorList = document.querySelector('#doctor-list')
 const searchBar = document.querySelector('#search-bar')
+const checkBox = document.querySelector('#assign-doctor-checkbox')
+const spinner = document.querySelector("#spinner-section")
 
 
 /* ---- RUN ON PAGE LOAD ---- */
@@ -148,6 +150,20 @@ function displayStatus(message, button){
  }
 }
 
+// assigns doctor when assign doctor checbox is checked 
+function assignDoctor(checkbox){
+ if (checkbox.checked){
+  console.log("checked")
+  spinner.style.display = "flex"
+  setTimeout(() => {
+   spinner.style.display = "none"
+   window.location.href = "../HTML/appoint-1.html"
+  }, 2000)
+ } else {
+  console.log("unchecked")
+ }
+}
+
 /* ---- EVENT LISTENERS --- */
 
 // event listener for search bar
@@ -167,4 +183,9 @@ doctorList.addEventListener("click", (e) => {
  if (e.target.classList.contains("booking-button")) {
   window.location.href = "../HTML/appoint-1.html"
  }
+})
+
+// event listener for assign doctor checkbox
+checkBox.addEventListener("change", (e) => {
+ assignDoctor(e.target)
 })
