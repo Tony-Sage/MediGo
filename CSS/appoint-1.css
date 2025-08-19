@@ -1,17 +1,130 @@
-/* General Reset */
+/*universal style*/
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/*CSS variable*/
+:root {
+  --primary: #41E088;         /* Main primary brand color (buttons, accents, status indicators) */
+  --primary-2: #A0F0C4;       /* Lighter shade of primary (hover states, soft backgrounds) */
+  --primary-3: #D9F9E7;       /* Very light shade of primary, suitable for links or backgrounds */
+  --secondary: #41C4E0;       /* Main secondary brand color (tabs, buttons, highlights) */
+  --secondary-2: #7AD6E9;     /* Lighter shade of secondary (hover states or soft highlights) */
+  --secondary-3: #CDEDF6;     /* Very light secondary, used for background highlights */
+  --text-dark: #000000;       /* Main body text */
+  --text2: #adabab;           /* Secondary text (placeholders, muted labels, timestamps) */
+  --text-red: #CB3939;        /* Error messages, alerts, or status indicators */
+  --background: #FDFDFD;      /* Default page background */
+  --white: #FFFFFF;           /* White backgrounds, cards, containers */
+  --accent: #EDFDFC;          /* Accent background (very light background or UI highlight) */
+  --warning:#CD6200;
+  --success:#1F9254; 
+}
+
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
-  line-height: 1.6;
+  font-family: "Manrope";
+  background-color: var(--background);
+  color: var(--text-dark);
+  font-size: 16px;
+  font-weight: 400;
   padding: 20px;
 }
+
+/*HEADER*/
+header img {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  flex-wrap: wrap;
+  height: 24px;
+  width: auto;
+}
+
+.hamburger {
+  display: inline-block;
+  cursor: pointer;
+  width: 30px;
+  height: 25px;
+  position: relative;
+  z-index: 2; /* keeps it above the menu */
+  margin: 10px;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: black;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: 0.4s ease;
+}
+
+/* Transform to X when checked */
+#menu-toggle:checked + .hamburger span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+#menu-toggle:checked + .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+#menu-toggle:checked + .hamburger span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.nav-menu {
+  display: none;
+  position: absolute;
+  top: 86px;
+  left: 0;
+  width: 100%;
+  background: var(--primary-3);
+  padding: 10px;
+}
+
+.nav-menu li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  align-items: center;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: var(--text-dark);
+}
+
+.nav-menu a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--success);
+}
+
+/* Show menu when checked */
+#menu-toggle:checked ~ .nav-menu {
+  display: block;
+}
+
+.logo {
+  display: flex;
+  justify-content: space-between;
+}
+
+header h1 {
+  display: flex;
+  justify-content: center;
+  font-size: 40px;
+  text-align: center;
+}
+
 
 /* Hero Section */
 .hero {
@@ -26,29 +139,33 @@ body {
   display: flex;
   align-items: center;
   gap: 20px;
+  animation: slideInLeft 0.8s ease-out both;
 }
 
 .doctor-img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
+  width: 319.41px;
+  height: 377px;
+  border-radius: 10%;
   object-fit: cover;
-  border: 3px solid #007bff;
 }
 
-.doctor-text h2 {
-  margin-bottom: 10px;
-  color: #007bff;
+.doctor-text strong {
+  font-size: 32px;
+}
+
+.doctor-text p {
+  font-size: 24px;
 }
 
 .ratings span:first-child {
-  font-size: 18px;
+  font-size: 24px;
   color: #ffc107;
 }
 
 /* Form Section */
 form {
   margin-bottom: 30px;
+  margin-left: 30px;
 }
 
 label {
@@ -60,10 +177,11 @@ label {
 input[type="text"],
 input[type="tel"],
 input[type="email"] {
-  width: max-content;
+  width: 100%;
+  max-width: 500px;
   padding: 10px;
   margin-bottom: 15px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--primary);
   border-radius: 6px;
   font-size: 16px;
   box-sizing: border-box;
@@ -84,6 +202,12 @@ section > p {
 
 section div {
   margin-bottom: 20px;
+  margin-left: 20px; ;
+}
+
+section h3 {
+  font-size: 40px;
+  margin-left:20px ;
 }
 
 .date-switcher {
@@ -96,7 +220,7 @@ section div {
 
 .date-switcher p {
   font-weight: bold;
-  font-size: 16px;
+  font-size: 40px;
   margin: 0;
 }
 
@@ -104,45 +228,104 @@ section div {
   background-color: transparent;
   border: none;
   font-size: 28px;
-  color: #007bff;
+  color:var(--text-dark);
   cursor: pointer;
   transition: color 0.3s ease;
 }
 
 .arrow-btn:hover {
-  color: #0056b3;
+  transform: scale(1.2);
 }
 
 
 button {
-  padding: 10px 15px;
+  padding: 20px 30px;
   margin: 5px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
+  background-color: transparent;
+  color: var(--text-dark);
+  border: 1px solid var(--primary);
+  border-radius: 12px;
   cursor: pointer;
-  font-size: 14px;
-  min-width: 60px;
+  font-size: 16px;
+  max-width: 165px;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: var(--primary-3);
+}
+
+.date-btn {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap
 }
 
 h4 {
   margin-top: 20px;
   margin-bottom: 10px;
+  font-size: 32px;
+  margin-left: 20px;
 }
 
 /* Preferences */
-input[type="checkbox"] {
-  margin-right: 8px;
+.preference {
+  background-color: var(--accent);
 }
+
+.preference h3 {
+  text-align: center;
+}
+
+.preference-options label {
+  gap: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.preference-options {
+  margin-left: 42px;
+  flex-wrap: wrap
+}
+
+.preference-options input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--primary);
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+  position: relative;
+  margin-right: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Checkmark styling */
+.preference-options input[type="checkbox"]:checked::after {
+  content: '✔';
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1;
+}
+  
+/* Background when checked */
+.preference-options input[type="checkbox"]:checked {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.preference-options text {
+  text-align: center;
+}
+
 
 /* Payment Section */
 .totals {
-  background-color: #ffffff;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
@@ -160,35 +343,61 @@ input[type="checkbox"] {
 #total {
   font-size: 20px;
   font-weight: bold;
-  color: #28a745;
-    border: 2px solid #007bff;  /* blue border, change color if you want */
-  
+  color: var(--text-dark);
+  border: 2px solid var(--primary);  
+  background-color: var(--white);
   border-radius: 6px;
   font-weight: bold;
-    display: block;          /* make it a block element */
-  width: 100%;             /* fill full container width */
-  box-sizing: border-box;  /* include padding and border in width */
- 
+  display: block;         
+ width: 100%;
+max-width: 1200px;
+margin: 0 auto;            
+  max-width: 100%;
+  box-sizing: border-box; 
   padding: 10px 12px;
-
- 
-  text-align: center; 
+   text-align: start; 
 }
 
 .totals button {
-  margin-top: 15px;
-  width: 100%;
+  margin: 15px auto 0;
+ width: 90%;
+max-width: 1200px;
+margin: 0 auto;
   padding: 12px;
-  font-size: 16px;
   background-color: #28a745;
+  max-width: 100%;
+  display: block;
+  color: var(--white);
 }
 
 .totals button:hover {
   background-color: #218838;
 }
 
+/* Animation */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 /* Responsive */
 @media (max-width: 600px) {
+
+  .logo {
+    align-items: center;
+  }
+
+  header h1 {
+    font-size: 32px;
+    text-align: center;
+  }
+
   .hero-content {
     flex-direction: column;
     text-align: center;
