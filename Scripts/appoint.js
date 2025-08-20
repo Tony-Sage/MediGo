@@ -59,9 +59,20 @@ const searchBar = document.querySelector('#search-bar')
 const checkBox = document.querySelector('#assign-doctor-checkbox')
 const spinner = document.querySelector("#spinner-section")
 
+// --- PAGINATION ---
+// how many doctors per page
+const doctorsPerPage = 3
+// current page number
+let currentPage = 1
+// list of doctors currently being shown (updated on search)
+let currentList = doctorListData
+// pagination container (add <div id="pagination"></div> in your HTML)
+const pagination = document.querySelector("#pagination")
+
+
 
 /* ---- RUN ON PAGE LOAD ---- */
-renderDoctorList(doctorListData)
+renderDoctorList(currentList)
 
 
 
@@ -70,7 +81,14 @@ renderDoctorList(doctorListData)
 // renders the list of doctors on the page
 function renderDoctorList(list){
   doctorList.innerHTML = "" // clear existing doctors
-  list.forEach((doctor) => {
+
+  // --- PAGINATION ---
+  // calculate start and end index for slicing
+  const start = (currentPage - 1) * doctorsPerPage
+  const end = start + doctorsPerPage
+  const paginatedList = list.slice(start, end)
+
+  paginatedList.forEach((doctor) => {
     const doctorDiv = `
       <div class="doctor" data-department="${doctor.specialty}">
         <div class="doctor-header">
@@ -96,6 +114,30 @@ function renderDoctorList(list){
     `
     doctorList.innerHTML += doctorDiv
   })
+
+  // --- PAGINATION ---
+  renderPaginationControls(list.length)
+}
+
+// --- PAGINATION ---
+// builds page number buttons
+function renderPaginationControls(totalItems){
+  pagination.innerHTML = "" // clear old controls
+  const totalPages = Math.ceil(totalItems / doctorsPerPage)
+
+  for (let i = 1; i <= totalPages; i++){
+    const btn = document.createElement("button")
+    btn.innerText = i
+    btn.className = "pagination-btn"
+    if (i === currentPage) btn.classList.add("active")
+
+    btn.addEventListener("click", () => {
+      currentPage = i
+      renderDoctorList(currentList)
+    })
+
+    pagination.appendChild(btn)
+  }
 }
 
 // makes the search bar functional 
@@ -107,7 +149,11 @@ function searchDoctorList(searchTerm){
    doctor.location.toLowerCase().includes(searchTerm.toLowerCase())
   ){return true}
  })
- renderDoctorList(results)
+ 
+ // --- PAGINATION ---
+ currentList = results  // update active list
+ currentPage = 1        // reset to first page
+ renderDoctorList(currentList)
 }
 
 // makes check availability buttons functional 
