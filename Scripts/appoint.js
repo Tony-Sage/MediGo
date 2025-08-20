@@ -58,6 +58,7 @@ const doctorList = document.querySelector('#doctor-list')
 const searchBar = document.querySelector('#search-bar')
 const checkBox = document.querySelector('#assign-doctor-checkbox')
 const spinner = document.querySelector("#spinner-section")
+const paginationArrow = document.querySelectorAll('.page-control-arrow')
 
 // --- PAGINATION ---
 // how many doctors per page
@@ -65,14 +66,14 @@ const doctorsPerPage = 3
 // current page number
 let currentPage = 1
 // list of doctors currently being shown (updated on search)
-let currentList = doctorListData
+//let currentList = doctorListData
 // pagination container (add <div id="pagination"></div> in your HTML)
 const pagination = document.querySelector("#pagination")
 
 
 
 /* ---- RUN ON PAGE LOAD ---- */
-renderDoctorList(currentList)
+renderDoctorList(doctorListData)
 
 
 
@@ -124,20 +125,47 @@ function renderDoctorList(list){
 function renderPaginationControls(totalItems){
   pagination.innerHTML = "" // clear old controls
   const totalPages = Math.ceil(totalItems / doctorsPerPage)
-
-  for (let i = 1; i <= totalPages; i++){
-    const btn = document.createElement("button")
-    btn.innerText = i
-    btn.className = "pagination-btn"
-    if (i === currentPage) btn.classList.add("active")
-
-    btn.addEventListener("click", () => {
+  
+  if (currentPage > totalPages)
+  {
+   currentPage -= 1
+   renderDoctorList(doctorListData)
+  } // prevents forward arrow going beyond available pages
+  
+  else 
+  
+  {
+   for (let i = 1; i <= totalPages; i++){
+     const btn = document.createElement("button")
+     btn.innerText = i
+     btn.className = "pagination-btn"
+     
+     if (i === currentPage){
+      btn.classList.add('active')
+     } // ensures only current page shoes active
+     
+     btn.addEventListener("click", () => {
       currentPage = i
-      renderDoctorList(currentList)
+      renderDoctorList(doctorListData)
     })
-
     pagination.appendChild(btn)
+   }
   }
+}
+
+// makes the pagination arrow buttons functional
+function flipPage(direction){
+ if (direction === "<"){
+  if (currentPage > 1){
+   currentPage -= 1
+   renderDoctorList(doctorListData)
+  } else {
+   renderDoctorList(doctorListData)
+  }
+ } else {
+  currentPage += 1
+  renderDoctorList(doctorListData)
+ }
 }
 
 // makes the search bar functional 
@@ -151,9 +179,9 @@ function searchDoctorList(searchTerm){
  })
  
  // --- PAGINATION ---
- currentList = results  // update active list
+ list = results  // update active list
  currentPage = 1        // reset to first page
- renderDoctorList(currentList)
+ renderDoctorList(list)
 }
 
 // makes check availability buttons functional 
@@ -234,4 +262,13 @@ doctorList.addEventListener("click", (e) => {
 // event listener for assign doctor checkbox
 checkBox.addEventListener("change", (e) => {
  assignDoctor(e.target)
+})
+
+
+// event listener for pagination control arrow
+paginationArrow.forEach(arrow => {
+  const direction = arrow.innerText
+  arrow.addEventListener("click", ()=> {
+   flipPage(direction)
+  })
 })
