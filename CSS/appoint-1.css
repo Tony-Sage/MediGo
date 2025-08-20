@@ -98,6 +98,7 @@ header img {
 .nav-menu li {
   z-index: 2;
   align-items: center;
+  margin-left:10px;
 }
 
 .nav-menu a {
@@ -346,12 +347,10 @@ h4 {
 
 #total {
   font-size: 20px;
-  font-weight: bold;
   color: var(--text-dark);
   border: 2px solid var(--primary);  
   background-color: var(--white);
   border-radius: 6px;
-  font-weight: bold;
   display: block;         
   width: 100%;
   max-width: 1200px;
@@ -392,36 +391,7 @@ margin: 0 auto;
 
 /* Responsive */
 @media (max-width: 768px) {
-
-  .logo {
-    align-items: center;
-  }
-
-  header h1 {
-    font-size: 20px;
-    text-align: center;
-  }
-
-  .hero-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .doctor-img {
-    width: 100px;
-    height: 100px;
-  }
-
-  button {
-    font-size: 13px;
-    min-width: 48px;
-  }
-
-  .totals button {
-    font-size: 14px;
-  }
-
-  .hamburger {
+    .hamburger {
     display: inline-block;
 }
 
@@ -446,6 +416,52 @@ margin: 0 auto;
   flex-direction: column;
   transition: max-height 0.3s ease;
 }
+
+ header h1 {
+    font-size: 30px;
+    text-align: center;
+  }
+
+.date-switcher p {
+  font-size: 30px;
+}
+
+section h3 {
+  font-size: 32px;
+}
+
+}
+
+@media (max-width: 600px) {
+
+  header h1 {
+    font-size: 20px;
+    text-align: center;
+  }
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  section div {
+  margin-top: 20px;
+  margin-bottom: 0px;
+  }
+
+  .doctor-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  button {
+    font-size: 13px;
+    min-width: 48px;
+  }
+
+  .totals button {
+    font-size: 14px;
+  }
+
 
 .date-switcher p {
   font-size: 20px;
@@ -474,4 +490,11 @@ form {
 section div {
   margin-left: 0px;
 }
+}
+
+@media (mini-width: 375px) {
+  header h1 {
+    font-size: 17px;
+    text-align: center;
+  }
 }
