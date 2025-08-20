@@ -202,16 +202,9 @@ section > h2 {
 }
 
 #spinner-section {
- background: var(--Primary3-Color);
- height: 10rem;
- width: 10rem;
- position: absolute;
- top: 45%;
- right: 45%;
  display: none;
  align-items: center;
- justify-content: center;
- opacity: 0.7;
+ gap: 2rem
 }
 
 /* Pagination */
