@@ -6,49 +6,56 @@ const doctorListData = [
   location: "Enugu",
   lowestPrice: 300,
   highestPrice: 2500,
-  image: "../profile-doctor/lee.png"
+  image: "../profile-doctor/lee.png",
+  index: 0
  }, {
   name: "Dr. Smith",
   specialty: "Endocrinologist",
   location: "Enugu",
   lowestPrice: 300,
   highestPrice: 2500,
-  image: "../profile-doctor/lee.png"
+  image: "../profile-doctor/lee.png", 
+  index: 1
  }, {
   name: "Dr. Johnson",
   specialty: "Orthopedic",
   location: "Enugu",
   lowestPrice: 300,
   highestPrice: 2500,
-  image: "../profile-doctor/lee.png"
+  image: "../profile-doctor/lee.png",
+  index: 2
  }, {
   name: "Dr. Garcia",
   specialty: "General Medicine",
   location: "Enugu",
   lowestPrice: 300,
   highestPrice: 2500,
-  image: "../profile-doctor/lee.png"
+  image: "../profile-doctor/lee.png",
+  index: 3
  }, {
   name: "Dr. Lee",
   specialty: "Cardiologist",
   location: "Enugu",
   lowestPrice: 300,
   highestPrice: 2500,
-  image: "../profile-doctor/lee.png"
+  image: "../profile-doctor/lee.png",
+  index: 4
  }, {
   name: "Dr. Kelvin Smith",
   specialty: "Cardiologist",
   location: "Enugu",
   lowestPrice: 300,
   highestPrice: 2500,
-  image: "../profile-doctor/lee.png"
+  image: "../profile-doctor/lee.png",
+  index: 5
  }, {
   name: "Dr. Mary",
   specialty: "Cardiologist",
   location: "Enugu",
   lowestPrice: 300,
   highestPrice: 2500,
-  image: "../profile-doctor/lee.png"
+  image: "../profile-doctor/lee.png",
+  index: 6
  }
 ]
 
@@ -108,7 +115,7 @@ function renderDoctorList(list){
             </div>
           </div>  
           <div class="doctor-button">
-            <button class="availability-button">Check Availability</button>
+            <button class="availability-button" data-doctor-index = "${doctor.index}">Check Availability</button>
           </div>
         </div>
       </div>
@@ -208,6 +215,7 @@ function displayStatus(message, button){
   bookingButton = document.createElement('button')
   bookingButton.innerText = "Book appointment "
   bookingButton.className = "booking-button"
+  bookingButton.dataset.doctorIndex = button.dataset.doctorIndex
   parentDiv = button.parentNode
   parentDiv.appendChild(bookingButton)
  } 
@@ -235,6 +243,12 @@ function assignDoctor(checkbox){
  }
 }
 
+function bookDoctor(doctorIndex){
+ bookedDoctor = doctorListData[doctorIndex]
+ localStorage.setItem("booked-doctor", JSON.stringify(bookedDoctor))
+ window.location.href = "../HTML/appoint-1.html"
+}
+
 /* ---- EVENT LISTENERS --- */
 
 // event listener for search bar
@@ -252,7 +266,7 @@ doctorList.addEventListener("click", (e) => {
 // event listener for book appointment button
 doctorList.addEventListener("click", (e) => {
  if (e.target.classList.contains("booking-button")) {
-  window.location.href = "../HTML/appoint-1.html"
+  bookDoctor(e.target.dataset.doctorIndex)
  }
 })
 
