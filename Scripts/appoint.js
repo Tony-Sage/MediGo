@@ -227,14 +227,11 @@ function displayStatus(message, button){
 // assigns doctor when assign doctor checbox is checked 
 function assignDoctor(checkbox){
  if (checkbox.checked){
-  console.log("checked")
   spinner.style.display = "flex"
   setTimeout(() => {
    spinner.style.display = "none"
    window.location.href = "../HTML/appoint-1.html"
   }, 2000)
- } else {
-  console.log("unchecked")
  }
 }
 
