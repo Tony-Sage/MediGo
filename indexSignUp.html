@@ -6,14 +6,14 @@
   <link href="https://fonts.googleapis.com/css?family=Manrope" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Inter" rel="stylesheet">
   <link rel="stylesheet" href="signup.css" />
-  <title>MediGo - Sign Up</title>
+  <title>MediGo - Sign In</title>
 </head>
 
 <body>
   <!-- Header -->
   <header class="header">
     <img src="images/logo.png" alt="MediGo Logo" class="logo">
-    <h1>Sign up</h1>
+    <h1>Sign In</h1>
   </header>
 
   <!-- Signup Form -->
@@ -35,23 +35,19 @@
         <!-- Personal Information -->
         <div class="info">
           <div class="input-group">
-            <label for="name">Full Name: <span class="required-star">*</span></label>
-            <input type="text" id="name" name="name" required>
+            <input type="text" id="name" name="name" placeholder="Enter your full Name" required>
           </div>
 
           <div class="input-group">
-            <label for="email">Email Address: <span class="required-star">*</span></label>
-            <input type="text" id="email" name="email" required>
+            <input type="text" id="email" name="email" placeholder="Email Address" required>
           </div>
 
           <div class="input-group">
-            <label for="password">Create Password: <span class="required-star">*</span></label>
-            <input type="text" id="password" name="password" required>
+            <input type="text" id="password" name="password" placeholder="Create Password" required>
           </div>
 
           <div class="input-group">
-            <label for="confirm-password">Confirm Password: <span class="required-star">*</span></label>
-            <input type="text" id="confirm-password" name="confirm-password" required>
+            <input type="text" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required>
           </div>
         </div>
 
@@ -64,7 +60,7 @@
         <!-- Sign Up Button -->
         <button type="submit" class="signup-btn">Sign up</button>
 
-        <p class="login-text">Already have an account? <a href="#">Login</a> here</p>
+        <p class="login-text">Already have an account? <a href="/index.html">Login</a> here</p>
       </form>
     </section>
   </main>
