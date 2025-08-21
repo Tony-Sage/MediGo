@@ -259,7 +259,24 @@ button {
 }
 
 button:hover {
+  background-color: var(--secondary-3);
+}
+
+.date-btn button.active {
   background-color: var(--primary-3);
+  font-weight: bold;
+}
+
+.time-btns button.selected {
+  background-color: var(--primary-3);
+  font-weight: bold;
+}
+
+.date-btn button.disabled {
+  background-color: #ccc;
+  color: #777;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 .date-btn {
@@ -430,6 +447,9 @@ section h3 {
   font-size: 32px;
 }
 
+.ratings span:first-child {
+  font-size: 12px;
+}
 }
 
 @media (max-width: 600px) {
