@@ -234,6 +234,7 @@ function displayStatus(message, button){
 
 // assigns doctor when assign doctor checbox is checked 
 function assignDoctor(checkbox){
+ localStorage.removeItem("booked-item")
  if (checkbox.checked){
   spinner.style.display = "flex"
   setTimeout(() => {
