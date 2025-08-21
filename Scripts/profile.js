@@ -88,3 +88,60 @@
       button.textContent = "Edit Profile";
     }
   }
+
+// Upcoming Appointment & Medication
+window.addEventListener("DOMContentLoaded", () => {
+  const joinBtns = document.querySelectorAll(".join-btn");
+  const rescheduleBtns = document.querySelectorAll(".U-App-btn");
+  const cancelBtns = document.querySelectorAll(".U-App-btn-cancel");
+
+  // Join Consultation Btn
+  joinBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      window.open("https://zoom.com", "_blank");
+    });
+  });
+
+  // Reschedule btn
+  rescheduleBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const parent = btn.closest(".U-App-1, .U-App-2");
+      if (!parent) return;
+
+      let dateInput = parent.querySelector(".reschedule-input");
+
+      if (!dateInput) {
+        // First click → show the calendar
+        dateInput = document.createElement("input");
+        dateInput.type = "datetime-local";
+        dateInput.className = "reschedule-input";
+        btn.insertAdjacentElement("afterend", dateInput);
+        btn.textContent = "Confirm"; // change button text temporarily
+      } else {
+        // Second click → confirm selected date/time
+        if (dateInput.value) {
+          const textHolder = parent.querySelector(".text-holder p:last-of-type");
+          const date = new Date(dateInput.value);
+          textHolder.textContent =
+            `Online - Video Consultation\n${date.toLocaleDateString()} ${date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
+        }
+
+        // remove calendar
+        dateInput.remove();
+        btn.textContent = "Reschedule"; // change button text back
+      }
+    });
+  });
+
+
+  // Cancel → Remove buttons & show cancelled text
+  cancelBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const parent = btn.closest(".U-App-1, .U-App-2");
+      if (!parent) return;
+
+      const btnContainer = parent.querySelector(".U-App-btn-container");
+      btnContainer.innerHTML = "<p class='cancelled-text'>Cancelled</p>";
+    });
+  });
+});

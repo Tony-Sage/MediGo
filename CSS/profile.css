@@ -682,3 +682,21 @@ td p {
   transition: max-height 0.3s ease;
 }
 }
+
+/* Cancelled text */
+.cancelled-text {
+  color: var(--text-red);
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Reschedule input */
+.reschedule-input {
+  display: block;
+  padding: 8px;
+  border: 1px solid var(--primary);
+  border-radius: 6px;
+  margin-top: 8px;
+}
