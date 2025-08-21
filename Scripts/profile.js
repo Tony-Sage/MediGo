@@ -144,4 +144,20 @@ window.addEventListener("DOMContentLoaded", () => {
       btnContainer.innerHTML = "<p class='cancelled-text'>Cancelled</p>";
     });
   });
+
+  //Medication Checkbox
+  const medCheckboxes = document.querySelectorAll(".confirmSubmit");
+
+  medCheckboxes.forEach(checkbox => {
+    checkbox.addEventListener("change", () => {
+      const medCard = checkbox.closest(".M-1, .M-2, .M-3, .M-4");
+      if (!medCard) return;
+
+      if (checkbox.checked) {
+        medCard.classList.add("med-completed");
+      } else {
+        medCard.classList.remove("med-completed");
+      }
+    });
+  });
 });
