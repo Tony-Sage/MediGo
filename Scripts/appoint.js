@@ -2,7 +2,7 @@
 const doctorListData = [
  {
   name: "Dr. Martha",
-  specialty: "Cardiologist",
+  specialty: "Cardiology",
   location: "Enugu",
   lowestPrice: 300,
   highestPrice: 2500,
@@ -10,7 +10,7 @@ const doctorListData = [
   index: 0
  }, {
   name: "Dr. Smith",
-  specialty: "Endocrinologist",
+  specialty: "Endocrinology",
   location: "Enugu",
   lowestPrice: 300,
   highestPrice: 2500,
@@ -34,7 +34,7 @@ const doctorListData = [
   index: 3
  }, {
   name: "Dr. Lee",
-  specialty: "Cardiologist",
+  specialty: "Cardiology",
   location: "Enugu",
   lowestPrice: 300,
   highestPrice: 2500,
@@ -42,7 +42,7 @@ const doctorListData = [
   index: 4
  }, {
   name: "Dr. Kelvin Smith",
-  specialty: "Cardiologist",
+  specialty: "Cardiology",
   location: "Enugu",
   lowestPrice: 300,
   highestPrice: 2500,
@@ -50,7 +50,7 @@ const doctorListData = [
   index: 5
  }, {
   name: "Dr. Mary",
-  specialty: "Cardiologist",
+  specialty: "Cardiology",
   location: "Enugu",
   lowestPrice: 300,
   highestPrice: 2500,
@@ -245,6 +245,7 @@ function assignDoctor(checkbox){
 
 function bookDoctor(doctorIndex){
  bookedDoctor = doctorListData[doctorIndex]
+ localStorage.removeItem("booked-doctor")
  localStorage.setItem("booked-doctor", JSON.stringify(bookedDoctor))
  window.location.href = "../HTML/appoint-1.html"
 }
