@@ -201,6 +201,12 @@ section > h2 {
  text-align: center;
 }
 
+#spinner-section {
+ display: none;
+ align-items: center;
+ gap: 2rem
+}
+
 /* Pagination */
 nav {
     display: flex;
@@ -229,7 +235,7 @@ nav button:hover {
     transform: scale(1.05);
 }
 
-nav button:nth-child(2) {
+nav .active {
     background: var(--Primary-Color);
     color: var(--Background2);
     border: none;

@@ -2,53 +2,60 @@
 const doctorListData = [
  {
   name: "Dr. Martha",
-  specialty: "Cardiologist",
+  specialty: "Cardiology",
   location: "Enugu",
   lowestPrice: 300,
   highestPrice: 2500,
-  image: "../profile-doctor/lee.png"
+  image: "../profile-doctor/lee.png",
+  index: 0
  }, {
   name: "Dr. Smith",
-  specialty: "Endocrinologist",
+  specialty: "Endocrinology",
   location: "Enugu",
   lowestPrice: 300,
   highestPrice: 2500,
-  image: "../profile-doctor/lee.png"
+  image: "../profile-doctor/lee.png", 
+  index: 1
  }, {
   name: "Dr. Johnson",
   specialty: "Orthopedic",
   location: "Enugu",
   lowestPrice: 300,
   highestPrice: 2500,
-  image: "../profile-doctor/lee.png"
+  image: "../profile-doctor/lee.png",
+  index: 2
  }, {
   name: "Dr. Garcia",
   specialty: "General Medicine",
   location: "Enugu",
   lowestPrice: 300,
   highestPrice: 2500,
-  image: "../profile-doctor/lee.png"
+  image: "../profile-doctor/lee.png",
+  index: 3
  }, {
   name: "Dr. Lee",
-  specialty: "Cardiologist",
+  specialty: "Cardiology",
   location: "Enugu",
   lowestPrice: 300,
   highestPrice: 2500,
-  image: "../profile-doctor/lee.png"
+  image: "../profile-doctor/lee.png",
+  index: 4
  }, {
   name: "Dr. Kelvin Smith",
-  specialty: "Cardiologist",
+  specialty: "Cardiology",
   location: "Enugu",
   lowestPrice: 300,
   highestPrice: 2500,
-  image: "../profile-doctor/lee.png"
+  image: "../profile-doctor/lee.png",
+  index: 5
  }, {
   name: "Dr. Mary",
-  specialty: "Cardiologist",
+  specialty: "Cardiology",
   location: "Enugu",
   lowestPrice: 300,
   highestPrice: 2500,
-  image: "../profile-doctor/lee.png"
+  image: "../profile-doctor/lee.png",
+  index: 6
  }
 ]
 
@@ -56,6 +63,20 @@ const doctorListData = [
 /* ---- VARIABLE DEFINITIONS ---- */
 const doctorList = document.querySelector('#doctor-list')
 const searchBar = document.querySelector('#search-bar')
+const checkBox = document.querySelector('#assign-doctor-checkbox')
+const spinner = document.querySelector("#spinner-section")
+const paginationArrow = document.querySelectorAll('.page-control-arrow')
+
+// --- PAGINATION ---
+// how many doctors per page
+const doctorsPerPage = 3
+// current page number
+let currentPage = 1
+// list of doctors currently being shown (updated on search)
+//let currentList = doctorListData
+// pagination container (add <div id="pagination"></div> in your HTML)
+const pagination = document.querySelector("#pagination")
+
 
 
 /* ---- RUN ON PAGE LOAD ---- */
@@ -68,7 +89,14 @@ renderDoctorList(doctorListData)
 // renders the list of doctors on the page
 function renderDoctorList(list){
   doctorList.innerHTML = "" // clear existing doctors
-  list.forEach((doctor) => {
+
+  // --- PAGINATION ---
+  // calculate start and end index for slicing
+  const start = (currentPage - 1) * doctorsPerPage
+  const end = start + doctorsPerPage
+  const paginatedList = list.slice(start, end)
+
+  paginatedList.forEach((doctor) => {
     const doctorDiv = `
       <div class="doctor" data-department="${doctor.specialty}">
         <div class="doctor-header">
@@ -87,13 +115,64 @@ function renderDoctorList(list){
             </div>
           </div>  
           <div class="doctor-button">
-            <button class="availability-button">Check Availability</button>
+            <button class="availability-button" data-doctor-index = "${doctor.index}">Check Availability</button>
           </div>
         </div>
       </div>
     `
     doctorList.innerHTML += doctorDiv
   })
+
+  // --- PAGINATION ---
+  renderPaginationControls(list.length)
+}
+
+// --- PAGINATION ---
+// builds page number buttons
+function renderPaginationControls(totalItems){
+  pagination.innerHTML = "" // clear old controls
+  const totalPages = Math.ceil(totalItems / doctorsPerPage)
+  
+  if (currentPage > totalPages)
+  {
+   currentPage -= 1
+   renderDoctorList(doctorListData)
+  } // prevents forward arrow going beyond available pages
+  
+  else 
+  
+  {
+   for (let i = 1; i <= totalPages; i++){
+     const btn = document.createElement("button")
+     btn.innerText = i
+     btn.className = "pagination-btn"
+     
+     if (i === currentPage){
+      btn.classList.add('active')
+     } // ensures only current page shoes active
+     
+     btn.addEventListener("click", () => {
+      currentPage = i
+      renderDoctorList(doctorListData)
+    })
+    pagination.appendChild(btn)
+   }
+  }
+}
+
+// makes the pagination arrow buttons functional
+function flipPage(direction){
+ if (direction === "<"){
+  if (currentPage > 1){
+   currentPage -= 1
+   renderDoctorList(doctorListData)
+  } else {
+   renderDoctorList(doctorListData)
+  }
+ } else {
+  currentPage += 1
+  renderDoctorList(doctorListData)
+ }
 }
 
 // makes the search bar functional 
@@ -105,7 +184,11 @@ function searchDoctorList(searchTerm){
    doctor.location.toLowerCase().includes(searchTerm.toLowerCase())
   ){return true}
  })
- renderDoctorList(results)
+ 
+ // --- PAGINATION ---
+ list = results  // update active list
+ currentPage = 1        // reset to first page
+ renderDoctorList(list)
 }
 
 // makes check availability buttons functional 
@@ -132,6 +215,7 @@ function displayStatus(message, button){
   bookingButton = document.createElement('button')
   bookingButton.innerText = "Book appointment "
   bookingButton.className = "booking-button"
+  bookingButton.dataset.doctorIndex = button.dataset.doctorIndex
   parentDiv = button.parentNode
   parentDiv.appendChild(bookingButton)
  } 
@@ -146,6 +230,25 @@ function displayStatus(message, button){
    button.style.display = "block"
   },1500)
  }
+}
+
+// assigns doctor when assign doctor checbox is checked 
+function assignDoctor(checkbox){
+ localStorage.removeItem("booked-item")
+ if (checkbox.checked){
+  spinner.style.display = "flex"
+  setTimeout(() => {
+   spinner.style.display = "none"
+   window.location.href = "../HTML/appoint-1.html"
+  }, 2000)
+ }
+}
+
+function bookDoctor(doctorIndex){
+ bookedDoctor = doctorListData[doctorIndex]
+ localStorage.removeItem("booked-doctor")
+ localStorage.setItem("booked-doctor", JSON.stringify(bookedDoctor))
+ window.location.href = "../HTML/appoint-1.html"
 }
 
 /* ---- EVENT LISTENERS --- */
@@ -165,6 +268,20 @@ doctorList.addEventListener("click", (e) => {
 // event listener for book appointment button
 doctorList.addEventListener("click", (e) => {
  if (e.target.classList.contains("booking-button")) {
-  window.location.href = "../HTML/appoint-1.html"
+  bookDoctor(e.target.dataset.doctorIndex)
  }
+})
+
+// event listener for assign doctor checkbox
+checkBox.addEventListener("change", (e) => {
+ assignDoctor(e.target)
+})
+
+
+// event listener for pagination control arrow
+paginationArrow.forEach(arrow => {
+  const direction = arrow.innerText
+  arrow.addEventListener("click", ()=> {
+   flipPage(direction)
+  })
 })

@@ -27,25 +27,29 @@
       <h2>Select Doctor</h2>
       <section id="doctor-list"></section>
     </section>
+    
+    
 
     <!-- Pagination -->
     <nav>
-      <button>&lt;</button>
-      <button>1</button>
-      <button>2</button>
-      <button>3</button>
-      <span>...</span>
-      <button>10</button>
-      <button>&gt;</button>
+      <button class="page-control-arrow">&lt;</button>
+      <div id="pagination"></div>
+      <button class="page-control-arrow">&gt;</button>
     </nav>
 
     <!-- Assign Doctor Checkbox -->
     <section>
       <label>
-        <input type="checkbox"> Let MediGo Assign a Doctor
+        <input type="checkbox" id="assign-doctor-checkbox"> Let MediGo Assign a Doctor
       </label>
+      <section id="spinner-section">
+       <div class="loader assign-doctor-spinner"></div>
+       <p>Checking available doctors</p>
+      </section>
     </section>
+    
   </div>  
+  
     <!-- Footer -->
   <footer>
     <div class="flex-container">

@@ -9,36 +9,33 @@
 </head>
 
 <body>
-    <header><div class="logo"><img src="../elements/logo.png" alt="logo">
-         <input type="checkbox" class="menu-toggle" id="menu-toggle" />
-        <label for="menu-toggle"
-          class="hamburger"
-          aria-label="Toggle navigation menu"
-          ><span></span><span></span><span></span
-        ></label>
-        <!-- Nav menu -->
-  <nav class="nav-menu">
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Appointment</a></li>
-      <li><a href="#">Telehealth</a></li>
-      <li><a href="#">Sign-up</a></li>
-      <li><a href="#">Logout</a></li>
-    </ul>
-  </nav>
-  </div>
-  <h1>Appointment Booking</h1>
+  <header>
+    <div class="logo"><img src="../elements/logo.png" alt="logo">
+      <h1>Appointment Booking</h1>
+      <input type="checkbox" class="menu-toggle" id="menu-toggle" />
+      <label for="menu-toggle" class="hamburger"
+        aria-label="Toggle navigation menu"><span></span><span></span><span></span></label>
+      <!-- Nav menu -->
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="#">Appointment</a></li>
+          <li><a href="#">Telehealth</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
 
   <!-- Hero Section (Doctor Info) -->
   <section class="hero">
     <div class="hero-content">
-      <img src="../appoint-doctor/doctor.png" alt="Doctor Image" class="doctor-img">
+      <img src="../appoint-doctor/doctor.png" alt="Doctor Image" class="doctor-img" id="doctor-image">
 
       <div class="doctor-text">
-        <p><strong>Dr. Kelvin Smith</strong></p>
-        <p>Cardiology Specialist</p>
+        <p id="doctor-name"><strong>Dr. Kelvin Smith</strong></p>
+        <p id="doctor-specialty">Cardiology Specialist</p>
 
         <div class="ratings">
           <span>⭐⭐⭐⭐☆</span>
@@ -67,8 +64,8 @@
   <section>
     <h3>Pick date for schedule</h3>
     <div class="date-switcher">
-      <button class="arrow-btn">&#10094;</button> <!-- Chevron Left (‹) -->
       <p>14 August 2025</p>
+      <button class="arrow-btn">&#10094;</button> <!-- Chevron Left (‹) -->
       <button class="arrow-btn">&#10095;</button> <!-- Chevron Right (›) -->
     </div>
 
@@ -118,12 +115,12 @@
             <h3><strong>Total Price:</strong></h3>
             <span id="total">₦15,000</span></p>
             <br>
-            <button type="submit">Proceed to payment</button>
+            <button type="submit" id="payment-button">Proceed to payment</button>
           </div>
       </form>
     </section>
   </section>
-
+<script src="../Scripts/appoint-1.js"
 </body>
 
 </html>

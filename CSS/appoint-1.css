@@ -44,7 +44,7 @@ header img {
 }
 
 .hamburger {
-  display: inline-block;
+  display: none;
   cursor: pointer;
   width: 30px;
   height: 25px;
@@ -54,7 +54,7 @@ header img {
 }
 
 .hamburger span {
-  display: block;
+  display: none;
   width: 100%;
   height: 4px;
   background: black;
@@ -81,31 +81,38 @@ header img {
 }
 
 .nav-menu {
-  display: none;
-  position: absolute;
-  top: 86px;
+  top: 60px;
   left: 0;
-  width: 100%;
-  background: var(--primary-3);
+  background: var(--white);
   padding: 10px;
+  z-index: 20;
+  font-size: 20px;
+}
+
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
 }
 
 .nav-menu li {
-  position: relative;
-  display: flex;
-  flex-direction: column;
   z-index: 2;
   align-items: center;
+  margin-left:10px;
 }
 
 .nav-menu a {
   text-decoration: none;
-  color: var(--text-dark);
 }
 
-.nav-menu a:hover {
-  text-decoration: underline;
-  text-decoration-color: var(--success);
+.nav-menu ul li a {
+  color: var(--text-dark);
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav-menu ul li a:hover {
+  color:var(--primary);
 }
 
 /* Show menu when checked */
@@ -116,6 +123,7 @@ header img {
 .logo {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 header h1 {
@@ -328,34 +336,29 @@ h4 {
 .totals {
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
   text-align: center;
 }
 
 .totals h3 {
   font-size: 18px;
   margin-bottom: 10px;
-
   text-align: left;
-
 }
 
 #total {
   font-size: 20px;
-  font-weight: bold;
   color: var(--text-dark);
   border: 2px solid var(--primary);  
   background-color: var(--white);
   border-radius: 6px;
-  font-weight: bold;
   display: block;         
- width: 100%;
-max-width: 1200px;
-margin: 0 auto;            
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;            
   max-width: 100%;
   box-sizing: border-box; 
   padding: 10px 12px;
-   text-align: start; 
+  text-align: start; 
 }
 
 .totals button {
@@ -387,20 +390,62 @@ margin: 0 auto;
 }
 
 /* Responsive */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    .hamburger {
+    display: inline-block;
+}
 
-  .logo {
-    align-items: center;
-  }
+.hamburger span {
+  display: block;
+}
 
-  header h1 {
-    font-size: 32px;
+.nav-menu {
+  display: none;
+  position: absolute;
+  width: 100%;
+  background: var(--primary-3);
+}
+
+.nav-menu li {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+}
+
+.nav-menu ul {
+  flex-direction: column;
+  transition: max-height 0.3s ease;
+}
+
+ header h1 {
+    font-size: 30px;
     text-align: center;
   }
 
+.date-switcher p {
+  font-size: 30px;
+}
+
+section h3 {
+  font-size: 32px;
+}
+
+}
+
+@media (max-width: 600px) {
+
+  header h1 {
+    font-size: 20px;
+    text-align: center;
+  }
   .hero-content {
     flex-direction: column;
     text-align: center;
+  }
+
+  section div {
+  margin-top: 20px;
+  margin-bottom: 0px;
   }
 
   .doctor-img {
@@ -415,5 +460,41 @@ margin: 0 auto;
 
   .totals button {
     font-size: 14px;
+  }
+
+
+.date-switcher p {
+  font-size: 20px;
+}
+
+section h3 {
+  font-size: 25px;
+}
+
+.date-switcher {
+  gap: 0px;
+}
+
+.arrow-btn {
+  padding: 0%;
+}
+
+h4 {
+  font-size: 25px;
+}
+
+form {
+  margin-left: 0px;
+}
+
+section div {
+  margin-left: 0px;
+}
+}
+
+@media (mini-width: 375px) {
+  header h1 {
+    font-size: 17px;
+    text-align: center;
   }
 }

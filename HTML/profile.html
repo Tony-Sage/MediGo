@@ -10,99 +10,96 @@
 </head>
 
 <body>
-  <header><div class="logo"><img src="../elements/logo.png" alt="logo">
-        <h1>My Profile</h1>
-         <input type="checkbox" class="menu-toggle" id="menu-toggle" />
-        <label for="menu-toggle"
-          class="hamburger"
-          aria-label="Toggle navigation menu"
-          ><span></span><span></span><span></span
-        ></label>
-        <!-- Nav menu -->
-  <nav class="nav-menu">
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Appointment</a></li>
-      <li><a href="#">Telehealth</a></li>
-      <li><a href="#">Sign-up</a></li>
-      <li><a href="#">Logout</a></li>
-    </ul>
-  </nav>
-  </div>
+  <header>
+    <div class="logo"><img src="../elements/logo.png" alt="logo">
+      <h1>My Profile</h1>
+      <input type="checkbox" class="menu-toggle" id="menu-toggle" />
+      <label for="menu-toggle" class="hamburger"
+        aria-label="Toggle navigation menu"><span></span><span></span><span></span></label>
+      <!-- Nav menu -->
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="#">Appointment</a></li>
+          <li><a href="#">Telehealth</a></li>
+          <li><a href="#">Sign-up</a></li>
+          <li><a href="#">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
   <main>
-<section class="Profile">
-  <div class="container">
-    <div class="profile-container">
-        <img src="../profile/profile-pic.jpg" alt="Profile Picture" />
+    <section class="Profile">
+      <div class="container">
+        <div class="profile-container">
+          <img src="../profile/profile-pic.jpg" alt="Profile Picture" />
 
-      <!-- Display-only info -->
-      <div class="profile-name display-only">
-        <h3>Name</h3>
-        <p id="out-name">Mrs Amaka Eze</p>
-      </div>
+          <!-- Display-only info -->
+          <div class="profile-name display-only">
+            <h3>Name</h3>
+            <p id="out-name">Mrs Amaka Eze</p>
+          </div>
 
-      <!-- Editable form -->
-      <div class="profile-name editable" style="display: none;">
-        <label for="name"><strong>Name</strong></label>
-        <input type="text" id="name" name="name" value="Mrs Amaka Eze" required />
-      </div>
+          <!-- Editable form -->
+          <div class="profile-name editable" style="display: none;">
+            <label for="name"><strong>Name</strong></label>
+            <input type="text" id="name" name="name" value="Mrs Amaka Eze" required />
+          </div>
 
-      <button class="profile-btn" onclick="toggleEditSave(this)">Edit Profile</button>
-    </div>
-
-    <div class="text-container">
-      <!-- Display-only data -->
-      <div class="submitted-data display-only">
-        <div>
-          <h3>Health ID</h3>
-          <p id="out-healthID">MC2345</p>
+          <button class="profile-btn" onclick="toggleEditSave(this)">Edit Profile</button>
         </div>
-        <div>
-          <h3>Gender</h3>
-          <p id="out-gender">Female</p>
-        </div>
-        <div>
-          <h3>Age</h3>
-          <p id="out-age">32</p>
-        </div>
-        <div>
-          <h3>Blood Group</h3>
-          <p id="out-bloodGroup">O+</p>
+
+        <div class="text-container">
+          <!-- Display-only data -->
+          <div class="submitted-data display-only">
+            <div>
+              <h3>Health ID</h3>
+              <p id="out-healthID">MC2345</p>
+            </div>
+            <div>
+              <h3>Gender</h3>
+              <p id="out-gender">Female</p>
+            </div>
+            <div>
+              <h3>Age</h3>
+              <p id="out-age">32</p>
+            </div>
+            <div>
+              <h3>Blood Group</h3>
+              <p id="out-bloodGroup">O+</p>
+            </div>
+          </div>
+
+          <!-- Editable fields -->
+          <div class="editable" style="display: none;">
+            <label for="health-ID"><strong>Health ID</strong></label>
+            <input type="text" id="health-ID" value="MC2345" required />
+
+            <label for="gender"><strong>Gender</strong></label>
+            <select id="gender" required>
+              <option value="" disabled>Select your Sex</option>
+              <option value="Male">Male</option>
+              <option value="Female" selected>Female</option>
+            </select>
+
+            <label for="age"><strong>Age</strong></label>
+            <input type="number" id="age" value="32" required />
+
+            <label for="bloodGroup"><strong>Blood Group</strong></label>
+            <select id="bloodGroup">
+              <option value="">Select Blood Group</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+            </select>
+          </div>
         </div>
       </div>
-
-      <!-- Editable fields -->
-      <div class="editable" style="display: none;">
-        <label for="health-ID"><strong>Health ID</strong></label>
-        <input type="text" id="health-ID" value="MC2345" required />
-
-        <label for="gender"><strong>Gender</strong></label>
-        <select id="gender" required>
-          <option value="" disabled>Select your Sex</option>
-          <option value="Male">Male</option>
-          <option value="Female" selected>Female</option>
-        </select>
-
-        <label for="age"><strong>Age</strong></label>
-        <input type="number" id="age" value="32" required />
-
-        <label for="bloodGroup"><strong>Blood Group</strong></label>
-        <select id="bloodGroup">
-          <option value="">Select Blood Group</option>
-          <option value="A+">A+</option>
-          <option value="A-">A-</option>
-          <option value="B+">B+</option>
-          <option value="B-">B-</option>
-          <option value="AB+">AB+</option>
-          <option value="AB-">AB-</option>
-          <option value="O+">O+</option>
-          <option value="O-">O-</option>
-        </select>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
     <section class="features">
       <h1>Quick Health Stat</h1>
       <div class="h2-wrapper">
@@ -195,7 +192,7 @@
             </label>
           </div>
         </div>
-         <div class="M-2">
+        <div class="M-2">
           <img src="../medication/capsule.jpg" alt="capsule">
           <div class="M-text-container">
             <h3>Zinc - 50mg</h3>
@@ -209,7 +206,7 @@
           </div>
         </div>
         <p class="time">12:00AM</p>
-         <div class="M-3">
+        <div class="M-3">
           <img src="../medication/Drop Pipette.png" alt="Drop">
           <div class="M-text-container">
             <h3>Zinc - 50mg</h3>
@@ -391,4 +388,5 @@
   <!--FOOTER-->
   <script src="../Scripts/profile.js"></script>
 </body>
+
 </html>
