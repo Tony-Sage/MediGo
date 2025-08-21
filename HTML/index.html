@@ -18,17 +18,15 @@
 
   <!-- Login Form -->
   <h1 class="login-title">Login</h1>
-  <form class="login-form" action="/login" method="POST">
+  <p id="erroMsg"></p>
+  <form class="login-form">
     <section class="login-section">
       <div class="container-up">
         <div class="form-group">
-         
-          <input class="box" type="text" id="user_name" name="user_name"
-                 placeholder="User name"
-                 maxlength="45" required>
 
-          <input class="box" type="password" id="password" name="password"
-                 placeholder="Password" minlength="8" maxlength="15" required>
+          <input class="box" type="text" id="user_name" name="user_name" placeholder="User name">
+
+          <input class="box" type="password" id="password" name="password" placeholder="Password">
         </div>
       </div>
 
@@ -90,6 +88,7 @@
       </div>
     </div>
   </footer>
+  <script src="../Scripts/login.js"></script>
 </body>
 
 </html>
