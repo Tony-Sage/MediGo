@@ -48,7 +48,7 @@
   <!-- Contact Details -->
   <section>
     <h3>Enter contact details</h3>
-    <form>
+   <form id="preferenceForm" method="POST" action="/submit-appointment">
       <label for="name">Name</label>
       <input type="text" id="name" placeholder="Ms Amaka"><br><br>
 
@@ -57,6 +57,8 @@
 
       <label for="email">Email</label>
       <input type="email" id="email" placeholder="amaka@gmail.com"><br><br>
+      <input type="hidden" name="appointmentDate" id="appointmentDate">
+      <input type="hidden" name="appointmentTime" id="appointmentTime">
     </form>
   </section>
 
@@ -64,7 +66,7 @@
   <section>
     <h3>Pick date for schedule</h3>
     <div class="date-switcher">
-      <p>14 August 2025</p>
+      <p id="selectedDate">14 August 2025</p>
       <button class="arrow-btn">&#10094;</button> <!-- Chevron Left (‹) -->
       <button class="arrow-btn">&#10095;</button> <!-- Chevron Right (›) -->
     </div>
@@ -79,7 +81,7 @@
     </div>
 
     <h4>Available slots</h4>
-    <div>
+    <div class="time-btns">
       <button>9:00AM</button>
       <button>10:00AM</button>
       <button>12:00AM</button>
@@ -120,7 +122,7 @@
       </form>
     </section>
   </section>
-
+  <script src="../Scripts/appoint-1.js"></script>
 </body>
 
 </html>

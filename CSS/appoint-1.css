@@ -166,7 +166,6 @@ header h1 {
 }
 
 .ratings span:first-child {
-  font-size: 24px;
   color: #ffc107;
 }
 
@@ -259,7 +258,24 @@ button {
 }
 
 button:hover {
+  background-color: var(--secondary-3);
+}
+
+.date-btn button.active {
   background-color: var(--primary-3);
+  font-weight: bold;
+}
+
+.time-btns button.selected {
+  background-color: var(--primary-3);
+  font-weight: bold;
+}
+
+.date-btn button.disabled {
+  background-color: #ccc;
+  color: #777;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 .date-btn {
