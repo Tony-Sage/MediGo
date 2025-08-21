@@ -166,6 +166,7 @@ header h1 {
 }
 
 .ratings span:first-child {
+  font-size: 24px;
   color: #ffc107;
 }
 
@@ -446,6 +447,9 @@ section h3 {
   font-size: 32px;
 }
 
+.ratings span:first-child {
+  font-size: 12px;
+}
 }
 
 @media (max-width: 600px) {
