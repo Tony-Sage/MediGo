@@ -210,24 +210,38 @@ function setupAppointmentButtons() {
     });
   });
 
-  // Cancel
+  // Cancel (custom modal)
   document.querySelectorAll(".U-App-btn-cancel").forEach(btn => {
     btn.addEventListener("click", () => {
-      if (!confirm("Are you sure you want to cancel this appointment?")) return;
+      const modal = document.getElementById("cancelModal");
+      modal.style.display = "flex";
 
-      const parent = btn.closest(".U-App-1, .U-App-2, .U-App-3");
-      const btnContainer = parent.querySelector(".U-App-btn-container");
-      btnContainer.innerHTML = "<p class='cancelled-text'>Cancelled</p><button class='U-App-btn-undo'>Undo</button>";
+      // Handle confirmation
+      const confirmBtn = document.getElementById("confirmCancel");
+      const closeBtn = document.getElementById("closeModal");
 
-      const appts = loadAppointments();
-      const doctorName = parent.querySelector("h3").textContent;
-      const appt = appts.find(a => a.doctor === doctorName);
-      if (appt) {
-        appt.status = "Canceled";
-        saveAppointments(appts);
-      }
-      renderAppointments();
+      // Avoid multiple event stacking
+      confirmBtn.onclick = () => {
+        const parent = btn.closest(".U-App-card");
+        const btnContainer = parent.querySelector(".U-App-btn-container");
 
+        btnContainer.innerHTML = "<p class='cancelled-text'>Cancelled</p><button class='U-App-btn-undo'>Undo</button>";
+
+        const appts = loadAppointments();
+        const doctorName = parent.querySelector("h3").textContent;
+        const appt = appts.find(a => a.doctor === doctorName);
+        if (appt) {
+          appt.status = "Canceled";
+          saveAppointments(appts);
+        }
+        renderAppointments();
+
+        modal.style.display = "none";
+      };
+
+      closeBtn.onclick = () => {
+        modal.style.display = "none";
+      };
     });
   });
 
@@ -277,8 +291,12 @@ function setupMedicationCheckboxes() {
 window.addEventListener("DOMContentLoaded", () => {
   setupResponsiveFilter();
   setupCategoryButtons();
+
+  // Select the appointment tab + button by default
   showCategory("appointment");
+  document.querySelector(".category-nav .appointment").classList.add("active");
 
   renderAppointments();
   setupMedicationCheckboxes();
 });
+
