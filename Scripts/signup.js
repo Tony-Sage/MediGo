@@ -8,6 +8,7 @@ document.querySelector("form").addEventListener("submit", function (event) {
     // getting values from input fields
     let userName = document.getElementById("name").value.trim();
     let userEmail = document.getElementById("email").value.trim();
+    let userNumber = document.querySelector('#phone').value.trim();
     let userPassword = document.getElementById("password").value.trim();
     let userConfirmPassword = document.getElementById("confirm-password").value.trim();
     let erroMessage = document.getElementById("erroMsg");
@@ -32,6 +33,7 @@ document.querySelector("form").addEventListener("submit", function (event) {
     let userNameRegex = /^[A-Z][a-z]+(?: [A-Z][a-z]+)+$/; // Full name only: at least two words, each starting with uppercase followed by lowercase letters
     let userEmailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     let userPasswordRegex = /^[A-Za-z0-9]{4,}$/; // Password: at least 4 chars, letters and numbers allowed
+    let userNumberRegex = /^(?:\+234|234|0)(70|80|81|90|91|701|702|703|704|705|706|707|708|709|810|811|812|813|814|815|816|817|818|819|901|902|903|904|905|906|907|908|909|911)\d{6,7}$/; // ensures phone mumber follows norma Nigerian format
 
 
     // Validate name.
@@ -48,6 +50,16 @@ document.querySelector("form").addEventListener("submit", function (event) {
     // validate Email
     if (!userEmail) {
         displayError("Email is required");
+        document.getElementById("email").focus();
+        return;
+    } else if (!userEmailRegex.test(userEmail)) {
+        displayError("Please enter a valid email address");
+        document.getElementById("email").focus();
+        return;
+    }
+    
+    if (!userNumber) {
+        displayError("Phone number is required");
         document.getElementById("email").focus();
         return;
     } else if (!userEmailRegex.test(userEmail)) {
@@ -84,6 +96,7 @@ document.querySelector("form").addEventListener("submit", function (event) {
     let newUserData = {
         userName: userName,
         userEmail: userEmail,
+        userNumber: userNumber,
         userPassword: userPassword,
         role: role.value // Save the selected role (Patient or Doctor)
     };
