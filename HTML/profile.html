@@ -132,45 +132,7 @@
     <section class="upcoming-Appointment">
       <div class="U-App-Container">
         <h2>Upcoming-Appointment</h2>
-
-        <div class="U-App-1">
-          <div class="U-App-1-container">
-            <div class="image-holder">
-              <img src="../profile-doctor/doctor 1.png" alt="doctor Gracia profile-picture">
-            </div>
-            <div class="text-holder">
-              <h3>Dr. Garcia Joseph</h3>
-              <p>Medical Consultation</p>
-              <p>Online - Video Consultation <br>
-                20/08/2025 wednesday, 14:00</p>
-            </div>
-          </div>
-          <div class="U-App-btn-container">
-            <button class="join-btn">Join Consultation</button>
-            <button class="U-App-btn">Reschedule</button>
-            <button class="U-App-btn-cancel">Cancel</button>
-          </div>
-        </div>
-
-        <div class="U-App-2">
-          <div class="U-App-2-container">
-            <div class="image-holder">
-              <img src="../profile-doctor/doctor 1.png" alt="doctor Gracia profile-picture">
-            </div>
-            <div class="text-holder">
-              <h3>Dr. Garcia Joseph</h3>
-              <p>Medical Consultation</p>
-              <p>Online - Video Consultation<br>
-                20/08/2025 wednesday, 14:00</p>
-            </div>
-          </div>
-          <div class="U-App-btn-container">
-            <button class="join-btn">Join Consultation</button>
-            <button class="U-App-btn">Reschedule</button>
-            <button class="U-App-btn-cancel">Cancel</button>
-          </div>
-        </div>
-
+        <div class="upcoming-list"></div>
       </div>
     </section>
 
@@ -235,14 +197,12 @@
     </section>
 
     <!-- CATEGORY NAVIGATION -->
-    <!-- Responsive button Filter for Large Screens -->
     <section class="tabs">
       <div class="category-nav">
         <button class="appointment" data-category="appointment">Appointment</button>
         <button data-category="medical-history">Medical-history</button>
         <button data-category="prescription">Prescription</button>
       </div>
-      <!-- Responsive Dropdown Filter for Small Screens -->
       <div class="filter-bar">
         <label for="category-select">Choose a category:</label>
         <select id="category-select">
@@ -251,7 +211,6 @@
           <option value="prescription">Prescription</option>
         </select>
       </div>
-      <!-- Tab content -->
       <div class="tab" data-category="appointment">
         <table style="width: 100%; border-collapse: collapse;">
           <thead>
@@ -264,52 +223,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td><img src="../profile-doctor/lee.png" alt="Profile picture of Dr. Lee">
-                <p>Dr Lee</p>
-              </td>
-              <td>Cardiology</td>
-              <td> 11 Jul 2025</td>
-              <td>3: 00pm</td>
-              <td>
-                <div class="stat-indicator-Active">Active</div>
-              </td>
-            </tr>
-            <tr>
-              <td><img src="../profile-doctor/lee.png" alt="Profile picture of Dr. Lee">
-                <p>Dr Lee</p>
-              </td>
-              <td>Cardiology</td>
-              <td> 11 Jul 2025</td>
-              <td>3: 00pm</td>
-              <td>
-                <div class="stat-indicator-Active">Upcoming</div>
-              </td>
-            </tr>
-            <tr>
-              <td><img src="../profile-doctor/lee.png" alt="Profile picture of Dr. Lee">
-                <p>Dr Lee</p>
-              </td>
-              <td>Cardiology</td>
-              <td> 11 Jul 2025</td>
-              <td>3: 00pm</td>
-              <td>
-                <div class="stat-indicator-complete">Completed</div>
-              </td>
-            </tr>
-            <tr>
-              <td><img src="../profile-doctor/lee.png" alt="Profile picture of Dr. Lee">
-                <p>Dr Lee</p>
-              </td>
-              <td>Cardiology</td>
-              <td> 11 Jul 2025</td>
-              <td>3: 00pm</td>
-              <td>
-                <div class="stat-indicator-canceled">Canceled</div>
-              </td>
-            </tr>
+            <!-- Appointment rows will be inserted dynamically via JS -->
           </tbody>
-
         </table>
       </div>
       <div class="tab" data-category="medical-history">
@@ -330,7 +245,6 @@
             <h3>Chronic Diease</h3>
             <p>IHD, obesity, Chronic thyriod disorder</p>
           </div>
-
         </div>
       </div>
 
@@ -388,5 +302,4 @@
   <!--FOOTER-->
   <script src="../Scripts/profile.js"></script>
 </body>
-
 </html>
