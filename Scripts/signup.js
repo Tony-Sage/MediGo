@@ -1,9 +1,8 @@
-//Adds event listener for form submission
 
+//Adds event listener for form submission
 document.querySelector("form").addEventListener("submit", function (event) {
     event.preventDefault();
 
-    //gets the selected role (Patient or Doctor)
     let role = document.querySelector('input[name="role"]:checked');
 
     // getting values from input fields
@@ -13,87 +12,101 @@ document.querySelector("form").addEventListener("submit", function (event) {
     let userConfirmPassword = document.getElementById("confirm-password").value.trim();
     let erroMessage = document.getElementById("erroMsg");
 
-    //checks if a role was selected
-    if (!role) {
-        erroMessage.textContent = "Please select a role (Patient or Doctor)";
+    function displayError(message) {
+        erroMessage.textContent = message;
         erroMessage.style.color = "red";
         erroMessage.style.textAlign = "center";
         erroMessage.style.margin = "10px 0";
+    }
+
+    function clearError() {
+        erroMessage.textContent = "";
+    }
+
+    //checks if a role was selected.
+    if (!role) {
+        displayError("Please select a role (Patient or Doctor)");
         return;
     }
 
-    //displays error message when input fileds are empty
-    if (!userName || !userEmail || !userPassword || !userConfirmPassword) {
-        erroMessage.textContent = "All fields are required"
-        erroMessage.style.color = "red"
-        erroMessage.style.textAlign = "center";
-        erroMessage.style.margin = "10px 0";
-
-
-        // Focus the first empty field
-        if (!userName) document.getElementById("name").focus();
-        else if (!userEmail) document.getElementById("email").focus();
-        else if (!userPassword) document.getElementById("password").focus();
-        else document.getElementById("confirm-password").focus();
-    }
-
-    // Defines regex patterns
     let userNameRegex = /^[A-Z][a-z]+(?: [A-Z][a-z]+)+$/; // Full name only: at least two words, each starting with uppercase followed by lowercase letters
-    let userEmailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // 
+    let userEmailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     let userPasswordRegex = /^[A-Za-z0-9]{4,}$/; // Password: at least 4 chars, letters and numbers allowed
 
-    //ensures validation check 
-    if (!userNameRegex.test(userName)) {
-        erroMessage.textContent = " Enter your full name(e.g, Tony Eze)";
-        erroMessage.style.color = "red";
-        erroMessage.style.textAlign = "center";
-        erroMessage.style.margin = "10px 0";
-        return;
-    }
-    if (!userEmailRegex.test(userEmail)) {
-        erroMessage.textContent = "Please enter a valid Email";
-        erroMessage.style.color = "red";
-        erroMessage.style.textAlign = "center";
-        erroMessage.style.margin = "10px 0";
-        return;
-    }
-    if (!userPasswordRegex.test(userPassword)) {
-        erroMessage.textContent = "Enter password: must be at least 4 characters";
-        erroMessage.style.color = "red";
-        erroMessage.style.textAlign = "center";
-        erroMessage.style.margin = "10px 0";
-        return;
-    }
-    if (userConfirmPassword !== userPassword) {
-        erroMessage.textContent = "Password does not match";
-        erroMessage.style.color = "red";
-        erroMessage.style.textAlign = "center";
-        erroMessage.style.margin = "10px 0";
-        return;
-    }
-    erroMessage.textContent = "";
 
-    let userValues = {
+    // Validate name.
+    if (!userName) {
+        displayError("Name is required");
+        document.getElementById("name").focus();
+        return;
+    } else if (!userNameRegex.test(userName)) {
+        displayError("Please enter full name (e.g., Tony Eze)");
+        document.getElementById("name").focus();
+        return;
+    }
+
+    // validate Email
+    if (!userEmail) {
+        displayError("Email is required");
+        document.getElementById("email").focus();
+        return;
+    } else if (!userEmailRegex.test(userEmail)) {
+        displayError("Please enter a valid email address");
+        document.getElementById("email").focus();
+        return;
+    }
+
+    // Validating password.
+    if (!userPassword) {
+        displayError("Password is required");
+        document.getElementById("password").focus();
+        return;
+    } else if (!userPasswordRegex.test(userPassword)) {
+        displayError("Password must be at least 4 characters");
+        document.getElementById("password").focus();
+        return;
+    }
+
+    // Validate Confirm Password
+    if (!userConfirmPassword) {
+        displayError("Confirm password is required");
+        document.getElementById("confirm-password").focus();
+        return;
+    } else if (userConfirmPassword !== userPassword) {
+        displayError("Passwords does not match");
+        document.getElementById("confirm-password").focus();
+        return;
+    }
+
+    // Clear error if everything passed
+    clearError();
+
+    let newUserData = {
         userName: userName,
         userEmail: userEmail,
         userPassword: userPassword,
         role: role.value // Save the selected role (Patient or Doctor)
     };
 
-    // Save user object into localStorage as JSON string
-    localStorage.setItem("userValues", JSON.stringify(userValues));
+    // gets old users or empty array.
+    let usersArray = JSON.parse(localStorage.getItem("usersArray")) || [];
+
+    // adds new user into the array
+    usersArray.push(newUserData);
+
+    // updates local storage
+    localStorage.setItem("usersArray", JSON.stringify(usersArray));
 
 
-    // Show success message in green
+    // Shows success message in green
     erroMessage.textContent = "Signup successful! Redirecting to login...";
     erroMessage.style.color = "green";
     erroMessage.style.textAlign = "center";
     erroMessage.style.margin = "10px 0";
 
-    // Redirect to login page after 2 seconds
+    // Redirect to login page after 2 seconds.
     setTimeout(function () {
         window.location.href = "index.html";
-    }, 2000);
-
+    }, 1000);
 
 });

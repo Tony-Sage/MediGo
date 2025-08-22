@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css?family=Manrope" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Inter" rel="stylesheet">
   <link rel="stylesheet" href="../CSS/signup.css" />
@@ -25,10 +26,10 @@
         <div class="role-selection">
           <p>Select Your Role:</p>
           <div class="role-buttons">
-            <input type="radio" id="patient" name="role" value="Patient" >
+            <input type="radio" id="patient" name="role" value="Patient">
             <label for="patient">Patient</label>
 
-            <input type="radio" id="doctor" name="role" value="Doctor" >
+            <input type="radio" id="doctor" name="role" value="Doctor">
             <label for="doctor">Doctor</label>
           </div>
         </div>
@@ -37,29 +38,30 @@
         <div class="info">
           <div class="input-group">
             <label for="name">Full Name: <span class="required-star">*</span></label>
-            <input type="text" id="name" name="name" >
+            <input type="text" id="name" name="name">
           </div>
 
           <div class="input-group">
             <label for="email">Email Address: <span class="required-star">*</span></label>
-            <input type="text" id="email" name="email" >
+            <input type="text" id="email" name="email">
           </div>
 
           <div class="input-group">
             <label for="password">Create Password: <span class="required-star">*</span></label>
-            <input type="text" id="password" name="password" >
+            <input type="text" id="password" name="password" autocomplete="new-password">
           </div>
 
           <div class="input-group">
             <label for="confirm-password">Confirm Password: <span class="required-star">*</span></label>
-            <input type="text" id="confirm-password" name="confirm-password" >
+            <input type="text" id="confirm-password" name="confirm-password" autocomplete="new-password">
           </div>
         </div>
 
         <!-- Terms and Conditions -->
         <div class="terms">
-          <input type="checkbox" id="terms" name="terms" >
-          <label class="termsLabel" for="terms">I agree to the <a href="/terms" target="_blank">Terms and Conditions</a>.</label>
+          <input type="checkbox" id="terms" name="terms">
+          <label class="termsLabel" for="terms">I agree to the <a href="/terms" target="_blank">Terms and
+              Conditions</a>.</label>
         </div>
 
         <!-- Sign Up Button -->
@@ -114,4 +116,5 @@
   </footer>
   <script src="../Scripts/signup.js"></script>
 </body>
+
 </html>
