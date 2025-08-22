@@ -161,9 +161,9 @@ header h1 {
   margin-top: 10px;
 }
 
-#out-name {
+/* #out-name {
   width: 12.5rem;
-}
+} */
 
 .text-container {
   display: grid;
@@ -682,3 +682,24 @@ td p {
   transition: max-height 0.3s ease;
 }
 }
+
+@media screen and (max-width: 425px) {
+  .profile-name.display-only {
+    text-align: center;
+    width: 100%;
+  }
+
+    .text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 10px;
+    margin: 0;
+    width: max-content;
+  }
+
+.profile-container {
+  width: 200%;
+}
+}
+
