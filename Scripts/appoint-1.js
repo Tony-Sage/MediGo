@@ -67,6 +67,7 @@ function renderWeek(startDate) {
     date.setDate(startDate.getDate() + i);
 
     const btn = document.createElement("button");
+    btn.type = "button"
     const dayName = date.toLocaleDateString("default", { weekday: "short" });
     const dayNum = date.getDate();
 
