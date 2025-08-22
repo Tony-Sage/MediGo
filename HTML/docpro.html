@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../CSS/docpro.css">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Profile</title>
+</head>
+
+<body>
+  <header>
+    <div class="logo"><img src="../elements/logo.png" alt="logo">
+      <h1>My Profile</h1>
+      <input type="checkbox" class="menu-toggle" id="menu-toggle" />
+      <label for="menu-toggle" class="hamburger"
+        aria-label="Toggle navigation menu"><span></span><span></span><span></span></label>
+      <!-- Nav menu -->
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="#">Appointment</a></li>
+          <li><a href="#">Telehealth</a></li>
+          <li><a href="#">Sign-up</a></li>
+          <li><a href="#">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="Profile">
+      <div class="container">
+         <div class="profile-container">
+             <img src="../appoint-doctor/doctor.png" alt="Profile Picture" />
+
+             <!-- Display-only info -->
+             <div class="profile-name display-only">
+                <p id="out-name">Mrs Amaka Eze</p>
+                <p id="out-name">Cardiologist specialist</p>
+                <p id="out-name">10years Experience</p>
+          <button class="profile-btn">Edit Profile</button>
+             </div>
+          </div>
+      </div>
+    </section>
+    <section class="features">
+      <h1>Quick Professional Stat</h1>
+      <div class="f-container">
+        <div class="f-1">
+          <h3>Total Patient</h3>
+          <p class="readings">200+</p>
+        </div>
+        <div class="f-2">
+          <h3>Todays Patient</h3>
+          <p class="readings">85</p>
+        </div>
+        <div class="f-3">
+          <h3>Todays Appointments</h3>
+          <p class="readings">100</p>
+        </div>
+        <div class="f-4">
+          <h3> Next Scheduled Appointments</h3>
+          <p class="readings">120</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="upcoming-Appointment">
+      <div class="U-App-Container">
+        <h2>My Scheduled Appointments</h2>
+
+        <div class="U-App-1">
+          <div class="U-App-1-container">
+            <div class="image-holder">
+              <img src="../profile/profile-pic.jpg" alt="doctor Gracia profile-picture">
+            </div>
+            <div class="text-holder">
+              <h3>Mrs. Amaka</h3>
+              <p>Health Check up</p>
+              <p>Online - Video Consultation (45sec) <br>
+                20/08/2025 wednesday, 16:00</p>
+            </div>
+          </div>
+          <div class="U-App-btn-container">
+            <button class="join-btn">Join Consultation</button>
+            <button class="U-App-btn">Reschedule</button>
+            <button class="U-App-btn-cancel">Cancel</button>
+          </div>
+        </div>
+
+        <div class="U-App-2">
+          <div class="U-App-2-container">
+            <div class="image-holder">
+              <img src="../profile-doctor/doctor 1.png" alt="doctor Gracia profile-picture">
+            </div>
+            <div class="text-holder">
+              <h3>Chinedu .A</h3>
+              <p>Diabetes</p>
+              <p>Online - Video Consultation (45sec)<br>
+                20/08/2025 wednesday, 16:00</p>
+            </div>
+          </div>
+          <div class="U-App-btn-container">
+            <button class="join-btn">Join Consultation</button>
+            <button class="U-App-btn">Reschedule</button>
+            <button class="U-App-btn-cancel">Cancel</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="Medication">
+      <div class="M-App-Container">
+        <h2>Apppointment Request</h2>
+        <p class="time">08:00AM</p>
+        <div class="M-1">
+          <img src="../medication/pill.jpg" alt="pill">
+          <div class="M-text-container">
+            <h3>Ngozi Eze</h3>
+            <p> Migraine</p>
+          </div>
+          <div class="insurance-1">
+            <label>
+              <input type="checkbox" class="confirmSubmit">
+            </label>
+          </div>
+        </div>
+        <div class="M-2">
+          <img src="../medication/capsule.jpg" alt="capsule">
+          <div class="M-text-container">
+            <h3>Tunde Adebayo</h3>
+            <p>Cold</p>
+          </div>
+          <div class="insurance-1">
+            <label>
+              <input type="checkbox" class="confirmSubmit">
+            </label>
+          </div>
+        </div>
+        <p class="time">12:00AM</p>
+        <div class="M-3">
+          <img src="../medication/Drop Pipette.png" alt="Drop">
+          <div class="M-text-container">
+            <h3>Amara Okafor</h3>
+            <p>Diabetes</p>
+          </div>
+          <div class="insurance-1">
+            <label>
+              <input type="checkbox" class="confirmSubmit">
+            </label>
+          </div>
+        </div>
+        <div class="M-4">
+          <img src="../medication/liquid.png" alt="liquid">
+          <div class="M-text-container">
+            <h3> Amina S</h3>
+            <p>Cold</p>
+          </div>
+          <div class="insurance-1">
+            <label>
+              <input type="checkbox" class="confirmSubmit">
+            </label>
+          </div>
+        </div>
+    </section>
+
+    <!-- CATEGORY NAVIGATION -->
+    <!-- Responsive button Filter for Large Screens -->
+    <section class="tabs">
+      <div class="category-nav">
+        <button class="appointment" data-category="appointment">Appointment</button>
+        <button data-category="medical-history">Medical-history</button>
+        <button data-category="prescription">Prescription</button>
+      </div>
+      <!-- Responsive Dropdown Filter for Small Screens -->
+      <div class="filter-bar">
+        <label for="category-select">Choose a category:</label>
+        <select id="category-select">
+          <option value="appointment">Appointment</option>
+          <option value="medical-history">Medical-history</option>
+          <option value="prescription">Prescription</option>
+        </select>
+      </div>
+      <!-- Tab content -->
+      <div class="tab" data-category="appointment">
+        <table style="width: 100%; border-collapse: collapse;">
+          <thead>
+            <tr>
+              <th>Doctor</th>
+              <th>Specification</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><img src="../profile-doctor/lee.png" alt="Profile picture of Dr. Lee">
+                <p>Dr Lee</p>
+              </td>
+              <td>Cardiology</td>
+              <td> 11 Jul 2025</td>
+              <td>3: 00pm</td>
+              <td>
+                <div class="stat-indicator-Active">Active</div>
+              </td>
+            </tr>
+            <tr>
+              <td><img src="../profile-doctor/lee.png" alt="Profile picture of Dr. Lee">
+                <p>Dr Lee</p>
+              </td>
+              <td>Cardiology</td>
+              <td> 11 Jul 2025</td>
+              <td>3: 00pm</td>
+              <td>
+                <div class="stat-indicator-Active">Upcoming</div>
+              </td>
+            </tr>
+            <tr>
+              <td><img src="../profile-doctor/lee.png" alt="Profile picture of Dr. Lee">
+                <p>Dr Lee</p>
+              </td>
+              <td>Cardiology</td>
+              <td> 11 Jul 2025</td>
+              <td>3: 00pm</td>
+              <td>
+                <div class="stat-indicator-complete">Completed</div>
+              </td>
+            </tr>
+            <tr>
+              <td><img src="../profile-doctor/lee.png" alt="Profile picture of Dr. Lee">
+                <p>Dr Lee</p>
+              </td>
+              <td>Cardiology</td>
+              <td> 11 Jul 2025</td>
+              <td>3: 00pm</td>
+              <td>
+                <div class="stat-indicator-canceled">Canceled</div>
+              </td>
+            </tr>
+          </tbody>
+
+        </table>
+      </div>
+      <div class="tab" data-category="medical-history">
+        <div class="mh-container">
+          <div class="mh-1">
+            <h3>Chronic Diease</h3>
+            <p>IHD, obesity, Chronic thyriod disorder</p>
+          </div>
+          <div class="mh-1">
+            <h3>Diabetic Emergency </h3>
+            <p>IHD, obesity, Chronic thyriod disorder</p>
+          </div>
+          <div class="mh-1">
+            <h3>Chronic Diease</h3>
+            <p>IHD, obesity, Chronic thyriod disorder</p>
+          </div>
+          <div class="mh-1">
+            <h3>Chronic Diease</h3>
+            <p>IHD, obesity, Chronic thyriod disorder</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="tab" data-category="prescription">
+        <table style="width: 100%; border-collapse: collapse;">
+          <thead>
+            <tr>
+              <th>Medication</th>
+              <th>Dosage</th>
+              <th>Start Date</th>
+              <th>Duration</th>
+              <th>Doctor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><img src="../medication/pill.jpg" alt="pill">Metformin 500mg</td>
+              <td>Twice a day</td>
+              <td><input type="date" id="expiry-date" name="expiry-date" required></td>
+              <td>6 months</td>
+              <td>Dr. Smith</td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td><img src="../medication/capsule.jpg" alt="capsule">Metformin 500mg</td>
+              <td>Twice a day</td>
+              <td><input type="date" id="expiry-date" name="expiry-date" required></td>
+              <td>6 months</td>
+              <td>Dr. Smith</td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td><img src="../medication/liquid.png" alt="liquid">Metformin 500mg</td>
+              <td>Twice a day</td>
+              <td><input type="date" id="expiry-date" name="expiry-date" required></td>
+              <td>6 months</td>
+              <td>Dr. Smith</td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td><img src="../medication/Drop Pipette.png" alt="Drop">Metformin 500mg</td>
+              <td>Twice a day</td>
+              <td><input type="date" id="expiry-date" name="expiry-date" required></td>
+              <td>6 months</td>
+              <td>Dr. Smith</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <!--FOOTER-->
+  <script src="../Scripts/docpro.js"></script>
+</body>
+
+</html>
