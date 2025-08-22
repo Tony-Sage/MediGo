@@ -1,4 +1,3 @@
-
 //Adds event listener for form submission
 document.querySelector("form").addEventListener("submit", function (event) {
     event.preventDefault();
@@ -30,13 +29,12 @@ document.querySelector("form").addEventListener("submit", function (event) {
         return;
     }
 
-    let userNameRegex = /^[A-Z][a-z]+(?: [A-Z][a-z]+)+$/; // Full name only: at least two words, each starting with uppercase followed by lowercase letters
+    let userNameRegex = /^[A-Z][a-z]+(?: [A-Z][a-z]+)+$/; 
     let userEmailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    let userPasswordRegex = /^.{5,}$/; // ≥5 characters (i.e., more than 4), allows symbols 
-    let userNumberRegex = /^(?:\+234|234|0)(70|80|81|90|91|701|702|703|704|705|706|707|708|709|810|811|812|813|814|815|816|817|818|819|901|902|903|904|905|906|907|908|909|911)\d{6,7}$/; // ensures phone mumber follows norma Nigerian format
+    let userPasswordRegex = /^.{5,}$/; // ≥5 characters
+    let userNumberRegex = /^(?:\+234|234|0)(70|80|81|90|91|701|702|703|704|705|706|707|708|709|810|811|812|813|814|815|816|817|818|819|901|902|903|904|905|906|907|908|909|911)\d{6,7}$/;
 
-
-    // Validate name.
+    // Validate name
     if (!userName) {
         displayError("Name is required");
         document.getElementById("name").focus();
@@ -47,7 +45,7 @@ document.querySelector("form").addEventListener("submit", function (event) {
         return;
     }
 
-    // validate Email
+    // Validate Email
     if (!userEmail) {
         displayError("Email is required");
         document.getElementById("email").focus();
@@ -57,24 +55,25 @@ document.querySelector("form").addEventListener("submit", function (event) {
         document.getElementById("email").focus();
         return;
     }
-    
+
+    // Validate Phone
     if (!userNumber) {
         displayError("Phone number is required");
-        document.getElementById("email").focus();
+        document.getElementById("phone").focus();
         return;
-    } else if (!userEmailRegex.test(userEmail)) {
-        displayError("Please enter a valid email address");
-        document.getElementById("email").focus();
+    } else if (!userNumberRegex.test(userNumber)) {
+        displayError("Please enter a valid Nigerian phone number");
+        document.getElementById("phone").focus();
         return;
     }
 
-    // Validating password.
+    // Validate Password
     if (!userPassword) {
         displayError("Password is required");
         document.getElementById("password").focus();
         return;
     } else if (!userPasswordRegex.test(userPassword)) {
-        displayError("Password must be at least 4 characters");
+        displayError("Password must be more than 4 characters");
         document.getElementById("password").focus();
         return;
     }
@@ -85,8 +84,16 @@ document.querySelector("form").addEventListener("submit", function (event) {
         document.getElementById("confirm-password").focus();
         return;
     } else if (userConfirmPassword !== userPassword) {
-        displayError("Passwords does not match");
+        displayError("Passwords do not match");
         document.getElementById("confirm-password").focus();
+        return;
+    }
+
+    // ✅ Validate Terms & Conditions
+    let termsChecked = document.getElementById("terms").checked;
+    if (!termsChecked) {
+        displayError("You must agree to the Terms and Conditions before signing up");
+        document.getElementById("terms").focus();
         return;
     }
 
@@ -98,28 +105,19 @@ document.querySelector("form").addEventListener("submit", function (event) {
         userEmail: userEmail,
         userNumber: userNumber,
         userPassword: userPassword,
-        role: role.value // Save the selected role (Patient or Doctor)
+        role: role.value 
     };
 
-    // gets old users or empty array.
     let usersArray = JSON.parse(localStorage.getItem("usersArray")) || [];
-
-    // adds new user into the array
     usersArray.push(newUserData);
-
-    // updates local storage
     localStorage.setItem("usersArray", JSON.stringify(usersArray));
 
-
-    // Shows success message in green
     erroMessage.textContent = "Signup successful! Redirecting to login...";
     erroMessage.style.color = "green";
     erroMessage.style.textAlign = "center";
     erroMessage.style.margin = "10px 0";
 
-    // Redirect to login page after 2 seconds.
     setTimeout(function () {
         window.location.href = "index.html";
     }, 1000);
-
 });
