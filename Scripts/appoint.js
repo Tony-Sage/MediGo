@@ -232,18 +232,30 @@ function displayStatus(message, button){
  }
 }
 
-// assigns doctor when assign doctor checbox is checked 
+// assigns doctor when assign doctor checkbox is checked 
 function assignDoctor(checkbox){
- localStorage.removeItem("booked-item")
- if (checkbox.checked){
-  spinner.style.display = "flex"
-  setTimeout(() => {
-   spinner.style.display = "none"
-   window.location.href = "../HTML/appoint-1.html"
-  }, 2000)
- }
+  localStorage.removeItem("booked-doctor");
+  
+  if (checkbox.checked){
+    spinner.style.display = "flex";
+
+    setTimeout(() => {
+      spinner.style.display = "none";
+
+      // 🎲 randomly pick one doctor from the list
+      const randomIndex = Math.floor(Math.random() * doctorListData.length);
+      const randomDoctor = doctorListData[randomIndex];
+
+      // save the chosen doctor to localStorage
+      localStorage.setItem("booked-doctor", JSON.stringify(randomDoctor));
+
+      // redirect to booking page with assigned doctor
+      window.location.href = "../HTML/appoint-1.html";
+    }, 2000);
+  }
 }
 
+// books doctor and saves it to local storage
 function bookDoctor(doctorIndex){
  bookedDoctor = doctorListData[doctorIndex]
  localStorage.removeItem("booked-doctor")
