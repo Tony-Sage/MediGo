@@ -29,10 +29,11 @@ const appointmentDateInput = document.getElementById("appointmentDate");
 const appointmentTimeInput = document.getElementById("appointmentTime");
 
 // Doctor booking DOM elements
-const paymentButton = document.querySelector("#payment-button");
-const form = document.querySelector("form");
 const bookedDoctorName = document.querySelector("#doctor-name");
 const bookedDoctorSpecialty = document.querySelector("#doctor-specialty");
+
+// Appointment array (persisted in localStorage)
+let appointments = JSON.parse(localStorage.getItem("appointments")) || [];
 
 
 /* ===============================
@@ -139,11 +140,30 @@ function getBookedDoctor() {
 }
 
 /**
+ * Save appointment to localStorage
+ */
+function saveAppointment() {
+  const newAppointment = {
+    doctorName: bookedDoctorName.innerText,
+    doctorSpecialty: bookedDoctorSpecialty.innerText,
+    date: appointmentDateInput.value,
+    time: appointmentTimeInput.value,
+    status: "active",
+  };
+
+  appointments.push(newAppointment);
+  localStorage.setItem("appointments", JSON.stringify(appointments));
+  console.log("Appointments saved:", appointments);
+}
+
+/**
  * Validate appointment form before submission
  * Ensures at least one reminder preference is checked,
  * and that both a date and time are selected
  */
 function validateForm(e) {
+  e.preventDefault(); // Always prevent default form submission
+
   const checkboxes = document.querySelectorAll('input[name="reminder"]');
   const isChecked = Array.from(checkboxes).some((checkbox) => checkbox.checked);
 
@@ -152,14 +172,19 @@ function validateForm(e) {
 
   if (!isChecked) {
     alert("Please select at least one reminder preference.");
-    e.preventDefault();
     return;
   }
 
   if (!date || !time) {
     alert("Please select both a date and time for your appointment.");
-    e.preventDefault();
+    return;
   }
+
+  // ✅ Save appointment to localStorage
+  saveAppointment();
+
+  // ✅ If all validations pass, redirect to next page
+  window.location.href = "../HTML/appoint-2.html";
 }
 
 
