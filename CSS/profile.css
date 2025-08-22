@@ -304,6 +304,7 @@ select,
   background-color: var(--accent);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-top: 117px;
+  padding-bottom: 20px;
 }
 
 .U-App-1,
@@ -317,7 +318,8 @@ select,
   border-radius: 10px;
   padding: 20px;
   margin: 10px;
-  width: 60%;
+  width: 70%;
+  height: auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -620,7 +622,7 @@ td p {
   .U-App-1,
   .U-App-2,
   .U-App-3 {
-    width: 70%;
+    width: 80%;
     padding: 15px;
   }
 
