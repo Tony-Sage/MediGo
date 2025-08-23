@@ -1,80 +1,135 @@
+/*universal style*/
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/*CSS VARIABLES*/
+/*CSS variable*/
 :root {
-    --Primary-Color: #41E088;
-    --Primary2-Color: #A0F0C4;
-    --Primary3-Color: #D9F9E7;
-    --Secondary-Color: #36c875;
-    --Secondary2-Color: #7AD6E9;
-    --Secondary3-Color: #CDEDF6;
-    --Text: #000000;
-    --Text2: #adabab;
-    --Background: #fdfdfd;
-    --Background2: #ffffff;
-
+  --primary: #41E088;         /* Main primary brand color (buttons, accents, status indicators) */
+  --primary-2: #A0F0C4;       /* Lighter shade of primary (hover states, soft backgrounds) */
+  --primary-3: #D9F9E7;       /* Very light shade of primary, suitable for links or backgrounds */
+  --secondary: #41C4E0;       /* Main secondary brand color (tabs, buttons, highlights) */
+  --secondary-2: #7AD6E9;     /* Lighter shade of secondary (hover states or soft highlights) */
+  --Secondary-3: #CDEDF6;     /* Very light secondary, used for background highlights */
+  --text-dark: #000000;       /* Main body text */
+  --text2: #adabab;           /* Secondary text (placeholders, muted labels, timestamps) */
+  --text-red: #CB3939;        /* Error messages, alerts, or status indicators */
+  --background: #FDFDFD;      /* Default page background */
+  --white: #FFFFFF;           /* White backgrounds, cards, containers */
+  --accent: #EDFDFC;          /* Accent background (very light background or UI highlight) */
+  --warning:#CD6200;
+  --success:#1F9254; 
 }
 
-/*body*/
 body {
-  background-color: #FDFDFD;
-  color: #000;
-  font-family: 'Manrope', sans-serif;
-  line-height: 1.6;
+  font-family: "Manrope";
+  background-color: var(--background);
+  color: var(--text-dark);
+  font-size: 16px;
+  font-weight: 400;
+  padding: 20px;
 }
 
-.appointment-form {
-    padding: 40px;
+/*HEADER*/
+header img {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  flex-wrap: wrap;
+  height: 24px;
+  width: auto;
 }
 
-/* Header */
-.header {
-    position: relative;
-    padding: 3.25rem 2rem 3.25rem; 
-    text-align: center;
-    animation: fadeIn 1s ease-in-out;
+.hamburger {
+  display: none;
+  cursor: pointer;
+  width: 30px;
+  height: 25px;
+  position: relative;
+  z-index: 2; /* keeps it above the menu */
+  margin: 10px;
+}
+
+.hamburger span {
+  display: none;
+  width: 100%;
+  height: 4px;
+  background: black;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: 0.4s ease;
+}
+
+/* Transform to X when checked */
+#menu-toggle:checked + .hamburger span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+#menu-toggle:checked + .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+#menu-toggle:checked + .hamburger span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.nav-menu {
+  top: 60px;
+  left: 0;
+  background: var(--white);
+  padding: 10px;
+  z-index: 20;
+  font-size: 20px;
+}
+
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.nav-menu li {
+  z-index: 2;
+  align-items: center;
+}
+
+.nav-menu a {
+  text-decoration: none;
+}
+
+.nav-menu ul li a {
+  color: var(--text-dark);
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav-menu ul li a:hover {
+  color:var(--primary);
+}
+
+/* Show menu when checked */
+#menu-toggle:checked ~ .nav-menu {
+  display: block;
 }
 
 .logo {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;            
-    height: 28px;
-    display: block;
-    transition: transform 0.25s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.logo {
-    position: absolute;
-    left: 20px;
-    height: 25px;
-}
-
-.logo:hover { 
-    transform: scale(1.05);
-}
-
-/*.back-button {
-    position: absolute;
-    left: 30px;
-    font-size: 30px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-weight: 900;
-}
-
-.back-button:hover {
-    transform: scale(1.2);
-}*/
-
-.h1 {
-    font-size: 40px;
-    padding-top: 30px;
+header h1 {
+  display: flex;
+  justify-content: center;
+  font-size: 40px;
+  text-align: center;
 }
 
 /* Search Section */
@@ -414,6 +469,37 @@ footer a:visited {
 
 }
 
+@media (max-width: 768px) {
+.logo {
+  align-items: center;
+}
+
+.hamburger {
+    display: inline-block;
+}
+
+.hamburger span {
+  display: block;
+}
+.nav-menu {
+  display: none;
+  position: absolute;
+  width: 100%;
+  background: var(--primary-3);
+}
+
+.nav-menu li {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+}
+
+.nav-menu ul {
+  flex-direction: column;
+  transition: max-height 0.3s ease;
+}
+}
+
 /* Extra responsiveness for small phones */
 @media (max-width: 600px) {
   .appointment-form {
@@ -475,4 +561,13 @@ footer a:visited {
   .doctor-header p, .doctor-header .Price {
     font-size: 0.75rem;
   }
+
+  header h1 {
+  font-size: 20px;
+}
+
+  header img {
+  padding: 0px;
+}
+
 }
