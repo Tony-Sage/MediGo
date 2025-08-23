@@ -1,4 +1,4 @@
-// ===== Expiry Check (24hrs) =====
+// Expiry Check (24hrs) 
 function checkDataExpiry() {
   const lastSaved = localStorage.getItem("lastSavedTime");
   const now = Date.now();
@@ -103,6 +103,7 @@ function formatDate(date) {
   return `${d}/${m}/${y}`;
 }
 
+//Array of Appointments
 function loadAppointments() {
   const stored = JSON.parse(localStorage.getItem("appointments"));
   if (!stored || stored.length === 0) {
@@ -117,11 +118,12 @@ function loadAppointments() {
   return stored;
 }
 
-
+// Persist to local storage
 function saveAppointments(appts) {
   localStorage.setItem("appointments", JSON.stringify(appts));
 }
 
+// Loop through the array and pass each object into the appointment table
 function renderAppointments() {
   const appts = loadAppointments();
 
@@ -140,7 +142,7 @@ function renderAppointments() {
     tbody.appendChild(row);
   });
 
-  // ==== UPCOMING CARD (only earliest) ====
+  // ==== UPCOMING APPOINTMENT CARD (displays only earliest appointments) ====
   const upcomingContainer = document.querySelector(".upcoming-list");
   upcomingContainer.innerHTML = "";
 
@@ -153,7 +155,8 @@ function renderAppointments() {
       const t2 = new Date(y2, m2 - 1, d2, ...b.time.split(":").map(Number));
       return t1 - t2;
     })[0]; // take only the first (earliest one)
-
+  
+  // Condition to handle how upcoming appointments are displayed  
   if (upcoming) {
     const card = document.createElement("div");
     card.className = "U-App-1";
@@ -185,6 +188,7 @@ function renderAppointments() {
   setupAppointmentButtons();
 }
 
+// Upcoming appointments buttons handler
 function setupAppointmentButtons() {
   // Reschedule
   document.querySelectorAll(".U-App-btn").forEach(btn => {
@@ -291,6 +295,7 @@ function setupMedicationCheckboxes() {
     // Restore saved state
     if (saved[medId]) {
       checkbox.checked = true;
+      // Return "Taken" when checkbox is checked
       if (!label.querySelector(".taken-label")) {
         const taken = document.createElement("span");
         taken.textContent = "Taken ";
