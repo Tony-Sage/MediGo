@@ -270,6 +270,10 @@ h2 {
   main p {
     font-size: 0.95rem;
   }
+
+  .text {
+  margin: 20px;
+}
 }
 
 /* Tablets (601px – 900px) */
@@ -291,4 +295,19 @@ h2 {
   .card {
     max-width: 600px;
   }
+}
+
+@media (max-width: 426px) {
+  header img {
+  padding: 0 5px 0px 3px;
+}
+
+header h1 {
+  font-size: 25px;
+}
+
+.hamburger {
+ margin: 0px 8px 0px 8px;
+}
+
 }
