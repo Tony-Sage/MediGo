@@ -83,7 +83,7 @@ header img {
 .nav-menu {
   top: 60px;
   left: 0;
-  background: var(--white);
+  background: transparent;
   padding: 10px;
   z-index: 20;
   font-size: 20px;
@@ -98,6 +98,8 @@ header img {
 .nav-menu li {
   z-index: 2;
   align-items: center;
+  font-size: 1rem;
+  padding: 5px;
 }
 
 .nav-menu a {
