@@ -64,3 +64,14 @@
     // Show the first tab by default (or "appointment")
     showCategory('appointment');
   });
+
+// Code for handling message icon toggle and close button
+    function closeCard(btn) {
+    const card = btn.closest('.M-2');
+    card.style.display = 'none';
+  }
+
+  function toggleMessageInput(icon) {
+    const card = icon.closest('.M-2');
+    card.classList.toggle('message-active');
+  }
