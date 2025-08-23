@@ -6,7 +6,7 @@ const doctorListData = [
   location: "Enugu",
   lowestPrice: 300,
   highestPrice: 2500,
-  image: "../profile-doctor/lee.png",
+  image: "../appoint-doctor/Dr Martha.png",
   index: 0
  }, {
   name: "Dr. Smith",
@@ -14,7 +14,7 @@ const doctorListData = [
   location: "Enugu",
   lowestPrice: 300,
   highestPrice: 2500,
-  image: "../profile-doctor/lee.png", 
+  image: "../appoint-doctor/Dr Smith.png", 
   index: 1
  }, {
   name: "Dr. Johnson",
@@ -22,7 +22,7 @@ const doctorListData = [
   location: "Enugu",
   lowestPrice: 300,
   highestPrice: 2500,
-  image: "../profile-doctor/lee.png",
+  image: "../appoint-doctor/Dr Johnson.png",
   index: 2
  }, {
   name: "Dr. Garcia",
@@ -30,7 +30,7 @@ const doctorListData = [
   location: "Enugu",
   lowestPrice: 300,
   highestPrice: 2500,
-  image: "../profile-doctor/lee.png",
+  image: "../appoint-doctor/Dr Garcia.png",
   index: 3
  }, {
   name: "Dr. Lee",
@@ -38,7 +38,7 @@ const doctorListData = [
   location: "Enugu",
   lowestPrice: 300,
   highestPrice: 2500,
-  image: "../profile-doctor/lee.png",
+  image: "../appoint-doctor/Dr Lee.png",
   index: 4
  }, {
   name: "Dr. Kelvin Smith",
@@ -46,7 +46,7 @@ const doctorListData = [
   location: "Enugu",
   lowestPrice: 300,
   highestPrice: 2500,
-  image: "../profile-doctor/lee.png",
+  image: "../appoint-doctor/Dr Kelvin Smith.png",
   index: 5
  }, {
   name: "Dr. Mary",
@@ -54,7 +54,7 @@ const doctorListData = [
   location: "Enugu",
   lowestPrice: 300,
   highestPrice: 2500,
-  image: "../profile-doctor/lee.png",
+  image: "../appoint-doctor/Dr Mary.png",
   index: 6
  }
 ]
