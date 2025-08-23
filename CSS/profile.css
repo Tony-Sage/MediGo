@@ -273,8 +273,9 @@ select,
 }
 
 /*INDICATORS*/
+.stat-indicator-upcoming,
 .stat-indicator-Active,
-.stat-indicator-complete,
+.stat-indicator-completed,
 .stat-indicator-canceled {
   border: 1px solid var(--primary);
   padding: 10px 20px;
@@ -282,12 +283,13 @@ select,
   width: fit-content;
 }
 
-.stat-indicator-Active {
+.stat-indicator-Active,
+.stat-indicator-upcoming {
   background-color: #FEF2E5;
   color: #CD6200;
 }
 
-.stat-indicator-complete {
+.stat-indicator-completed {
   background-color: #EBF9F1;
   color: #1F9254;
 }
@@ -395,6 +397,35 @@ select,
   margin-right: 10px;
   margin-left: 10px; /* spacing between buttons */
   min-width: 100%; /* force it to be wider */
+}
+
+.reschedule-input {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 1px 12px;
+    font-size: 16px;
+    border: 2px solid var(--primary);
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    color: var(--text-dark);
+    font-family: 'Manrope';
+    transition: border-color 0.3s ease;
+    outline: none;
+    width: 220px;
+    margin: 10px 10px 0 0px; /* space from the button */
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+/* On focus, highlight border */
+.reschedule-input:focus {
+  scale: 1.05;
+  box-shadow: 0 0 5px;
+}
+
+input[type="date"]:hover {
+  scale: 1.05;
+  cursor: pointer;            /* Shows pointer cursor */
 }
 
 /*MEDICATION*/
@@ -597,6 +628,138 @@ td p {
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+input[type="date"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 1px solid var(--primary);
+  background-color: #fff;
+  padding: 10px 12px;
+  font-family: 'Manrope';
+  font-size: 16px;
+  border-radius: 6px;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+input[type="date"]:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+
+/* Optional: hide the default arrow in Firefox */
+input[type="date"]::-moz-focus-inner {
+  border: 0;
+}
+
+/* Optional: custom calendar icon for Chrome/Edge */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.5);
+  cursor: pointer;
+}
+
+input[type="date"] {
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 20px 20px;
+}
+
+input[type="date"]:hover {
+  scale: 1.05;
+  cursor: pointer;            /* Shows pointer cursor */
+}
+
+/* General Modal Styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6); /* Dim background */
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  animation: slideUp 0.3s ease-in-out;
+}
+
+/* Modal Text */
+.modal-content p {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Modal Buttons */
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* Confirm/Cancel Button Styles */
+.btn-danger {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  flex: 1;
+  font-weight: bold;
+}
+
+.btn-danger:hover {
+  background-color: #c0392b;
+}
+
+.btn-secondary {
+  background-color: #bdc3c7;
+  color: #333;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  flex: 1;
+  font-weight: bold;
+}
+
+.btn-secondary:hover {
+  background-color: #95a5a6;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 
 @media screen and (max-width: 768px) {
   .category-nav {
