@@ -12,20 +12,21 @@
 <body>
   <header>
     <div class="logo"><img src="../elements/logo.png" alt="logo">
-      <h1>My Profile</h1>
       <input type="checkbox" class="menu-toggle" id="menu-toggle" />
       <label for="menu-toggle" class="hamburger"
         aria-label="Toggle navigation menu"><span></span><span></span><span></span></label>
       <!-- Nav menu -->
       <nav class="nav-menu">
         <ul>
-          <li><a href="#">Appointment</a></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Book Appointment</a></li>
           <li><a href="#">Telehealth</a></li>
           <li><a href="#">About Us</a></li>
           <li><a href="#">Logout</a></li>
         </ul>
       </nav>
     </div>
+      <h1>My Profile</h1>
   </header>
   <main>
     <section class="Profile">
@@ -141,7 +142,7 @@
       <div class="M-App-Container">
         <h2>Today's Medication</h2>
         <p class="time">08:00AM</p>
-        <div class="M-1">
+        <div class="medication-card">
           <img src="../medication/pill.jpg" alt="pill">
           <div class="M-text-container">
             <h3>Vitamin D-500IU</h3>
@@ -154,7 +155,7 @@
             </label>
           </div>
         </div>
-        <div class="M-2">
+        <div class="medication-card">
           <img src="../medication/capsule.jpg" alt="capsule">
           <div class="M-text-container">
             <h3>Zinc - 50mg</h3>
@@ -168,12 +169,12 @@
           </div>
         </div>
         <p class="time">12:00AM</p>
-        <div class="M-3">
-          <img src="../medication/Drop Pipette.png" alt="Drop">
+        <div class="medication-card">
+          <img src="../medication/Drop Pipette.png" alt="Melatonin Drop Medication">
           <div class="M-text-container">
-            <h3>Zinc - 50mg</h3>
-            <p>Before Eating . 1 capsule</p>
-            <p>14:00</p>
+            <h3>Melatonin Drops - 1mg/ml</h3>
+            <p>30 mins Before Bed · 6 drops under the tongue</p>
+            <p>22:00</p>
           </div>
           <div class="insurance-1">
             <label>
@@ -181,11 +182,11 @@
             </label>
           </div>
         </div>
-        <div class="M-4">
-          <img src="../medication/liquid.png" alt="liquid">
+        <div class="medication-card">
+          <img src="../medication/liquid.png" alt="Iron Supplement">
           <div class="M-text-container">
-            <h3>Zinc - 50mg</h3>
-            <p>Before Eating . 1 capsule</p>
+            <h3>Ferrous Sulfate Liquid - 200mg/5ml</h3>
+            <p>After Meals · 10ml (2 teaspoons)</p>
             <p>14:00</p>
           </div>
           <div class="insurance-1">
@@ -313,4 +314,5 @@
   <!--FOOTER-->
   <script src="../Scripts/profile.js"></script>
 </body>
+
 </html>
