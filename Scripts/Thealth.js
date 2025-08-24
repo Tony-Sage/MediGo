@@ -9,19 +9,24 @@
     )
 
   
-  //Image carousel
-  let currentIndex = 0;
+// Disable carousel on small screens
+    let currentIndex = 0;
   const carousel = document.getElementById('carousel');
   const dots = document.querySelectorAll('.dot');
   const totalSlides = document.querySelectorAll('.slide').length;
-  let autoSlideInterval;
 
   function updateCarousel() {
+    if (window.innerWidth <= 768) {
+      // Disable carousel behavior on small screens
+      carousel.style.transform = 'none';
+      return;
+    }
     carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
     updateDots();
   }
 
   function updateDots() {
+    if (window.innerWidth <= 768) return;
     dots.forEach(dot => dot.classList.remove('active'));
     if (dots[currentIndex]) {
       dots[currentIndex].classList.add('active');
@@ -31,24 +36,10 @@
   function goToSlide(index) {
     currentIndex = index;
     updateCarousel();
-    resetAutoSlide(); // Reset timer on manual navigation
   }
 
-  function nextSlide() {
-    currentIndex = (currentIndex + 1) % totalSlides;
-    updateCarousel();
-  }
+  // Update carousel on window resize
+  window.addEventListener('resize', updateCarousel);
 
-  function startAutoSlide() {
-    autoSlideInterval = setInterval(nextSlide, 5000); // Change every 5 seconds
-  }
-
-  function resetAutoSlide() {
-    clearInterval(autoSlideInterval);
-    startAutoSlide();
-  }
-
-  // Start the auto-sliding when the page loads
-  window.onload = () => {
-    startAutoSlide();
-  };
+  // Initial load
+  updateCarousel();

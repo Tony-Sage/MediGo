@@ -450,6 +450,25 @@ b {
   flex-direction: column;
   transition: max-height 0.3s ease;
 }
+
+  .carousel {
+    flex-direction: column;
+    transform: none !important;
+  }
+
+  .dots-container {
+    display: none;
+  }
+
+  .slide {
+    min-width: 100%;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .slide img {
+    width: 100%;
+  }
 }
 
   @media screen and (max-width: 600px){
