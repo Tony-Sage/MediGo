@@ -32,35 +32,107 @@ body {
   padding: 20px;
 }
 
-/* Header */
-.header {
-  background-color: var(--secondary);
-  padding: 15px 30px;
+/*HEADER*/
+header img {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  color: var(--white);
+  justify-content: space-between;
+  padding: 0 20px;
+  flex-wrap: wrap;
+  height: 24px;
+  width: auto;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  width: 30px;
+  height: 25px;
+  position: relative;
+  z-index: 2;
+  /* keeps it above the menu */
+  margin: 10px;
+}
+
+.hamburger span {
+  display: none;
+  width: 100%;
+  height: 4px;
+  background: black;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: 0.4s ease;
+}
+
+/* Transform to X when checked */
+#menu-toggle:checked+.hamburger span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+#menu-toggle:checked+.hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+#menu-toggle:checked+.hamburger span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.nav-menu {
+  top: 60px;
+  left: 0;
+  background: var(--white);
+  padding: 10px;
+  z-index: 20;
+  font-size: 20px;
+}
+
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.nav-menu li {
+  z-index: 2;
+  align-items: center;
+}
+
+.nav-menu a {
+  text-decoration: none;
+}
+
+.nav-menu ul li a {
+  color: var(--text-dark);
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav-menu ul li a:hover {
+  color: var(--primary);
+}
+
+/* Show menu when checked */
+#menu-toggle:checked~.nav-menu {
+  display: block;
 }
 
 .logo {
-  height: 50px;
-}
-
-.navbar {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 20px;
 }
 
-.navbar a {
-  color: var(--white);
-  text-decoration: none;
-  font-weight: 500;
+header h1 {
+  display: flex;
+  justify-content: center;
+  font-size: 40px;
+  text-align: center;
 }
 
-.navbar a:hover {
-  text-decoration: underline;
-}
 
 /* Dropdown */
 .dropdown {
