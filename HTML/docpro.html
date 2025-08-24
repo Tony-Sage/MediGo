@@ -186,10 +186,10 @@
    <section class="review">
       <div>
         <h4 >Patients review</h4>
-        <p>Excellent <progress id="progrss-bar" value="74" max="100"></progress></p>
-        <p>Great <progress id="progrss-bar" value="60" max="100"></progress></p>
-        <p>Good <progress id="progrss-bar" value="30" max="100"></progress></p>
-        <p>Average <progress id="progrss-bar" value="70" max="100"></progress></p>
+        <span>Excellent</span><progress id="progrss-bar" value="74" max="100"></progress></p>
+        <span>Great </span><progress id="progrss-bar" value="60" max="100"></progress></p>
+        <span>Good</span> <progress id="progrss-bar" value="30" max="100"></progress></p>
+        <span>Average</span><progress id="progrss-bar" value="70" max="100"></progress></p>
       </div>
     </section>
     <!-- CATEGORY NAVIGATION -->
@@ -244,40 +244,41 @@
   </div>
       </div>
       <div class="tab" data-category="consultation">
-
-    <!-- Consultation Item -->
-    <div class="consultation-item">
-      <div class="consultation-details">
-        <div><span class="label">Patient:</span> <span class="value">John Doe</span></div>
-        <div><span class="label">Date:</span> <span class="value">August 20, 2025</span></div>
-        <div><span class="label">Time:</span> <span class="value">10:30 AM</span></div>
-        <div><span class="label">Type:</span> <span class="type">Video Call</span></div>
-        <div><span class="label">Status:</span> <span class="status">Completed</span></div>
-      </div>
-    </div>
-
-    <div class="consultation-item">
-      <div class="consultation-details">
-        <div><span class="label">Patient:</span> <span class="value">Maria Gonzalez</span></div>
-        <div><span class="label">Date:</span> <span class="value">August 18, 2025</span></div>
-        <div><span class="label">Time:</span> <span class="value">2:00 PM</span></div>
-        <div><span class="label">Type:</span> <span class="type">In-person</span></div>
-        <div><span class="label">Status:</span> <span class="status" style="color: orange;">Follow-up Needed</span></div>
-      </div>
-    </div>
-
-    <div class="consultation-item">
-      <div class="consultation-details">
-        <div><span class="label">Patient:</span> <span class="value">Ahmed Khan</span></div>
-        <div><span class="label">Date:</span> <span class="value">August 15, 2025</span></div>
-        <div><span class="label">Time:</span> <span class="value">11:15 AM</span></div>
-        <div><span class="label">Type:</span> <span class="type">Video Call</span></div>
-        <div><span class="label">Status:</span> <span class="status">Completed</span></div>
-      </div>
-    </div>
-
+    <table>
+      <thead>
+        <tr>
+          <th>Patient</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Type</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Amaka Eze</td>
+          <td>August 20, 2025</td>
+          <td>10:30 AM</td>
+          <td class="type-video">Video Call</td>
+          <td class="status-completed">Completed</td>
+        </tr>
+        <tr>
+          <td>Tunde Adebayo</td>
+          <td>August 18, 2025</td>
+          <td>2:00 PM</td>
+          <td class="type-inperson">In-person</td>
+          <td class="status-followup">Follow-up Needed</td>
+        </tr>
+        <tr>
+          <td>Amara Okafor</td>
+          <td>August 15, 2025</td>
+          <td>11:15 AM</td>
+          <td class="type-video">Video Call</td>
+          <td class="status-completed">Completed</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-
         </div>
       </div>
 

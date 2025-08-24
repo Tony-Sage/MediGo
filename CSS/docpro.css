@@ -510,6 +510,12 @@ header h1 {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.review span {
+  display: inline-block;
+  min-width: 90px;
+  font-weight: bold;
+}
+
 .docprofile-container {
   max-width: 500px;
   margin: 0 auto;
@@ -656,7 +662,6 @@ header h1 {
 
 .day-name {
   font-weight: bold;
-  color: #444;
 }
 
 .hours {
@@ -667,10 +672,77 @@ header h1 {
   margin-top: 10px;
 }
 
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 12px;
+      border-bottom: 1px solid #e0e0e0;
+      font-size: 0.95rem;
+    }
+
+    th {
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    .status-completed {
+      color: green;
+      font-weight: bold;
+    }
+
+    .status-followup {
+      color: orange;
+      font-weight: bold;
+    }
+
+    .type-video {
+      color: #007BFF;
+    }
+
+    .type-inperson {
+      color: #6c757d;
+    }
+
+    @media (max-width: 600px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      td {
+        padding: 10px;
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+      }
+
+      td::before {
+        position: absolute;
+        left: 15px;
+        top: 10px;
+        font-weight: bold;
+        white-space: nowrap;
+      }
+
+      td:nth-of-type(1)::before { content: "Patient"; }
+      td:nth-of-type(2)::before { content: "Date"; }
+      td:nth-of-type(3)::before { content: "Time"; }
+      td:nth-of-type(4)::before { content: "Type"; }
+      td:nth-of-type(5)::before { content: "Status"; }
+    }
+
 .slot {
   display: inline-block;
-  background-color: #e7f3ff;
-  color: #0056b3;
+  background-color: var(--primary-3);
+  color: var(--text-dark);
   padding: 8px 12px;
   border-radius: 5px;
   margin: 5px 5px 0 0;
