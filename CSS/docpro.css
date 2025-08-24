@@ -724,7 +724,7 @@ header h1 {
     }
 
     .status-completed {
-      color: green;
+      color: var(--success);
       font-weight: bold;
     }
 
@@ -734,7 +734,7 @@ header h1 {
     }
 
     .type-video {
-      color: #007BFF;
+      color: var(--secondary);
     }
 
     .type-inperson {
