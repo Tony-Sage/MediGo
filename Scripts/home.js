@@ -17,49 +17,31 @@ hamburger.style.display ="block";
 
 })
 
-
   //Image carousel
-  // Auto-slide functionality
-  let currentIndex = 0;
-  const carousel = document.getElementById('carousel');
-  const dots = document.querySelectorAll('.dot');
-  const totalSlides = document.querySelectorAll('.slide').length;
-  let autoSlideInterval;
+  const track = document.querySelector('.carousel-track');
+  const slides = Array.from(track.children);
+  const dotsNav = document.querySelector('.carousel-nav');
+  const dots = Array.from(dotsNav.children);
 
-  function updateCarousel() {
-    
-    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-    updateDots();
+  function moveToSlide(index) {
+    const slideWidth = slides[0].getBoundingClientRect().width;
+    track.style.transform = 'translateX(-' + (slideWidth * index) + 'px)';
+
+    // Update dots
+    dots.forEach(dot => dot.classList.remove('current-dot'));
+    dots[index].classList.add('current-dot');
   }
 
-  function updateDots() {
-    dots.forEach(dot => dot.classList.remove('active'));
-    if (dots[currentIndex]) {
-      dots[currentIndex].classList.add('active');
-    }
-  }
+  // Add click listeners to dots
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      moveToSlide(index);
+    });
+  });
 
-  function goToSlide(index) {
-    currentIndex = index;
-    updateCarousel();
-    resetAutoSlide(); // Reset timer on manual navigation
-  }
+  // Optional: Recalculate position on resize
+  window.addEventListener('resize', () => {
+    const activeIndex = dots.findIndex(dot => dot.classList.contains('current-dot'));
+    moveToSlide(activeIndex);
+  });
 
-  function nextSlide() {
-    currentIndex = (currentIndex + 1) % totalSlides;
-    updateCarousel();
-  }
-
-  function startAutoSlide() {
-    autoSlideInterval = setInterval(nextSlide, 5000); // Change every 5 seconds
-  }
-
-  function resetAutoSlide() {
-    clearInterval(autoSlideInterval);
-    startAutoSlide();
-  }
-
-  // Start the auto-sliding when the page loads
-  window.onload = () => {
-    startAutoSlide();
-  };
