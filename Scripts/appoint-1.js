@@ -31,6 +31,7 @@ const appointmentTimeInput = document.getElementById("appointmentTime");
 // Doctor booking DOM elements
 const bookedDoctorName = document.querySelector("#doctor-name");
 const bookedDoctorSpecialty = document.querySelector("#doctor-specialty");
+const bookedDoctorImage = document.querySelector('#doctor-image')
 
 // Appointment array (persisted in localStorage)
 let appointments = JSON.parse(localStorage.getItem("appointments")) || [];
@@ -137,6 +138,7 @@ function getBookedDoctor() {
   if (bookedDoctor) {
     bookedDoctorName.innerText = bookedDoctor.name;
     bookedDoctorSpecialty.innerText = `${bookedDoctor.specialty} specialist`;
+    bookedDoctorImage.src = bookedDoctor.image
   }
 }
 
