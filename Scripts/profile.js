@@ -5,7 +5,6 @@ function checkDataExpiry() {
 
   if (!lastSaved || (now - parseInt(lastSaved, 10)) > 24 * 60 * 60 * 1000) {
     // More than 24hrs passed → clear storage
-    localStorage.removeItem("appointments");
     localStorage.removeItem("medications");
   }
 
@@ -134,7 +133,7 @@ function renderAppointments() {
     const row = document.createElement("tr");
     row.innerHTML = `
       <td><img src="../profile-doctor/lee.png"><p>${appt.doctor}</p></td>
-      <td>${appt.spec}</td>
+      <td>${appt.doctorSpecialty}</td>
       <td>${appt.date}</td>
       <td>${appt.time}</td>
       <td><div class="stat-indicator-${appt.status.toLowerCase()}">${appt.status}</div></td>
