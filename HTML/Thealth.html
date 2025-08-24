@@ -34,19 +34,11 @@
         </ul>
       </nav>
     </div>
-      <h1>About Us</h1>
+      <h1>Telehealth</h1>
   </header> 
-
-    <a href="index.html"><img src="images/logo.svg" alt="MediGO" class="telehealth-logo"></a>
-
-   <section class="telehealth">
-    <p>  <a href="index.html"><i class="fa-solid fa-chevron-left"></i> </a> </p>
-    <h2>Telehealth</h2>
-  </section>
-  
  
     <section class="telehealth-hero-image">
-      <img src="images/tehealth-image1.png" alt="">
+      <img src="../home and tele image/tehealth-image1.png" alt="">
       <section class="telehealth-hero-text">
         <h2>24/7 urgent care and online doctors available</h2>
         <p> Get convenient, high-quality virtual care — from everyday health needs to urgent and mental health support. No waiting rooms, no hassle — just fast, expert care when you need it most.</p>
@@ -57,55 +49,71 @@
     <div class="how-it-works-div">
       <h2>How it works</h2>
 
-      <div class="slider">
-        <div class="slides">
-          <section class="how-it-works-sub">
-            <img src="images/telehealth-image2.png" alt="">
-            <section class="how-it-works-txt">
-              <button class="btn-step1">Step 1</button>
-              <h2>Book Appointment</h2>
-              <p>Book your appointment on MediGo in just a few clicks—choose your doctor, pick a time, and get instant confirmation. Stay on track with automated reminders and easy rescheduling options.</p>
-            </section>
-          </section> 
-          <section class="how-it-works-sub how-it-works-invisible">
-            <img src="images/telehealth-image2.png" alt="">
-            <section class="how-it-works-txt">
-              <button class="btn-step1">Step 2</button>
-              <h2>Share symptoms</h2>
-              <p>Share your symptoms easily on MediGo to help doctors understand your needs faster. Get accurate guidance and the right care without unnecessary delays.</p>
-            </section>
-          </section> 
-          <section class="how-it-works-sub how-it-works-invisible">
-            <img src="images/telehealth-image2.png" alt="">
-            <section class="how-it-works-txt">
-              <button class="btn-step1">Step 3</button>
-              <h2>Consult Online</h2>
-              <p>Consult online with MediGo and connect to trusted doctors from the comfort of your home. Get quick, secure, and reliable medical advice anytime you need it.</p>
-            </section>
-          </section> 
-          <section class="how-it-works-sub slide how-it-works-invisible">
-            <img src="images/telehealth-image2.png" alt="">
-            <section class="how-it-works-txt">
-              <button class="btn-step1">Step 4</button>
-              <h2>Get Prescription</h2>
-              <p>Get your prescription instantly on MediGo after consultation. Access medications safely and conveniently without extra clinic visits.</p>
-            </section>
-          </section> 
-        </div> 
-
-      </div> 
-    </div>
-
-    <section class="concerns">
-      <section class="concerns-txt">
-        <h2>We take your concerns seriously</h2>
-        <p>Telehealth consultations with MedIGo are a great way to get care when you need it — especially between visits to your regular GP. Our caring doctors will take the time to understand your condition and provide the right treatment to help you stay well.
-          Your medical information is completely confidential and will never be shared without your permission.
-          Telehealth is a safe and affordable way to manage common health issues from the comfort of home</p>
+<div class="carousel-container">
+  <div class="carousel" id="carousel">
+    <!-- Slide 1 -->
+    <section class="slide">
+      <img src="../home and tele image/telehealth-image2.png" alt="Step 1">
+      <section class="how-it-works-txt">
+        <button class="btn-step1">Step 1</button>
+        <h2>Book Appointment</h2>
+        <p>Book your appointment on MediGo in just a few clicks—choose your doctor, pick a time, and get instant confirmation. Stay on track with automated reminders and easy rescheduling options.</p>
       </section>
+    </section>
 
-      <img src="images/telehealth-image3.png" alt="">
-    </section> 
+    <!-- Slide 2 -->
+    <section class="slide">
+      <img src="../home and tele image/telehealth-image2.png" alt="Step 2">
+      <section class="how-it-works-txt">
+        <button class="btn-step1">Step 2</button>
+        <h2>Share Symptoms</h2>
+        <p>Share your symptoms easily on MediGo to help doctors understand your needs faster. Get accurate guidance and the right care without unnecessary delays.</p>
+      </section>
+    </section>
+
+    <!-- Slide 3 -->
+    <section class="slide">
+      <img src="../home and tele image/telehealth-image2.png" alt="Step 3">
+      <section class="how-it-works-txt">
+        <button class="btn-step1">Step 3</button>
+        <h2>Consult Online</h2>
+        <p>Consult online with MediGo and connect to trusted doctors from the comfort of your home. Get quick, secure, and reliable medical advice anytime you need it.</p>
+      </section>
+    </section>
+
+    <!-- Slide 4 -->
+    <section class="slide">
+      <img src="../home and tele image/telehealth-image2.png" alt="Step 4">
+      <section class="how-it-works-txt">
+        <button class="btn-step1">Step 4</button>
+        <h2>Get Prescriptions</h2>
+        <p>Get your prescription instantly on MediGo after consultation. Access medications safely and conveniently without extra clinic visits.</p>
+      </section>
+    </section>
+  </div>
+
+  <!-- Dots below carousel -->
+  <div class="dots-container" id="dots">
+    <span class="dot active" onclick="goToSlide(0)"></span>
+    <span class="dot" onclick="goToSlide(1)"></span>
+    <span class="dot" onclick="goToSlide(2)"></span>
+    <span class="dot" onclick="goToSlide(3)"></span>
+  </div>
+</div>
+
+<section class="concerns">
+  <section class="concerns-txt">
+    <h2>We take your concerns seriously</h2>
+    <p>
+      Telehealth consultations with MedIGo are a great way to get care when you need it — especially between visits to your regular GP. Our caring doctors will take the time to understand your condition and provide the right treatment to help you stay well.
+      Your medical information is completely confidential and will never be shared without your permission.
+      Telehealth is a safe and affordable way to manage common health issues from the comfort of home.
+    </p>
+  </section>
+
+  <img src="../home and tele image/telehealth-image3.png" alt="">
+</section>
+
 
     <section class="frequently-asked-questions">
       <h2>Frequently <br> Asked Questions</h2>
@@ -114,19 +122,25 @@
 
         <section class="each-question">
           <h4 class="questions">What condition can i treat with telehealth? <i class="fas fa-chevron-down toggleIcon"></i> <i class="fas fa-chevron-up toggleIcon"></i></h4>
-          <span class="faqAnswer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni consequuntur qui minus ipsa culpa numquam debitis autem. Fugiat hic voluptatum, explicabo reprehenderit dignissimos magni corporis veniam iusto?</span>
+          <span class="faqAnswer">You can treat minor illnesses like flu, allergies, skin rashes, and manage chronic conditions such as diabetes and hypertension via telehealth</span>
         </section>
         <section class="each-question">
           <h4 class="questions">How do i prepare for my consultation?<i class="fas fa-chevron-down toggleIcon"></i> <i class="fas fa-chevron-up toggleIcon"></i></h4>
-          <span class="faqAnswer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni consequuntur qui minus ipsa culpa numquam debitis autem. Fugiat hic voluptatum, explicabo reprehenderit dignissimos magni corporis veniam iusto? </span>
+<span class="faqAnswer">
+  To prepare for your consultation on the MediGo app, ensure you are in a quiet, private space with a stable internet connection. Have your medical history, current medications, and any symptoms written down beforehand. Join the call a few minutes early, and make sure your device’s camera and microphone are working properly. If applicable, keep any recent test results nearby to discuss with your doctor.
+</span>
         </section>
         <section class="each-question">
           <h4 class="questions">Is my privacy protected? <i class="fas fa-chevron-down toggleIcon"></i> <i class="fas fa-chevron-up toggleIcon"></i></h4>
-          <span class="faqAnswer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni consequuntur qui minus ipsa culpa numquam debitis autem. Fugiat hic voluptatum, explicabo reprehenderit dignissimos magni corporis veniam iusto? Dolor, nisi quis.</span>
+<span class="faqAnswer">
+  Yes, your privacy is fully protected. All consultations on the MediGo app are encrypted and comply with healthcare privacy regulations. Your medical information is stored securely and will never be shared without your explicit consent. We are committed to keeping your personal and health data confidential at all times.
+</span>
         </section>
         <section class="each-question">
           <h4 class="questions">How do I get a prescription? <i class="fas fa-chevron-down toggleIcon"></i> <i class="fas fa-chevron-up toggleIcon"></i></h4>
-          <span class="faqAnswer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni consequuntur qui minus ipsa culpa numquam debitis autem. Fugiat hic voluptatum, explicabo reprehenderit dignissimos magni corporis veniam iusto? Dolor, nisi quis.
+<span class="faqAnswer">
+  After your online consultation, if the doctor determines that a prescription is appropriate, it will be sent to you digitally through the MediGo app. You can download it directly or have it forwarded to your preferred pharmacy for fulfillment. All prescriptions are issued by licensed medical professionals and follow local regulations.
+</span>
             </span>
         </section>
         
@@ -169,5 +183,6 @@
         <i class="fa-brands fa-square-x-twitter"></i>
       </span></section>
     </footer>
+    <script src="../Scripts/Thealth.js"></script>
 </body>
 </html>
