@@ -88,8 +88,6 @@ justify-content:flex-start;
 }
 .hamburger {
   background: none;
-  height: 50px;
-  width: 50px;
   border: 1px white;
 }
 .fa-bars{
