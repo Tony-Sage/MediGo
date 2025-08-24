@@ -441,6 +441,53 @@ height: 70vh;
   transform: scale(1.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.testimonial-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.carousel-track-container {
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-image {
+  width: 100%;
+  flex: 0 0 100%;
+  object-fit: cover;
+}
+
+/* Dots */
+.carousel-nav {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 6px;
+  background-color: #bbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot:hover,
+.current-dot {
+  background-color: #333;
+}
+
 .health-simple{
   background-color: var(--lighter-green);
   padding: 30px;
