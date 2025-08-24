@@ -83,7 +83,7 @@ header img {
 .nav-menu {
   top: 60px;
   left: 0;
-  background: var(--white);
+  background: transparent;
   padding: 10px;
   z-index: 20;
   font-size: 20px;
@@ -98,6 +98,8 @@ header img {
 .nav-menu li {
   z-index: 2;
   align-items: center;
+  font-size: 1rem;
+  padding: 5px;
 }
 
 .nav-menu a {
@@ -331,7 +333,8 @@ select,
 }
 
 .U-App-2-container,
-.U-App-1-container {
+.U-App-1-container,
+.U-App-3-container {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -346,7 +349,8 @@ select,
 }
 
 .U-App-1 p,
-.U-App-2 p {
+.U-App-2 p,
+.U-App-3 p {
   font-size: 15px;
   text-align: center;
   margin-bottom: 20px;
@@ -915,19 +919,27 @@ header h1 {
 .medication-card {
   width: fit-content;
 }
+
+.btn-danger {
+  background: #e74c3c;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-
-@media screen and (max-width: 400px) {
-  header img {
-    padding: 0 10px 0 0;
-  }
-
-  header h1 {
-    font-size: 30px;
-  }
-.profile-container {
-  width: 150%;
+.btn-secondary {
+  background: #95a5a6;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
+/* Animation */
+@keyframes popIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
