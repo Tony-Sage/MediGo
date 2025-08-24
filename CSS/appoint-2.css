@@ -262,27 +262,6 @@ button[type="submit"]:hover {
 
 
 /* RESPONSIVE */
-@media (max-width: 600px) {
-  .hero-content {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .doctor-text {
-    margin-top: 20px;
-  }
-
-  .payment-section {
-    padding: 20px 15px;
-  }
-
-  button[type="submit"] {
-    width: 100%;
-  }
-}
-
-
 @media (max-width: 768px) {
 .logo {
   align-items: center;
@@ -311,5 +290,49 @@ button[type="submit"]:hover {
 .nav-menu ul {
   flex-direction: column;
   transition: max-height 0.3s ease;
+}
+}
+
+@media (max-width: 600px) {
+  .hero-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .doctor-text {
+    margin-top: 20px;
+  }
+
+  .payment-section {
+    padding: 20px 15px;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+header img {
+ padding: 0 10px 0 0;
+}
+
+header h1 {
+  font-size: 30px;
+}
+}
+
+@media (max-width: 300px) {
+  header img {
+  padding: 0px;
+}
+
+header h1 {
+  font-size: 25px;
+}
+
+.hamburger {
+  margin: 10px 0 10px 10px;
 }
 }

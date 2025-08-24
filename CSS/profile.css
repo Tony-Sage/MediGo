@@ -12,7 +12,7 @@
   --primary-3: #D9F9E7;       /* Very light shade of primary, suitable for links or backgrounds */
   --secondary: #41C4E0;       /* Main secondary brand color (tabs, buttons, highlights) */
   --secondary-2: #7AD6E9;     /* Lighter shade of secondary (hover states or soft highlights) */
-  --Secondary-3: #CDEDF6;     /* Very light secondary, used for background highlights */
+  --secondary-3: #CDEDF6;     /* Very light secondary, used for background highlights */
   --text-dark: #000000;       /* Main body text */
   --text2: #adabab;           /* Secondary text (placeholders, muted labels, timestamps) */
   --text-red: #CB3939;        /* Error messages, alerts, or status indicators */
@@ -138,7 +138,6 @@ header h1 {
 .container {
   display: flex;
   flex-direction: row;
-  margin: 80px;
   padding: 20px;
   justify-content: space-evenly;
 }
@@ -146,6 +145,7 @@ header h1 {
 .profile-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   padding: 20px;
   border-radius: 10px;
@@ -155,17 +155,18 @@ header h1 {
 
 .profile-container img {
   border-radius: 200px;
-  width: 50%;
-  height: 60%;
+  width: 70%;
+  object-fit: cover;
+  height: auto;
 }
 
 .profile-name {
   margin-top: 10px;
 }
 
-#out-name {
+/* #out-name {
   width: 12.5rem;
-}
+} */
 
 .text-container {
   display: grid;
@@ -227,7 +228,6 @@ select,
   font-size: 15px;
   font-weight: 600;
   transition: background-color 0.2s ease;
-  margin-top: 1rem;
 }
 
 .profile-btn:hover {
@@ -274,8 +274,9 @@ select,
 }
 
 /*INDICATORS*/
+.stat-indicator-upcoming,
 .stat-indicator-Active,
-.stat-indicator-complete,
+.stat-indicator-completed,
 .stat-indicator-canceled {
   border: 1px solid var(--primary);
   padding: 10px 20px;
@@ -283,12 +284,13 @@ select,
   width: fit-content;
 }
 
-.stat-indicator-Active {
+.stat-indicator-Active,
+.stat-indicator-upcoming {
   background-color: #FEF2E5;
   color: #CD6200;
 }
 
-.stat-indicator-complete {
+.stat-indicator-completed {
   background-color: #EBF9F1;
   color: #1F9254;
 }
@@ -299,14 +301,20 @@ select,
 }
 
 /*UPCOMING APPOINTMENT*/
+.upcoming-list {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 67%;
+}
+
 .U-App-Container {
   display: flex;
   flex-direction: column;
-  align-content:center ;
+  align-items: center;
   background-color: var(--accent);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-top: 117px;
-  padding-bottom: 20px;
 }
 
 .U-App-1,
@@ -315,13 +323,12 @@ select,
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  align-self: center;
-  justify-self: center;
+  justify-content: center;
   background-color: var(--white);
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 20px;
   margin: 10px;
-  width: 70%;
+  width: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -367,7 +374,7 @@ select,
   color: var(--text-dark);
   padding: 10px 20px;
   border: none;
-  border-radius: 6px;
+  border-radius: 40px;
   font-size: 14px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
@@ -386,13 +393,42 @@ select,
   color: var(--text-dark);
   padding: 12px 30px; /* more padding = longer button */
   border: none;
-  border-radius: 6px;
+  border-radius: 40px;
   font-size: 14px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-right: 10px;
   margin-left: 10px; /* spacing between buttons */
   min-width: 100%; /* force it to be wider */
+}
+
+.reschedule-input {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 1px 12px;
+    font-size: 16px;
+    border: 2px solid var(--primary);
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    color: var(--text-dark);
+    font-family: 'Manrope';
+    transition: border-color 0.3s ease;
+    outline: none;
+    width: 220px;
+    margin: 10px 10px 0 0px; /* space from the button */
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+/* On focus, highlight border */
+.reschedule-input:focus {
+  scale: 1.05;
+  box-shadow: 0 0 5px;
+}
+
+input[type="date"]:hover {
+  scale: 1.05;
+  cursor: pointer;            /* Shows pointer cursor */
 }
 
 /*MEDICATION*/
@@ -406,10 +442,7 @@ select,
 }
 
 /* Medication blocks */
-.M-1,
-.M-2, 
-.M-3,
-.M-4 {
+.medication-card {
   margin-right: 50px;
   margin-left: 50px;
   height: 227px;
@@ -425,18 +458,48 @@ select,
   transition: background-color 0.3s ease;
 }
 
-.M-1 img,
-.M-2 img,
-.M-3 img,
-.M-4 img {
+
+.medication-card img {
   width: 127px;
   height: 111px;
   border-radius: 10px;
   margin:0 20px
 }
-
-.insurance-form .insurance-1 {
+.insurance-1 {
   margin-bottom: 20px;
+}
+
+.M-App-Container input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--primary);
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+  position: relative;
+  margin-right: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Checkmark styling */
+.M-App-Container
+ input[type="checkbox"]:checked::after {
+  content: '✔';
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1;
+}
+  
+/* Background when checked */
+.preference-options input[type="checkbox"]:checked {
+  background-color: var(--primary);
+  border-color: var(--primary);
 }
 
 /* Container */
@@ -444,7 +507,7 @@ select,
 .M-App-Container h2,
 .features h2 {
   font-size: 24px;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   color: #2c3e50;
   text-align: center;
   padding-bottom: 10px;
@@ -569,6 +632,138 @@ td p {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+input[type="date"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 1px solid var(--primary);
+  background-color: #fff;
+  padding: 10px 12px;
+  font-family: 'Manrope';
+  font-size: 16px;
+  border-radius: 6px;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+input[type="date"]:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+
+/* Optional: hide the default arrow in Firefox */
+input[type="date"]::-moz-focus-inner {
+  border: 0;
+}
+
+/* Optional: custom calendar icon for Chrome/Edge */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.5);
+  cursor: pointer;
+}
+
+input[type="date"] {
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 20px 20px;
+}
+
+input[type="date"]:hover {
+  scale: 1.05;
+  cursor: pointer;            /* Shows pointer cursor */
+}
+
+/* General Modal Styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6); /* Dim background */
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  animation: slideUp 0.3s ease-in-out;
+}
+
+/* Modal Text */
+.modal-content p {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Modal Buttons */
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* Confirm/Cancel Button Styles */
+.btn-danger {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  flex: 1;
+  font-weight: bold;
+}
+
+.btn-danger:hover {
+  background-color: #c0392b;
+}
+
+.btn-secondary {
+  background-color: #bdc3c7;
+  color: #333;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  flex: 1;
+  font-weight: bold;
+}
+
+.btn-secondary:hover {
+  background-color: #95a5a6;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
 @media screen and (max-width: 768px) {
   .category-nav {
     display: none;
@@ -591,17 +786,24 @@ td p {
     margin-right: 0.5rem;
   }
 
-  .container,
-  .f-container,
+   .container,
   .mh-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin:20px;
+  }
+
+  .f-container {
     flex-direction: column;
     align-items: center;
     gap: 20px;
   }
 
+
   /* Profile container full width */
   .profile-container {
-    width: 90%;
+    width: 110%;
   }
 
   .profile-container img {
@@ -609,10 +811,7 @@ td p {
     height: auto;
   }
 
-  .M-1 img,
-  .M-2 img,
-  .M-3 img,
-  .M-4 img {
+  .medication-card img {
     width: 80px;
     height: 80px;
     margin: 0 auto 10px;
@@ -626,7 +825,7 @@ td p {
   .U-App-1,
   .U-App-2,
   .U-App-3 {
-    width: 80%;
+    width: 70%;
     padding: 15px;
   }
 
@@ -689,59 +888,36 @@ td p {
 }
 }
 
-/* Cancelled text */
-.cancelled-text {
-  color: var(--text-red);
-  font-weight: bold;
-  font-size: 16px;
+@media screen and (max-width: 600px) {
+  .profile-name.display-only {
+    text-align: center;
+    width: 100%;
+  }
+
+    .text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 10px;
+    margin: 0;
+    width: max-content;
+  }
+
+.profile-container {
+  width: 100%;
+}
+
+header h1 {
+  font-size: 20px;
   text-align: center;
-  margin-top: 10px;
 }
 
-/* Reschedule input */
-.reschedule-input {
-  display: block;
-  padding: 8px;
-  border: 1px solid var(--primary);
-  border-radius: 6px;
-  margin-top: 8px;
+.join-btn {
+  padding: 12px 10px; /* more padding = longer button */
 }
 
-/* Completed medication effect */
-.med-completed {
-  opacity: 0.6;
-  background-color: #f2f2f2;
-  transition: all 0.3s ease;
-}
-
-/* Modal overlay */
-.modal {
-  display: none; /* hidden by default */
-  position: fixed;
-  z-index: 1000;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.6);
-  justify-content: center;
-  align-items: center;
-}
-
-/* Modal content */
-.modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  max-width: 350px;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  animation: popIn 0.3s ease;
-}
-
-/* Buttons */
-.modal-buttons {
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-around;
+.medication-card {
+  width: fit-content;
 }
 
 .btn-danger {
@@ -766,31 +942,4 @@ td p {
 @keyframes popIn {
   from { transform: scale(0.8); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
-}
-
-.stat-indicator-cancelled {
-  background-color: red;
-  font-weight: 600;
-  text-align: center;
-  color: white;
-  padding: 6px;
-  border-radius: 4px;
-}
-
-.stat-indicator-completed {
-  background-color: green;
-  font-weight: 600;
-  text-align: center;
-  color: white;
-  padding: 6px;
-  border-radius: 4px;
-}
-
-.stat-indicator-upcoming {
-  background-color: var(--accent);
-  font-weight: 600;
-  text-align: center;
-  color: black;
-  padding: 6px;
-  border-radius: 4px;
 }
