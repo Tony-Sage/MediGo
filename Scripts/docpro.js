@@ -62,7 +62,7 @@
     setupCategoryButtons();
 
     // Show the first tab by default (or "appointment")
-    showCategory('appointment');
+    showCategory('schedule');
   });
 
 // Code for handling message icon toggle and close button

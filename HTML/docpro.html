@@ -186,163 +186,148 @@
    <section class="review">
       <div>
         <h4 >Patients review</h4>
-        <p>Excellent <progress id="progrss-bar" value="50" max="100"></progress></p>
-        <p>Great <progress id="progrss-bar" value="50" max="100"></progress></p>
-        <p>Good <progress id="progrss-bar" value="50" max="100"></progress></p>
-        <p>Average <progress id="progrss-bar" value="50" max="100"></progress></p>
+        <p>Excellent <progress id="progrss-bar" value="74" max="100"></progress></p>
+        <p>Great <progress id="progrss-bar" value="60" max="100"></progress></p>
+        <p>Good <progress id="progrss-bar" value="30" max="100"></progress></p>
+        <p>Average <progress id="progrss-bar" value="70" max="100"></progress></p>
       </div>
     </section>
     <!-- CATEGORY NAVIGATION -->
     <!-- Responsive button Filter for Large Screens -->
     <section class="tabs">
       <div class="category-nav">
-        <button class="appointment" data-category="appointment">Schedule</button>
-        <button data-category="medical-history">Consultation</button>
-        <button data-category="prescription">Certification</button>
-        <button data-category="prescription">Profile Tab</button>
+        <button class="schedule" data-category="schedule">Schedule</button>
+        <button data-category="consultation">Consultation</button>
+        <button data-category="certification">Certification</button>
+        <button data-category="profile">Profile Info</button>
       </div>
       <!-- Responsive Dropdown Filter for Small Screens -->
       <div class="filter-bar">
         <label for="category-select">Choose a category:</label>
         <select id="category-select">
-          <option value="appointment">Schedule</option>
-          <option value="medical-history">Consultation</option>
-          <option value="prescription">Certification</option>
-          <option value="prescription">Profile Tab</option>
+          <option value="schedule">Schedule</option>
+          <option value="consultation">Consultation</option>
+          <option value="certification">Certification</option>
+          <option value="profile">Profile Tab</option>
         </select>
       </div>
       <!-- Tab content -->
-      <div class="tab" data-category="appointment">
-        <table style="width: 100%; border-collapse: collapse;">
-          <thead>
-            <tr>
-              <th>Doctor</th>
-              <th>Specification</th>
-              <th>Date</th>
-              <th>Time</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><img src="../profile-doctor/lee.png" alt="Profile picture of Dr. Lee">
-                <p>Dr Lee</p>
-              </td>
-              <td>Cardiology</td>
-              <td> 11 Jul 2025</td>
-              <td>3: 00pm</td>
-              <td>
-                <div class="stat-indicator-Active">Active</div>
-              </td>
-            </tr>
-            <tr>
-              <td><img src="../profile-doctor/lee.png" alt="Profile picture of Dr. Lee">
-                <p>Dr Lee</p>
-              </td>
-              <td>Cardiology</td>
-              <td> 11 Jul 2025</td>
-              <td>3: 00pm</td>
-              <td>
-                <div class="stat-indicator-Active">Upcoming</div>
-              </td>
-            </tr>
-            <tr>
-              <td><img src="../profile-doctor/lee.png" alt="Profile picture of Dr. Lee">
-                <p>Dr Lee</p>
-              </td>
-              <td>Cardiology</td>
-              <td> 11 Jul 2025</td>
-              <td>3: 00pm</td>
-              <td>
-                <div class="stat-indicator-complete">Completed</div>
-              </td>
-            </tr>
-            <tr>
-              <td><img src="../profile-doctor/lee.png" alt="Profile picture of Dr. Lee">
-                <p>Dr Lee</p>
-              </td>
-              <td>Cardiology</td>
-              <td> 11 Jul 2025</td>
-              <td>3: 00pm</td>
-              <td>
-                <div class="stat-indicator-canceled">Canceled</div>
-              </td>
-            </tr>
-          </tbody>
-
-        </table>
+      <div class="tab" data-category="schedule">
+    <div class="working-hours">
+      <div class="day">
+        <div class="day-name">Monday - Friday</div>
+        <div class="hours">9:00 AM – 1:00 PM, 4:00 PM – 7:00 PM</div>
+        <div class="available-slots">
+          <div class="slot">09:00 AM</div>
+          <div class="slot">09:30 AM</div>
+          <div class="slot">10:00 AM</div>
+          <div class="slot">04:00 PM</div>
+          <div class="slot">04:30 PM</div>
+        </div>
       </div>
-      <div class="tab" data-category="medical-history">
-        <div class="mh-container">
-          <div class="mh-1">
-            <h3>Chronic Diease</h3>
-            <p>IHD, obesity, Chronic thyriod disorder</p>
-          </div>
-          <div class="mh-1">
-            <h3>Diabetic Emergency </h3>
-            <p>IHD, obesity, Chronic thyriod disorder</p>
-          </div>
-          <div class="mh-1">
-            <h3>Chronic Diease</h3>
-            <p>IHD, obesity, Chronic thyriod disorder</p>
-          </div>
-          <div class="mh-1">
-            <h3>Chronic Diease</h3>
-            <p>IHD, obesity, Chronic thyriod disorder</p>
-          </div>
+
+      <div class="day">
+        <div class="day-name">Saturday</div>
+        <div class="hours">10:00 AM – 2:00 PM</div>
+        <div class="available-slots">
+          <div class="slot">10:00 AM</div>
+          <div class="slot">10:30 AM</div>
+          <div class="slot">11:00 AM</div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="day-name">Sunday</div>
+        <div class="hours">Closed</div>
+      </div>
+    </div>
+  </div>
+      </div>
+      <div class="tab" data-category="consultation">
+
+    <!-- Consultation Item -->
+    <div class="consultation-item">
+      <div class="consultation-details">
+        <div><span class="label">Patient:</span> <span class="value">John Doe</span></div>
+        <div><span class="label">Date:</span> <span class="value">August 20, 2025</span></div>
+        <div><span class="label">Time:</span> <span class="value">10:30 AM</span></div>
+        <div><span class="label">Type:</span> <span class="type">Video Call</span></div>
+        <div><span class="label">Status:</span> <span class="status">Completed</span></div>
+      </div>
+    </div>
+
+    <div class="consultation-item">
+      <div class="consultation-details">
+        <div><span class="label">Patient:</span> <span class="value">Maria Gonzalez</span></div>
+        <div><span class="label">Date:</span> <span class="value">August 18, 2025</span></div>
+        <div><span class="label">Time:</span> <span class="value">2:00 PM</span></div>
+        <div><span class="label">Type:</span> <span class="type">In-person</span></div>
+        <div><span class="label">Status:</span> <span class="status" style="color: orange;">Follow-up Needed</span></div>
+      </div>
+    </div>
+
+    <div class="consultation-item">
+      <div class="consultation-details">
+        <div><span class="label">Patient:</span> <span class="value">Ahmed Khan</span></div>
+        <div><span class="label">Date:</span> <span class="value">August 15, 2025</span></div>
+        <div><span class="label">Time:</span> <span class="value">11:15 AM</span></div>
+        <div><span class="label">Type:</span> <span class="type">Video Call</span></div>
+        <div><span class="label">Status:</span> <span class="status">Completed</span></div>
+      </div>
+    </div>
+
+  </div>
 
         </div>
       </div>
 
-      <div class="tab" data-category="prescription">
-        <table style="width: 100%; border-collapse: collapse;">
-          <thead>
-            <tr>
-              <th>Medication</th>
-              <th>Dosage</th>
-              <th>Start Date</th>
-              <th>Duration</th>
-              <th>Doctor</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><img src="../medication/pill.jpg" alt="pill">Metformin 500mg</td>
-              <td>Twice a day</td>
-              <td><input type="date" id="expiry-date" name="expiry-date" required></td>
-              <td>6 months</td>
-              <td>Dr. Smith</td>
-            </tr>
-          </tbody>
-          <tbody>
-            <tr>
-              <td><img src="../medication/capsule.jpg" alt="capsule">Metformin 500mg</td>
-              <td>Twice a day</td>
-              <td><input type="date" id="expiry-date" name="expiry-date" required></td>
-              <td>6 months</td>
-              <td>Dr. Smith</td>
-            </tr>
-          </tbody>
-          <tbody>
-            <tr>
-              <td><img src="../medication/liquid.png" alt="liquid">Metformin 500mg</td>
-              <td>Twice a day</td>
-              <td><input type="date" id="expiry-date" name="expiry-date" required></td>
-              <td>6 months</td>
-              <td>Dr. Smith</td>
-            </tr>
-          </tbody>
-          <tbody>
-            <tr>
-              <td><img src="../medication/Drop Pipette.png" alt="Drop">Metformin 500mg</td>
-              <td>Twice a day</td>
-              <td><input type="date" id="expiry-date" name="expiry-date" required></td>
-              <td>6 months</td>
-              <td>Dr. Smith</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="tab" data-category="certification">
+         <div class="cert-list">
+      <div class="cert-item">
+        <div class="cert-info"><span>File:</span> MBBS_Degree.pdf</div>
+        <div class="cert-info"><span>Uploaded:</span> August 12, 2025</div>
+        <div class="cert-info"><span>Status:</span> <span class="status verified">Verified</span></div>
       </div>
+
+      <div class="cert-item">
+        <div class="cert-info"><span>File:</span> Medical_License_2025.pdf</div>
+        <div class="cert-info"><span>Uploaded:</span> August 14, 2025</div>
+        <div class="cert-info"><span>Status:</span> <span class="status pending">Pending</span></div>
+      </div>
+
+      <div class="cert-item">
+        <div class="cert-info"><span>File:</span> Fellowship_Certificate.pdf</div>
+        <div class="cert-info"><span>Uploaded:</span> August 10, 2025</div>
+        <div class="cert-info"><span>Status:</span> <span class="status rejected">Rejected</span></div>
+      </div>
+    </div>
+      </div>
+      <div class="tab" data-category="profile">
+  <div class="docprofile-container">
+    <div class="docprofile-header">
+      <h2>Dr. Jane Smith</h2>
+    </div>
+    <div class="docprofile-info">
+      <div class="info-item">
+        <span class="info-label">Email:</span>
+        <span class="info-value">jane.smith@clinic.com</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Phone:</span>
+        <span class="info-value">+1 555-123-4567</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Speciality:</span>
+        <span class="info-value">Cardiologist</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Licence No.:</span>
+        <span class="info-value">MD-789456</span>
+      </div>
+    </div>
+  </div>
+      </div>
+
     </section>
   </main>
   <!--FOOTER-->
